@@ -39,16 +39,16 @@ const Home = () => {
 
 <div className='flex gap-9 text-3xl mt-9 justify-center'>
    <img src={slack} className='object-cover w-[75px] h-[75px]'/>
-   <p className='text-3xl font-semibold mt-3 '>Slack</p>
+   <p className='text-3xl font-semibold mt-3 text-gray-500'>Slack</p>
    <img src={telegram} className='object-cover w-[75px] h-[75px]' />
-   <p className='text-3xl font-semibold mt-3 '>Telegram groups</p>
+   <p className='text-3xl font-semibold mt-3 text-gray-500'>Telegram groups</p>
    <img src={whatsApp} className='object-cover w-[75px] h-[75px]' />
-   <p className='text-3xl font-semibold mt-3 '>Whatsapp groups</p>
+   <p className='text-3xl font-semibold mt-3 text-gray-500'>Whatsapp groups</p>
    <img src={spaces} className='object-cover w-64 h-[75px]' />
    <img src={discord} className='object-cover w-[75px] h-[75px]' />
-   <p className='text-3xl font-semibold mt-3 '>Discord</p>
+   <p className='text-3xl font-semibold mt-3 text-gray-500'>Discord</p>
    <img src={reddit} className='object-cover w-[75px] h-[75px]' />
-   <p className='text-3xl font-semibold mt-3 '>Reddit</p>
+   <p className='text-3xl font-semibold mt-3 text-gray-500'>Reddit</p>
     {/* <p> WhatsApp Community</p>
   
 
@@ -65,7 +65,7 @@ const Home = () => {
     <p className='text-[#201327] text-center text-2xl font-light'>How It Works</p>
     <p className='text-[#F3C164] text-center text-4xl font-semibold'>Two Simple Ways to Expand Your Reach</p>
 
-<div className='flex items-center gap-6 justify-center mt-12'>
+<div className='flex items-center flex-col gap-y-6 md:flex-row gap-6 justify-center mt-12'>
     <div className='shadow-xl p-12'>
         <p className='font-semibold text-xl'>Explore Communities</p>
         
@@ -87,6 +87,8 @@ const Home = () => {
         <p className=''>Engage & Network - Start conversations, share insights</p>
         </div>
         <p className='ml-12'>and build relationships within these communities</p>
+
+        <p className='ml-12 mt-5 underline text-purple-600 font-semibold'>Get Started Today</p>
     </div>
 
     <div className='shadow-xl p-12'>
@@ -110,6 +112,8 @@ const Home = () => {
         <p> Collaborative & Achieve Goals - Whose with leaders to promote your services,</p>
         </div>
         <p className='ml-12'> conduct market research, or launch targeted marketing campaigns within their communities</p>
+
+        <p className='ml-12 mt-5 underline text-purple-600 font-semibold'>Get Started Today</p>
     </div>
 
 
