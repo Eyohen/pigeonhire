@@ -243,7 +243,7 @@ const Home = () => {
 <p className='text-[#F3C164] text-lg cursor-pointer'>see all communities</p>
 </div>
 
-<div className='grid grid-cols md:grid-cols-4 mt-4 gap-4 px-32'>
+<div className='grid grid-cols md:grid-cols-4 mt-4 gap-4 px-2 md:px-32'>
     {data.map((item, index) => (
     
 <div className='border border-white p-1'>
