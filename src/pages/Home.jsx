@@ -141,7 +141,7 @@ const Home = () => {
     <p className='text-[#F08E1F] text-3xl font-bold text-center mt-16'> Discover more than 5,000 valuable groups across 20 countries on these platforms</p>
 
 <div className=''>
-<div className='grid grid-cols-8 gap-[165px] text-3xl mt-16 justify-center items-center ml-[140px] '>
+<div className='grid md:grid-cols-8 gap-[165px] text-3xl mt-16 justify-center items-center ml-[140px] '>
     <div className='flex gap-4'>
    <img src={slack} className='object-cover w-[75px] h-[75px]'/>
    <p className='text-3xl font-semibold mt-3 text-gray-500'>Slack</p>
@@ -240,7 +240,7 @@ const Home = () => {
 
 {/* featured communities */}
 <div className=' mt-24 mb-16'>
-    <div className='flex justify-between items-center px-2 md:px-32 '>
+    <div className='flex md:justify-between  justify-center items-center px-2 md:px-[300px] '>
 <p className='font-bold text-2xl'>Featured Communities</p>
 <p className='text-[#F3C164] text-lg cursor-pointer'>see all communities</p>
 </div>
