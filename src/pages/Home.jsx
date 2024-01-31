@@ -245,7 +245,8 @@ const Home = () => {
 <p className='text-[#F3C164] text-lg cursor-pointer'>see all communities</p>
 </div>
 
-<div className='grid grid-cols md:grid-cols-4 mt-4 gap-4 px-2 md:px-32 items-center justify-between'>
+
+<div className='grid container m-auto md:grid-cols-4 mt-4 gap-y-4 md:gap-x-4 px-2 md:px-32 items-center justify-center'>
     {data.map((item, index) => (
     
 <div className='border border-white p-1'>
@@ -268,25 +269,6 @@ const Home = () => {
 
     ))}
 
-{/* 
-<div className='border border-white p-1'>
-    <img src='https://img.freepik.com/premium-photo/full-shot-girl-learning-math-school_23-2150470852.jpg?t=st=1706626764~exp=1706627364~hmac=e7442b0d6c6764a1ab4a09060fb80280c346e2e076a194a282ec3905330e99d2&w=826' alt='' className='w-[450px] h-[120px] object-cover rounded-md' />
-    <p className='font-semibold text-xl mt-1'>Green Earth Advocates</p>
-    <p className='text-lg text-gray-400'>Community type : Environmental Activism</p>
-    <div className='flex gap-2 items-center text-gray-400'>
-    <p className=''>Active Since : 2018</p>
-    <p className=''>Member count : 1 - 50</p> 
-    </div>
-
-    <div className='flex gap-2 items-center text-gray-400 mt-2'>
-    <SlBadge /> 
-    <p>Verified</p>
-    <RiCoupon3Line />
-    <p>Free</p>
-    </div> 
-</div>  */}
-
-
 </div>
 
 </div>
@@ -294,6 +276,8 @@ const Home = () => {
 </div>
     </div>
   
+
+
   </div>
   )
 }
