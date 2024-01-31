@@ -238,12 +238,12 @@ const Home = () => {
 
 {/* featured communities */}
 <div className=' mt-24 mb-16'>
-    <div className='flex justify-between items-center px-32 '>
+    <div className='flex justify-between items-center px-2 md:px-32 '>
 <p className='font-bold text-2xl'>Featured Communities</p>
 <p className='text-[#F3C164] text-lg cursor-pointer'>see all communities</p>
 </div>
 
-<div className='grid grid-cols md:grid-cols-4 mt-4 gap-4 px-2 md:px-32'>
+<div className='grid grid-cols md:grid-cols-4 mt-4 gap-4 px-2 md:px-32 items-center'>
     {data.map((item, index) => (
     
 <div className='border border-white p-1'>
