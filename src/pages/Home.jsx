@@ -108,7 +108,7 @@ const Home = () => {
 
 <div className='flex flex-col md:flex-row gap-y-6 items-center justify-center gap-24 '>
      <div className='mt-32 md:mb-24'>  
-    <p className='text-white text-5xl font-bold'>Connect Directly with your</p> 
+    <p className='text-white text-5xl font-bold '>Connect Directly with your</p> 
     <p className='text-white text-5xl font-bold mt-4'>Target Audience, Right </p>
     <p className='text-white text-5xl font-bold mt-4'>Where they Engage.</p>
     <p className='text-white text-xl mt-4'>Expand your outreach effortlessly with our extensive and diverse network.</p> 
@@ -122,7 +122,9 @@ const Home = () => {
         <p className='text-[#F3C164] text-xl font-bold'>login </p> */}
 
   </div> 
-         <img src={pigeonhero} alt='' className='object-cover w-[500px] h-[350px]'/>
+  <div className='mb-32 md:mb-0'>
+         <img src={pigeonhero} alt='' className='object-cover w-[500px] h-[350px] '/>
+         </div>
 
 
          </div>
@@ -179,7 +181,7 @@ const Home = () => {
 
     {/* how it works */}
 
-<div className=' mt-24'>
+<div className='mt-24'>
     <p className='text-[#201327] text-center text-2xl font-light'>How It Works</p>
     <p className='text-[#F3C164] text-center text-4xl font-semibold'>Two Simple Ways to Expand Your Reach</p>
 
@@ -243,7 +245,7 @@ const Home = () => {
 <p className='text-[#F3C164] text-lg cursor-pointer'>see all communities</p>
 </div>
 
-<div className='grid grid-cols md:grid-cols-4 mt-4 gap-4 px-2 md:px-32 items-center'>
+<div className='grid grid-cols md:grid-cols-4 mt-4 gap-4 px-2 md:px-32 items-center justify-between'>
     {data.map((item, index) => (
     
 <div className='border border-white p-1'>
