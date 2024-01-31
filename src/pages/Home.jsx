@@ -104,14 +104,14 @@ const Home = () => {
   return (
     <div className=''>
     <Navbar/>
-    <div className='bg-[#201327] '>
+    <div className='bg-[#201327]'>
 
 <div className='flex flex-col md:flex-row gap-y-6 items-center justify-center gap-24 '>
      <div className='mt-32 md:mb-24'>  
     <p className='text-white text-5xl font-bold '>Connect Directly with your</p> 
     <p className='text-white text-5xl font-bold mt-4'>Target Audience, Right </p>
     <p className='text-white text-5xl font-bold mt-4'>Where they Engage.</p>
-    <p className='text-white text-xl mt-4'>Expand your outreach effortlessly with our extensive and diverse network.</p> 
+    <p className='text-white text-xl mt-4 '>Expand your outreach effortlessly with our extensive and diverse network.</p> 
     <p className='text-white text-xl mt-2'>Startups and established businesses use our platform to connect with various groups.</p>
    <div className='flex flex-col md:flex-row gap-y-4 items-center mt-6'>
     <button className='bg-[#F08E1F] text-[#201327] rounded-md px-4 py-3 '><div className='flex items-center gap-2'><p className='text-xl '>Browse Communities</p><p><RiArrowRightSLine size={25}/></p></div></button>

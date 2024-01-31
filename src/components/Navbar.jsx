@@ -16,9 +16,9 @@ const Navbar = () => {
     }
 
   return (
-    <div className=''>
+    <div className='w-full'>
         
-        <div className='flex items-center justify-between px-64'>
+        <div className='flex items-center justify-between md:px-64'>
             
  
         <img src={logo} alt='' className='w-[150px] h-12 object-cover mx-6'/>
@@ -39,7 +39,7 @@ const Navbar = () => {
         <p className='text-[#201327] text-xl font-light hidden md:block'>Community Owners</p>
         <p className='text-white px-4 rounded-md text-xl font-semibold hidden md:block bg-[#F08E1F]'>login </p>
         {/* <RiArrowDownSLine size={25} className='pt-1 hidden md:block'/> */}
-        <SlMagnifier size={25} onClick={handleOpen}/>
+        <SlMagnifier size={25} onClick={handleOpen} className='hidden md:block'/>
         </div>
 
       
