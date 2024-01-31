@@ -107,7 +107,7 @@ const Home = () => {
     <div className='bg-[#201327]'>
 
 <div className='flex flex-col md:flex-row gap-y-6 items-center justify-center gap-24 '>
-     <div className='mt-32 md:mb-24'>  
+     <div className='mt-64 md:mb-32'>  
     <p className='text-white text-5xl font-bold '>Connect Directly with your</p> 
     <p className='text-white text-5xl font-bold mt-4'>Target Audience, Right </p>
     <p className='text-white text-5xl font-bold mt-4'>Where they Engage.</p>
@@ -123,7 +123,7 @@ const Home = () => {
 
   </div> 
   <div className='mb-32 md:mb-0'>
-         <img src={pigeonhero} alt='' className='object-cover w-[500px] h-[350px] '/>
+         <img src={pigeonhero} alt='' className='object-fit w-[500px] h-[450px] '/>
          </div>
 
 
