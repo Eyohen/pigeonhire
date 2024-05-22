@@ -2,12 +2,12 @@ import React from 'react'
 
 const HowPigWorks = () => {
   return (
-    <div className='bg-white py-6 px-[4px] md:px-[120px]'>
+    <div className='bg-white py-9 px-[4px] md:px-[280px]'>
         <p className='text-4xl font-bold text-center'>How Pigeonhire Works</p>
-        <p className='text-xl font-semibold text-center'>Two Simple Ways to Expand Your Reach</p>
+        <p className='text-xl font-semibold text-center mt-4'>Two Simple Ways to Expand Your Reach</p>
 
 
-        <div className='flex justify-between'>
+        <div className='flex justify-between mt-9'>
 
 <div>
     <p className='text-2xl font-medium'>Explore Communities</p>
