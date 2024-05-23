@@ -18,6 +18,7 @@ import Settings from './pages/Settings'
 import SwitchPremium from './pages/SwitchPremium'
 import { UserContextProvider } from './context/UserContext'
 import Pricing from './pages/Pricing'
+import ContactUs from './pages/ContactUs'
 
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
      <Route exact path="/login" element={<Login/>}/>
      <Route exact path="/register" element={<Register />}/>
      <Route exact path="/pricing" element={<Pricing />}/>
+     <Route exact path="/contactus" element={<ContactUs />}/>
 
   
      <Route exact path="/communityowner" element={<CommunityOwner />}/>
