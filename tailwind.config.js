@@ -8,7 +8,8 @@ export default {
     extend: {
      fontFamily:{
       //   body: ['Nunito']
-      'Prompt':['Prompt']
+      'Prompt':['Prompt'],
+      nunito: ['Nunito'],
       }
     },
   },
