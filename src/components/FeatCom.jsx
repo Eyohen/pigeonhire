@@ -5,9 +5,9 @@ import frame3 from '../assets/Zenyoga.png'
 
 const FeatCom = () => {
   return (
-    <div className='py-9 bg-white px-4 md:px-[120px]'>
-    <p className='text-center text-4xl font-bold'>Featured Communities</p>
-    <p className='text-center mt-1 text-xl'>Handpicked groups known for active engagement and quality discussions</p>
+    <div className='py-9 bg-white px-4 md:px-[120px] font-nunito'>
+    <p className='text-center text-6xl font-bold'>Featured Communities</p>
+    <p className='text-center mt-1 text-3xl'>Handpicked groups known for active engagement and quality discussions</p>
 
     <div className='flex justify-between mt-12'>
 
