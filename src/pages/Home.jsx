@@ -10,6 +10,7 @@ import EngageWithComOwners from '../components/EngageWithComOwners'
 import FeatCom from '../components/featCom'
 import WhyPigeonhireStands from '../components/WhyPigeonhireStands'
 import OurDiverseUser from '../components/OurDiverseUser'
+import Footer from '../components/footer'
 
 const Home = () => {
   return (
@@ -26,6 +27,7 @@ const Home = () => {
        <div className='mt-6'><HowBusinessThrive /></div>
        <div className='mt-6'><StoriesConnect/></div> 
        <div className='mt-6'><FAQ/></div>
+       <Footer/>
     </div>
   )
 }

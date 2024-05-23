@@ -2,9 +2,11 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import { PiCheckCircleDuotone } from "react-icons/pi";
 import check from "../assets/orangecheck.png";
+import Footer from "../components/footer";
 
 const Pricing = () => {
   return (
+    <>
     <div className="bg-gray-100 font-nunito">
       <Navbar />
 
@@ -195,6 +197,7 @@ const Pricing = () => {
 
       <div className="mb-24"></div>
     </div>
+    <Footer/></>
   );
 };
 
