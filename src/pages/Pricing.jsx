@@ -56,6 +56,7 @@ const Pricing = () => {
                 <p className='text-lg text-center'>Subscribe</p>
             </div>
             <div className='shadow-xl px-[20px] py-6'>
+             <p className='text-2xl font-semibold text-center'>Starts at $62.96/ 6 months</p>
             <div className='flex items-center gap-x-3'><img src={check} className='w-6 h-6'/><p className='text-lg mt-4'>Perfect for users needing flexibility or those testing the platform's capabilities</p></div>
                 <div className='flex items-center gap-x-3'><img src={check} className='w-6 h-6'/><p className='text-lg mt-4'>Unlimited access to the full database.</p></div>
                 <div className='flex items-center gap-x-3'><img src={check} className='w-6 h-6'/><p className='text-lg mt-4'>Full database access with intelligent matchmaking and insights</p></div>
@@ -65,6 +66,23 @@ const Pricing = () => {
                 <div className='flex items-center gap-x-3'><img src={check} className='w-6 h-6'/><p className='text-lg mt-4'>Save 50% per month</p></div>
             </div>
             </div>
+
+            <div>
+            <div className='bg-[#FFE5B4] py-6 px-24'>
+            <p className='text-2xl font-medium text-center'>Premier</p>
+                <p className='text-lg text-center'>Subscribe</p>
+            </div>
+            <div className='shadow-xl px-[20px] py-6'>
+                <p className='text-2xl font-semibold text-center'>Starts at $89.94/Annum</p>
+                <div className='flex items-center gap-x-3'><img src={check} className='w-6 h-6'/><p className='text-lg mt-4'>Perfect for users needing flexibility or those testing the platform's capabilities</p></div>
+                <div className='flex items-center gap-x-3'><img src={check} className='w-6 h-6'/><p className='text-lg mt-4'>Unlimited access to the full database.</p></div>
+                <div className='flex items-center gap-x-3'><img src={check} className='w-6 h-6'/><p className='text-lg mt-4'>Full database access with intelligent matchmaking and insights</p></div>
+                <div className='flex items-center gap-x-3'><img src={check} className='w-6 h-6'/><p className='text-lg mt-4'>Vetted connections</p></div>
+                <div className='flex items-center gap-x-3'><img src={check} className='w-6 h-6'/><p className='text-lg mt-4'>Quality ratings</p></div>
+                <div className='flex items-center gap-x-3'><img src={check} className='w-6 h-6'/><p className='text-lg mt-4'>Advanced search</p></div>
+                <div className='flex items-center gap-x-3'><img src={check} className='w-6 h-6'/><p className='text-lg mt-4'>Save 50% per month</p></div>
+            </div>
+        </div>
 
 
 
