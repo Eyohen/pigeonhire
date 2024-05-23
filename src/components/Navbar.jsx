@@ -4,6 +4,7 @@ import logo from '../assets/logo.png'
 import { RiArrowDownSLine } from "react-icons/ri";
 import { RiMenuFill } from "react-icons/ri";
 import { SlMagnifier } from "react-icons/sl";
+import { Link } from 'react-router-dom';
 // import { Link, useParams, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
@@ -37,7 +38,7 @@ const Navbar = () => {
 <p className='text-[#201327] text-lg font-light hidden md:block'>Home</p>
         <p className='text-[#201327] text-lg font-light hidden md:block'>About Us</p>
         <p className='text-[#201327] text-lg font-light hidden md:block'>Communities</p>
-        <p className='text-[#201327] text-lg font-light hidden md:block'>Pricing</p>
+        <Link to={'/pricing'}><p className='text-[#201327] text-lg font-light hover:text-[#F08E1F] hidden md:block'>Pricing</p></Link>
         <p className='text-[#201327] text-lg font-light hidden md:block'>Blog</p>
         <p className='text-[#201327] text-lg font-light hidden md:block'>FAQ</p>
         <p className='text-[#201327] text-lg font-light hidden md:block'>Contact Us</p> 
