@@ -2,7 +2,9 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import { PiCheckCircleDuotone } from "react-icons/pi";
 import check from "../assets/orangecheck.png";
+import close from "../assets/landingpage/close.svg"
 import Footer from "../components/footer";
+
 
 const Pricing = () => {
   return (
@@ -78,7 +80,7 @@ const Pricing = () => {
               <p className="text-lg mt-4">Advanced search</p>
             </div>
             <div className="flex items-center gap-x-3">
-              <img src={check} className="w-6 h-6" />
+              <img src={close} className="w-6 h-6" />
               <p className="text-lg mt-4">Save 50% per month</p>
             </div>
             <div className="flex justify-center mt-8">
@@ -130,7 +132,7 @@ const Pricing = () => {
               <p className="text-lg mt-4">Advanced search</p>
             </div>
             <div className="flex items-center gap-x-3">
-              <img src={check} className="w-6 h-6" />
+              <img src={close} className="w-6 h-6" />
               <p className="text-lg mt-4">Save 50% per month</p>
             </div>
             <div className="flex justify-center mt-8">
