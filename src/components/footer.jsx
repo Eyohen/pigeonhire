@@ -3,7 +3,7 @@ import Logo from "../assets/landingpage/whiteLogo.svg";
 
 const Footer = () => {
   return (
-    <div className="bg-[#201327] text-white mt-10">
+    <div className="bg-[#201327] text-white mt-10 font-nunito">
       <div>
         <div className="flex justify-between items-start gap-10 py-5 px-4 md:px-[50px]">
           <div>

@@ -28,7 +28,7 @@ const ContactUs = () => {
       <p className='text-[#2A2B2B] mt-4 text-3xl font-normal'>Message</p>
       <textarea className='w-full px-2 py-4 bg-white border border-gray-200 rounded-lg mb-4' />
 
-    <button className='text-white bg-[#F08E1F] py-2 w-full rounded-full mt-4' >Submit</button>
+    <button className='text-white text-3xl bg-[#F08E1F] py-4 px-6 w-full rounded-full mt-4' >Submit</button>
 
 </div>
 
