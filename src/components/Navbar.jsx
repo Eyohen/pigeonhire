@@ -25,14 +25,14 @@ const Navbar = () => {
 
         <div className="flex gap-9 items-center px-6 font-nunito">
           <Link to={"/"}>
-            {" "}
+            
             <p className="text-[#201327] text-base font-medium hover:text-[#F08E1F] hidden md:block">
               Home
             </p>
           </Link>
-          <p className="text-[#201327] text-base font-medium hidden md:block">
+          <Link to={"/aboutus"}><p className="text-[#201327] text-base font-medium hover:text-[#F08E1F] hidden md:block">
             About Us
-          </p>
+          </p> </Link>
           <p className="text-[#201327] text-base font-medium hidden md:block">
             Communities
           </p>
@@ -41,9 +41,9 @@ const Navbar = () => {
               Pricing
             </p>
           </Link>
-          <p className="text-[#201327] text-base font-medium hidden md:block">
+          <Link to={"/blog"}><p className="text-[#201327] text-base font-medium hover:text-[#F08E1F] hidden md:block">
             Blog
-          </p>
+          </p> </Link>
           <p className="text-[#201327] text-base font-medium hidden md:block">
             FAQ
           </p>
