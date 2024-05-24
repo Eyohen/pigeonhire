@@ -7,13 +7,15 @@ import Footer from "../components/footer";
 
 const Blog = () => {
   return (
-    <div className="font-nunito bg-white">
+    <div className="font-nunito bg-gray-100">
       <Navbar />
-      <p className="text-center text-6xl font-bold mt-9">
+
+      <div className="bg-white pb-10">
+      <p className="text-center text-6xl font-bold my-9 py-9">
         Stories that connect
       </p>
 
-      <div>
+      <div className="">
         <div className="grid grid-cols-3 gap-5 px-4 md:px-[80px] mt-12">
           <div className="">
             <img
@@ -25,7 +27,7 @@ const Blog = () => {
             <p className="mt-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
               eiusmod tempor incididunt{" "}
-              <span className="text-[#F08E1F] text-xl">Read More...</span>
+              <span className="text-[#F08E1F] text-xl cursor-pointer">Read More...</span>
             </p>
           </div>
 
@@ -39,7 +41,7 @@ const Blog = () => {
             <p className="mt-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
               eiusmod tempor incididunt{" "}
-              <span className="text-[#F08E1F] text-xl">Read More...</span>
+              <span className="text-[#F08E1F] text-xl cursor-pointer">Read More...</span>
             </p>
           </div>
 
@@ -53,7 +55,7 @@ const Blog = () => {
             <p className="mt-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
               eiusmod tempor incididunt{" "}
-              <span className="text-[#F08E1F] text-xl">Read More...</span>
+              <span className="text-[#F08E1F] text-xl cursor-pointer">Read More...</span>
             </p>
           </div>
         </div>
@@ -68,7 +70,7 @@ const Blog = () => {
             <p className="mt-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
               eiusmod tempor incididunt{" "}
-              <span className="text-[#F08E1F] text-xl">Read More...</span>
+              <span className="text-[#F08E1F] text-xl cursor-pointer">Read More...</span>
             </p>
           </div>
 
@@ -82,7 +84,7 @@ const Blog = () => {
             <p className="mt-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
               eiusmod tempor incididunt{" "}
-              <span className="text-[#F08E1F] text-xl">Read More...</span>
+              <span className="text-[#F08E1F] text-xl cursor-pointer">Read More...</span>
             </p>
           </div>
 
@@ -96,7 +98,7 @@ const Blog = () => {
             <p className="mt-3 ">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
               eiusmod tempor incididunt{" "}
-              <span className="text-[#F08E1F] text-xl">Read More...</span>
+              <span className="text-[#F08E1F] text-xl cursor-pointer">Read More...</span>
             </p>
           </div>
         </div>
@@ -111,7 +113,7 @@ const Blog = () => {
             <p className="mt-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
               eiusmod tempor incididunt{" "}
-              <span className="text-[#F08E1F] text-xl">Read More...</span>
+              <span className="text-[#F08E1F] text-xl cursor-pointer">Read More...</span>
             </p>
           </div>
 
@@ -125,7 +127,7 @@ const Blog = () => {
             <p className="mt-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
               eiusmod tempor incididunt{" "}
-              <span className="text-[#F08E1F] text-xl">Read More...</span>
+              <span className="text-[#F08E1F] text-xl cursor-pointer">Read More...</span>
             </p>
           </div>
 
@@ -139,10 +141,12 @@ const Blog = () => {
             <p className="mt-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
               eiusmod tempor incididunt{" "}
-              <span className="text-[#F08E1F] text-xl">Read More...</span>
+              <span className="text-[#F08E1F] text-xl cursor-pointer">Read More...</span>
             </p>
           </div>
         </div>
+      </div>
+    
       </div>
       <Footer/>
     </div>
