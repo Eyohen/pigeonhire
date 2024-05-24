@@ -35,11 +35,11 @@ const Navbar = () => {
 
 
         <div className='flex gap-9 items-center px-6 '>
-          <p className='text-[#201327] text-lg font-light hidden md:block'>Home</p>
-          <p className='text-[#201327] text-lg font-light hidden md:block'>About Us</p>
+        <Link to={'/'}><p className='text-[#201327] text-lg font-light hover:text-[#F08E1F]  hidden md:block'>Home</p></Link>
+          <Link to={'/aboutus'}><p className='text-[#201327] text-lg font-light hover:text-[#F08E1F] hidden md:block'>About Us</p></Link>
           <p className='text-[#201327] text-lg font-light hidden md:block'>Communities</p>
           <Link to={'/pricing'}><p className='text-[#201327] text-lg font-light hover:text-[#F08E1F] hidden md:block'>Pricing</p></Link>
-          <p className='text-[#201327] text-lg font-light hidden md:block'>Blog</p>
+          <Link to={'/blog'}><p className='text-[#201327] text-lg font-light hover:text-[#F08E1F] hidden md:block'>Blog</p></Link>
           <p className='text-[#201327] text-lg font-light hidden md:block'>FAQ</p>
           <Link to={'/contactus'}><p className='text-[#201327] text-lg font-light hover:text-[#F08E1F] hidden md:block'>Contact Us</p></Link>
         </div>
