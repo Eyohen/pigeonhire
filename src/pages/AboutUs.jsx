@@ -1,5 +1,6 @@
 import React from "react";
 import frame3 from "../assets/Frame3.png";
+import values from "../assets/aboutpage/values.png"
 import Navbar from "../components/Navbar";
 import Footer from "../components/footer";
 
@@ -106,7 +107,7 @@ const AboutUs = () => {
                 </li>
               </ul>
             </div>
-            <img src={frame3} className="object-contain rounded-b-2xl" />
+            <img src={values} className="object-contain rounded-b-2xl" />
           </div>
         </div>
         <div className="bg-white p-8 mt-10">
@@ -124,15 +125,15 @@ const AboutUs = () => {
                   this exciting journey. Whether you're looking to reach a
                   broader audience, find the perfect community for your brand,
                   or forge inspiring partnerships, Pigeonhire is your gateway to
-                  the possibilities that await. Together, let's build
+                  the possibilities that await.<br/> Together, let's build
                   connections and a web of relationships that inspire change,
                   drive progress, and celebrate the power of unity
                   <span className="text-[#F08E1F]">”</span>
                 </p>
               </div>
-              <div>
-                <div>Temi R.</div>
-                <p>Co-Founder, Pigeonhire</p>
+              <div className="pt-10">
+                <div className="text-2xl">Temi R.</div>
+                <p className="text-xl"> Co-Founder, Pigeonhire</p>
               </div>
             </div>
           </div>
