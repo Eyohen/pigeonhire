@@ -27,8 +27,8 @@ const FAQ = () => {
   // }
 
   return (
-    <div className="bg-white px-4 mx-auto lg:px-[300px] py-9">
-      <p className="text-[40px] font-bold text-center md:tracking-wide">
+    <div className="bg-white px-4 mx-auto lg:px-[300px] py-9 font-nunito">
+      <p className="text-6xl font-bold text-center md:tracking-wide">
         Frequently asked questions
       </p>
 
