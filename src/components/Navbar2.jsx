@@ -5,49 +5,53 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { IF, URL } from "../url"
-import {UserContext} from '../context/UserContext'
+// import {UserContext} from '../context/UserContext'
+import { useAuth } from '../context/AuthContext';
 
 const Navbar2 = () => {
+
+  const { user, logout } = useAuth();
   const [data, setData] = useState([])
 
-  const {user}=useContext(UserContext)
-
-  const fetchProfile = async () => {
-    try{
-      const accessToken = localStorage.getItem("access_token")
-      const currentUser = JSON.parse(localStorage.getItem("currentUser"))
-      console.log(typeof currentUser)
 
 
-      if(!currentUser){
-        return ;
-      }
+
+  // const fetchProfile = async () => {
+  //   try{
+  //     const accessToken = localStorage.getItem("access_token")
+  //     const currentUser = JSON.parse(localStorage.getItem("currentUser"))
+  //     console.log(typeof currentUser)
 
 
-      if(!accessToken){
-        // Handle the case where the access token is not available
-    console.error('Access token not found')
-  }
+  //     if(!currentUser){
+  //       return ;
+  //     }
 
-       const res = await axios.get(URL+"/api/users/"+currentUser?._id, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        }
-      })
+
+  //     if(!accessToken){
+  //       // Handle the case where the access token is not available
+  //   console.error('Access token not found')
+  // }
+
+  //      const res = await axios.get(URL+"/api/users/"+currentUser?._id, {
+  //       headers: {
+  //         Authorization: `Bearer ${accessToken}`,
+  //       }
+  //     })
       
-       console.log(res.data)
-       setData(res.data)
-    }
-    catch(err){
-       console.log(err)
-    }
-  }
+  //      console.log(res.data)
+  //      setData(res.data)
+  //   }
+  //   catch(err){
+  //      console.log(err)
+  //   }
+  // }
   
 
-  useEffect(()=>{
-    fetchProfile()
+  // useEffect(()=>{
+  //   fetchProfile()
   
-  },[])
+  // },[])
 
 
   return (
@@ -61,7 +65,7 @@ const Navbar2 = () => {
                
                 </div>
         <CiBellOn size={25} className='bg-gray-200 rounded-full w-9 h-9'/>
-        <div className='bg-purple-900 p-3 rounded-full text-white text-2xl w-11 h-11 items-center justify-center flex'>{data?.email}</div>
+        <div className='bg-purple-900 p-3 rounded-full text-white text-2xl w-11 h-11 items-center justify-center flex'>{user?.email.charAt(0).toUpperCase()}</div>
         </div>
     </div>
   )

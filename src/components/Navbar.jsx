@@ -54,11 +54,11 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div>
+        <Link to={'/login'}><div>
           <p className="text-white px-6 py-2 rounded-full text-lg font-nunito font-normal hidden md:block bg-[#F08E1F]">
             Sign In
           </p>
-        </div>
+        </div></Link>
 
         <div className="md:hidden">
           <RiMenuFill size={25} />

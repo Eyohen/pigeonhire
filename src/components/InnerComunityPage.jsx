@@ -10,12 +10,13 @@ import axios from "axios";
 const InnerComunityPage = () => {
   const communityId = useParams().id
   const [community, setCommunity] = useState([])
+  const [firstName, setFirstName] = useState("")
     const navigate = useNavigate()
 
     const fetchCommunity = async()=>{
       try{
         const res= await axios.get(URL+"/api/communities/"+communityId)
-        console.log(res.data)
+        console.log("this is community henry",res.data)
         setCommunity(res.data)
       }
       catch(err){
@@ -27,6 +28,25 @@ const InnerComunityPage = () => {
       fetchCommunity()
   
     },[communityId])
+
+
+
+    const userId = community.user  
+
+    const fetchUser = async () => {
+      try {
+        const res = await axios.get(URL+"/api/users/"+userId);
+   
+        console.log("this user henry",res.data)
+        setFirstName(res.data.firstName);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+  
+    useEffect(() => {
+      fetchUser();
+    }, [userId]);
   
   return (
     <div className='flex-1'>
@@ -38,13 +58,13 @@ const InnerComunityPage = () => {
         <p className='font-semibold'>{community.name}</p>
         </div>
 
-        <div className='bg-green-400 text-white text-4xl w-32 h-32 rounded-full items-center justify-center flex border border-gray-700 mt-9 ml-12'>{community?.user?.email?.charAt(0)}</div>
+        <div className='bg-green-400 text-white text-4xl w-32 h-32 rounded-full items-center justify-center flex border border-gray-700 mt-9 ml-12'>{firstName?.charAt(0)}</div>
 
 
         <div className='max-w-[700px]'>
             <p className=' text-lg ml-12 mt-4'>Name: {community.name}</p>
-            <p className=' text-lg ml-12  mt-4'>Community Type : {community.commtype}</p>
-            <p className=' text-lg ml-12  mt-4'>Previous Collaboration Experience : {community.collabtype}</p>
+            <p className=' text-lg ml-12  mt-4'>Community Type : {community.communityType}</p>
+            <p className=' text-lg ml-12  mt-4'>Previous Collaboration Experience : {community.prevCollabType}</p>
             {/* <p className=' text-lg ml-12  mt-4'>Description: Description: At Green Earth Advocates we are at the forefront of financial technology, revolutionizing the way you manage and grow your wealth. Our cutting-edge platform seamlessly integrates innovative solutions to simplify your financial journey.</p> */}
             {/* <p className=' text-lg ml-12  mt-4'>Active Since: Jan 20, 2021</p> */}
             <p className=' text-lg ml-12  mt-4'>Access Type : {community.accessType}</p>

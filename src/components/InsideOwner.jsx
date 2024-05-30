@@ -146,8 +146,8 @@ const InsideOwner = () => {
         </div>
 
     {communities.map((community) => (
-        <Link to={`/communitypage/${community._id}`}>
-    <CommunityOwnerCard key={community._id} community={community} />
+        <Link to={`/communitypage/${community.id}`}>
+    <CommunityOwnerCard key={community.id} community={community} />
     </Link>
     ))}
 

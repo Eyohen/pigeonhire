@@ -9,10 +9,14 @@ import { IoChatboxOutline } from "react-icons/io5";
 import { IoChevronDown } from "react-icons/io5";
 import { IoChevronForward } from "react-icons/io5";
 import { Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 
 const Sidebar = () => {
+
+  const { user, logout } = useAuth();
   const [isOpen, setIsOpen] = useState(false)
+  console.log("sidebar", user)
   return (
     <div className='flex justify-center h-screen px-[30px] bg-[#FAFAFA]'>
         {/* <div>
@@ -86,15 +90,15 @@ const Sidebar = () => {
         <div className='flex gap-x-5 items-center mt-9 '>
         <div className='bg-purple-900 text-white rounded-full w-11 h-11 flex justify-center text-2xl items-center'>J</div>
         <div>
-            <p className='font-semibold text-lg'>Jenny Wilson</p>
-            <p className='font-light text-gray-400'>jen.wilson@example.com</p>
+            <p className='font-semibold text-lg'>{user?.fname},{user?.lname}</p>
+            <p className='font-light text-gray-400'>{user?.email}</p>
         </div>
         </div>
 
-        <div className='flex items-center gap-x-3 mt-9 justify-center'>
+        <Link to={'/login'}><div className='flex items-center gap-x-3 mt-9 justify-center'>
         <CiLogout />
-        <p>Log out</p>
-        </div>
+        <p onClick={logout}>Log out</p>
+        </div></Link>
 
         </div>
 
