@@ -21,6 +21,7 @@ import Pricing from './pages/Pricing'
 import ContactUs from './pages/ContactUs'
 import Blog from './pages/Blog'
 import AboutUs from './pages/AboutUs'
+import Faq from './pages/Faq'
 
 
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
      <Route exact path="/contactus" element={<ContactUs />}/>
      <Route exact path="/blog" element={<Blog />}/>
      <Route exact path="/aboutus" element={<AboutUs />}/>
+     <Route exact path="/faq" element={<Faq />}/>
 
   
      <Route exact path="/communityowner" element={<CommunityOwner />}/>

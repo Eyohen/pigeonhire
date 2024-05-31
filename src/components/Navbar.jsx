@@ -44,9 +44,9 @@ const Navbar = () => {
           <Link to={"/blog"}><p className="text-[#201327] text-base font-medium hover:text-[#F08E1F] hidden md:block">
             Blog
           </p> </Link>
-          <p className="text-[#201327] text-base font-medium hidden md:block">
+          <Link to={"/faq"}><p className="text-[#201327] text-base font-medium hover:text-[#F08E1F] hidden md:block">
             FAQ
-          </p>
+          </p></Link>
           <Link to={"/contactus"}>
             <p className="text-[#201327] text-base font-medium hover:text-[#F08E1F] hidden md:block">
               Contact Us
