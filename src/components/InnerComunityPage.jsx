@@ -16,7 +16,7 @@ const InnerComunityPage = () => {
     const fetchCommunity = async()=>{
       try{
         const res= await axios.get(URL+"/api/communities/"+communityId)
-        console.log("this is community henry",res.data)
+        // console.log("this is community henry",res.data)
         setCommunity(res.data)
       }
       catch(err){
@@ -37,7 +37,7 @@ const InnerComunityPage = () => {
       try {
         const res = await axios.get(URL+"/api/users/"+userId);
    
-        console.log("this user henry",res.data)
+        // console.log("this user henry",res.data)
         setFirstName(res.data.firstName);
       } catch (err) {
         console.log(err);

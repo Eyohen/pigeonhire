@@ -35,7 +35,7 @@ const Sidebar = () => {
 
         <Link to={'/browseowner'}> <div className='flex gap-x-3 items-center hover:bg-[#F3D8A7] px-2 mt-6 rounded'>
         <CiSearch  size={20} className=' '/>
-        <p className='hover:bg-[#F3D8A7] py-1 text-center'>Browser Communities</p>
+        <p className='hover:bg-[#F3D8A7] py-1 text-center'>Browse Communities</p>
         </div></Link>
 
         <Link to={'/purchasehistory'}><div className='flex gap-x-3 items-center hover:bg-[#F3D8A7] px-2 mt-6 rounded'>

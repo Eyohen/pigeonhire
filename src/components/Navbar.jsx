@@ -4,13 +4,14 @@ import logo from "../assets/logo.svg";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { RiMenuFill } from "react-icons/ri";
 import { SlMagnifier } from "react-icons/sl";
-import { Link } from "react-router-dom";
-// import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from '../context/AuthContext';
 
 const Navbar = () => {
+  const { user, logout } = useAuth();
   const [open, setOpen] = useState();
   const [data, setData] = useState([]);
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const handleOpen = () => {
     setOpen((prev) => !prev);
@@ -33,7 +34,7 @@ const Navbar = () => {
           <Link to={"/aboutus"}><p className="text-[#201327] text-base font-medium hover:text-[#F08E1F] hidden md:block">
             About Us
           </p> </Link>
-          <p className="text-[#201327] text-base font-medium hidden md:block">
+          <p onClick={user ? (() => navigate('/browseowner')) : (() => navigate('/login'))} className="text-[#201327] text-base font-medium hover:text-[#F08E1F] hidden md:block">
             Communities
           </p>
           <Link to={"/pricing"}>
@@ -54,11 +55,17 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <Link to={'/login'}><div>
-          <p className="text-white px-6 py-2 rounded-full text-lg font-nunito font-normal hidden md:block bg-[#F08E1F]">
-            Sign In
+{user ? (<div>
+          <p onClick={logout} className="text-white px-6 py-2 rounded-full text-lg font-nunito font-normal hidden md:block bg-[#F08E1F]">
+     {user?.fname}
           </p>
-        </div></Link>
+        </div>) : (<div>
+          <p onClick={()=> navigate('/login')} className="text-white px-6 py-2 rounded-full text-lg font-nunito font-normal hidden md:block bg-[#F08E1F]">
+        Sign In
+          </p>
+        </div>)}
+
+       
 
         <div className="md:hidden">
           <RiMenuFill size={25} />

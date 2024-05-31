@@ -1,11 +1,52 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Navbar2 from './Navbar2'
 import { IoChevronForward } from "react-icons/io5";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { IoLockClosedOutline } from "react-icons/io5";
-
+import { URL } from "../url";
+import axios from "axios";
 
 const InnerBrowsePage = () => {
+  const communityId = useParams().id
+  const [community, setCommunity] = useState([])
+  const [firstName, setFirstName] = useState("")
+
+  const fetchCommunity = async()=>{
+    try{
+      const res= await axios.get(URL+"/api/communities/"+communityId)
+      console.log("this is browser community henry",res.data)
+      setCommunity(res.data)
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+
+  useEffect(()=>{
+    fetchCommunity()
+
+  },[communityId])
+
+
+
+  const userId = community.user  
+
+  const fetchUser = async () => {
+    try {
+      const res = await axios.get(URL+"/api/users/"+userId);
+ 
+      console.log("this browser user henry",res.data)
+      setFirstName(res.data.firstName);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchUser();
+  }, [userId]);
+
+
     const navigate = useNavigate()
   return (
     <div className='flex-1'>
@@ -20,18 +61,18 @@ const InnerBrowsePage = () => {
 <div className='flex gap-x-12'>
 
 <div>
-        <div className='w-32 h-32 rounded-full items-center justify-center flex border border-gray-700 mt-9 ml-12'>LOGO</div>
+        <div className='w-32 h-32 rounded-full items-center justify-center flex border border-gray-700 mt-9 ml-12'>{firstName?.charAt(0)}</div>
 
 
         <div className='max-w-[700px]'>
            
-            <p className=' text-lg ml-12  mt-4'>Description : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam convallis nisi et nisl viverra, at faucibus nisl ultricies. Fusce dictum augue vitae augue auctor eleifend. Donec eu sem non mi pretium dignissim. Fusce hendrerit sollicitudin iaculis. Quisque vel elit nec lectus dictum dapibus. Integer aliquet cursus eleifend. Cras a ligula nulla. Mauris consequat</p>
-            <p className=' text-lg ml-12  mt-4'>Community Type :  Environmental Activism</p>
-            <p className=' text-lg ml-12  mt-4'>Member Count : 1 - 50 members</p>
+            <p className=' text-lg ml-12  mt-4'>Description : {community.description}</p>
+            <p className=' text-lg ml-12  mt-4'>Community Type : {community.communityType}</p>
+            <p className=' text-lg ml-12  mt-4'>Member Count : {community.szie} members</p>
             <p className=' text-lg ml-12  mt-4'>Key Topics : Climate Change Mitigation, Sustainable Living Practices and Renewable Energy Advancements</p>
             <p className=' text-lg ml-12  mt-4'>Date launched : January 2021</p>
-            <p className=' text-lg ml-12  mt-4'>Price Tag : Paid</p>
-            <p className=' text-lg ml-12  mt-4'>Unique Selling Points : Our strategic partnerships with leading corporations showcase our ability to collaborate across industries, driving collective action towards environmental sustainability.</p>
+            <p className=' text-lg ml-12  mt-4'>Price Tag : {community.accessType}</p>
+            <p className=' text-lg ml-12  mt-4'>Unique Selling Points : {community.usp}</p>
         
 
             <IoLockClosedOutline className='mt-6 mx-auto text-[#F08E1F]' />

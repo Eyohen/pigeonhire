@@ -1,6 +1,10 @@
 import React from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const EngageWithComOwners = () => {
+  const { user, logout } = useAuth();
+  const navigate = useNavigate()
   return (
     <div className='py-9 bg-white px-4 md:px-[120px] font-nunito'>
     <p className='text-center text-6xl font-bold'>Engage with Communtiy Owners</p>
@@ -9,11 +13,11 @@ const EngageWithComOwners = () => {
 
     <div className='flex md:flex justify-center gap-x-0 md:gap-x-9 md:space-y-0 space-y-4 mt-9'>
         <div>
-        <button className='bg-[#F08E1F] text-white rounded-full px-6 py-4'>Discover Community Owners</button>
+        <button onClick={()=> navigate('/communityowner')} className='bg-[#F08E1F] text-white rounded-full px-6 py-4'>Discover Community Owners</button>
         </div>
 
         <div>
-        <button className='border border-[#F08E1F] text-gray-600 rounded-full px-6 py-4'>Register your Community</button>
+        <button onClick={user ? (() => navigate('/listcommunity')) : (() => navigate('/login'))} className='border border-[#F08E1F] text-gray-600 rounded-full px-6 py-4'>Register your Community</button>
         </div>
 
         </div>

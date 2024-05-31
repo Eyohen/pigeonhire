@@ -1,8 +1,11 @@
 import React from "react";
 import herolady from "../assets/herolady.png";
 import HeroBottom from "../assets/heroBottom.svg";
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 const Hero = () => {
+const navigate = useNavigate()
+
   return (
     <>
       <div className="bg-[#201327] py-9 px-4 md:px-[120px]">
@@ -30,7 +33,7 @@ const Hero = () => {
 
             <div className="md:flex gap-x-0 md:gap-x-9 md:space-y-0 space-y-4 mt-9">
               <div>
-                <button className="bg-[#F08E1F] text-white rounded-full px-6 py-4">
+                <button onClick={()=> navigate('/browseowner')} className="bg-[#F08E1F] text-white rounded-full px-6 py-4">
                   Browse Communities
                 </button>
               </div>

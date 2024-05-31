@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { LiaSlidersHSolid } from "react-icons/lia";
 import { CiSearch } from "react-icons/ci";
 import { CiBellOn } from "react-icons/ci";
@@ -8,7 +8,11 @@ import { IoChevronDown } from "react-icons/io5";
 import Sidebar from './Sidebar';
 import Navbar2 from './Navbar2';
 import { Link } from 'react-router-dom';
-// import InsideOwner from '../components/InsideOwner';
+import { URL } from "../url";
+import axios from "axios";
+import BrowseCard from './BrowseCard';
+
+
 
 
 const data = [ 
@@ -46,6 +50,23 @@ const data = [
 
 const InsideBrowseOwner = () => {
     const [isOpen, setIsOpen] = useState(false)
+    const [communities, setCommunities] = useState([])
+
+
+    const fetchCommunities = async () => {
+        try {
+          const res = await axios.get(URL + "/api/communities/");
+          setCommunities(res.data);
+          console.log(res.data)
+        } catch (err) {
+          console.log(err);
+        }
+      };
+    
+      useEffect(() => {
+        fetchCommunities();
+      }, []);
+
   return (
     <div className='flex-1'>
         
@@ -117,7 +138,7 @@ const InsideBrowseOwner = () => {
 
        
         </div>
-<Link to={'/innerbrowsepage'}>
+{/* <Link to={'/innerbrowsepage'}>
 <div className='shadow-xl rounded-xl mt-12 px-16 py-4 max-w-[1200px] ml-12'>
     <div className='flex gap-x-5 items-center'>
         <div className='bg-green-400 text-white rounded-full w-11 h-11 flex justify-center text-2xl items-center'>G</div>
@@ -133,6 +154,19 @@ const InsideBrowseOwner = () => {
         </div>
 </div> 
 </Link>
+ */}
+
+
+
+
+{communities.map((community) => (
+        <Link to={`/innerbrowsepage/${community.id}`}>
+    <BrowseCard key={community.id} community={community} />
+    </Link>
+    ))}
+
+
+
     </div>
   )
 }

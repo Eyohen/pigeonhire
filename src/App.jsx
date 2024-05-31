@@ -42,7 +42,7 @@ const App = () => {
      <Route exact path="/communitypage/:id" element={<CommunityPage />}/>
      <Route exact path="/collaborationtype" element={<CollaborationType />}/>
      <Route exact path="/browseowner" element={<BrowserOwner />}/>
-     <Route exact path="/innerbrowsepage" element={<BrowserPage />}/>
+     <Route exact path="/innerbrowsepage/:id" element={<BrowserPage />}/>
      <Route exact path="/subscriptionplans" element={<BrowserSubPlans />}/>
      <Route exact path="/purchasehistory" element={<PurchaseHistory />}/>
      <Route exact path="/listcommunity" element={<ListCommunity />}/>
