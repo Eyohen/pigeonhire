@@ -46,8 +46,8 @@ const navigate = useNavigate()
             </div>
           </div>
           <div className="relative"> 
-            <div className=" rounded-full p-10 border border-dashed border-[#F08E1F] flex items-center">
-              <div className=" rounded-full p-10 border border-dashed border-[#F08E1F] flex items-center">
+            <div className=" rounded-full p-10 border-2 border-dashed border-[#F08E1F] flex items-center">
+              <div className=" rounded-full p-10 border-2 border-dashed border-[#F08E1F] flex items-center">
                 <div className="rounded-full p-40 bg-[#F08E1F]"></div>
               </div>
               <div className="mt-16 absolute right-1">

@@ -13,7 +13,7 @@ const AboutUs = () => {
         <div className="mt-9 bg-white py-9">
           <p className="text-center text-6xl font-bold ">Our Story</p>
 
-          <div className="flex px-4 md:px-[120px] gap-x-24 mt-9 items-start">
+          <div className="flex px-4 md:px-[50px] gap-x-24 mt-9 items-start">
             <img src={frame3} className="object-contain rounded-b-2xl" />
             <div className="font-medium">
               <p className="text-xl mt-2">
