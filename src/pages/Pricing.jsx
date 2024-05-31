@@ -18,8 +18,7 @@ const Pricing = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 mt-12 gap-x-24 gap-y-12 px-[120px]">
-        <div>
+      <div className="grid grid-cols-2 mt-12 gap-x-24 gap-y-12 px-[120px]">  <div>
           <div className="bg-[#201327] py-2 px-24"></div>
           <div className="shadow-xl px-[120px] py-2">
             <p className="text-2xl font-semibold text-center">
@@ -37,7 +36,10 @@ const Pricing = () => {
             </p>
             <p className="text-lg text-center">Pay-as-you-Go</p>
           </div>
-        </div>
+        </div></div>
+
+      <div className="grid grid-cols-3 mt-12 gap-x-24 gap-y-12 px-[120px]">
+      
 
         <div>
           <div className="bg-[#FFE5B4] py-6 px-24">
@@ -195,6 +197,7 @@ const Pricing = () => {
             </div>
           </div>
         </div>
+        <div className="mb-4"></div>
       </div>
 
       <div className="mb-24"></div>
