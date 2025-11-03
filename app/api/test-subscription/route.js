@@ -2,11 +2,19 @@
 // Create this file to test your Stripe integration
 
 import { NextResponse } from "next/server";
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+
+// Lazy-load Stripe to avoid build-time errors
+const getStripe = () => {
+  if (!process.env.STRIPE_SECRET_KEY) {
+    throw new Error('STRIPE_SECRET_KEY is not configured');
+  }
+  return require("stripe")(process.env.STRIPE_SECRET_KEY);
+};
 
 export async function GET(request) {
   try {
     console.log('🧪 Testing Stripe integration...');
+    const stripe = getStripe();
     
     // Test 1: Check if Stripe is configured
     console.log('1️⃣ Testing Stripe configuration...');

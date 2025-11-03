@@ -1,9 +1,17 @@
 // app/api/debug-price/route.js
 import { NextResponse } from "next/server";
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+
+// Lazy-load Stripe to avoid build-time errors
+const getStripe = () => {
+  if (!process.env.STRIPE_SECRET_KEY) {
+    throw new Error('STRIPE_SECRET_KEY is not configured');
+  }
+  return require("stripe")(process.env.STRIPE_SECRET_KEY);
+};
 
 export async function POST(request) {
   try {
+    const stripe = getStripe();
     const { priceId, userEmail = "test@example.com" } = await request.json();
     
     console.log('🔍 Debugging price ID:', priceId);

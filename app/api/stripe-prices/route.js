@@ -1,10 +1,18 @@
 // app/api/stripe-prices/route.js
 import { NextResponse } from "next/server";
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+
+// Lazy-load Stripe to avoid build-time errors
+const getStripe = () => {
+  if (!process.env.STRIPE_SECRET_KEY) {
+    throw new Error('STRIPE_SECRET_KEY is not configured');
+  }
+  return require("stripe")(process.env.STRIPE_SECRET_KEY);
+};
 
 export async function GET(request) {
   try {
     console.log('🔍 Fetching Stripe prices...');
+    const stripe = getStripe();
     
     // Fetch all active prices from Stripe
     const prices = await stripe.prices.list({
