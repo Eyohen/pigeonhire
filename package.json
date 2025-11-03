@@ -1,0 +1,39 @@
+{
+  "name": "asmad",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "^5.16.1",
+    "@mui/material": "^5.15.20",
+    "@reduxjs/toolkit": "^2.2.4",
+    "@stripe/react-stripe-js": "^3.8.0",
+    "@stripe/stripe-js": "^7.6.1",
+    "axios": "^1.9.0",
+    "gsap": "^3.12.7",
+    "jwt-decode": "^3.1.2",
+    "next": "15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-google-autocomplete": "^2.7.5",
+    "react-hook-form": "^7.56.1",
+    "react-redux": "^9.1.2",
+    "react-toastify": "^11.0.5",
+    "redux-thunk": "^3.1.0",
+    "sass": "^1.83.4",
+    "stripe": "^18.3.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.18"
+  }
+}

@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "base/reset";
+
+@import "utils/variables";
+
+@import "base/fonts";
+@import "base/global";
+
+@import "shared/typography";
+@import "shared/fields";
+@import "shared/svgs";
+@import "shared/buttons";
+
+
+@import "components/emailSentModal";
+@import "components/sidebar";
+@import "components/header";
+@import "components/search";
+@import "components/filters";
+@import "components/categories";
+@import "components/connectorsAndCommunities";
+@import "components/connectorCard";
+@import "components/ratings";
+@import "components/reviewCard";
+@import "components/contactInfoModal";
+@import "components/manageNetworkTable";
+@import "components/deleteModal";
+@import "components/filterSidebar";
+@import "components/searchResults";
+@import "components/deactivationModal";
+@import "components/upgradePlanModal";
+@import "components/landingHeader";
+@import "components/footer";
+@import "components/reach";
+
+
+
+@import "pages/landing";
+@import "pages/about";
+@import "pages/auth";
+@import "pages/home";
+@import "pages/pricing";
+@import "pages/blogs";
+@import "pages/blog";
+@import "pages/privacyPolicy";
+@import "pages/user/community";
+@import "pages/user/category";
+@import "pages/user/manageNetwork";
+@import "pages/user/manageNetworkDetails";
+@import "pages/user/editNetworkDetails";
+@import "pages/user/leads";
+@import "pages/user/listCommunity";
+@import "pages/user/listPreview";
+@import "pages/user/allFilters";
+@import "pages/user/settings/layout";
+@import "pages/user/settings/contactInfo";
+@import "pages/user/settings/password";
+@import "pages/user/settings/notifications";
+@import "pages/user/settings/payment";
+
+
+
+
+
+
+
