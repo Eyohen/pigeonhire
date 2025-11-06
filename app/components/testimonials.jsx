@@ -106,7 +106,7 @@ export default function Testimonials() {
           </div>
           <div className="landing__testimonials__inner__cards__card">
             <div className="landing__testimonials__inner__cards__card__title">
-              <div>Gwala</div>
+              <div>Studendly</div>
 
               <Image
                 alt=""
@@ -117,12 +117,10 @@ export default function Testimonials() {
             </div>
 
             <div className="landing__testimonials__inner__cards__card__subtitle">
-              Our partnership with Pigeonhire during our campus ambassador
-              program was a game-changer. The access to a range of communities
-              and connectors resulted in unprecedented engagement and sales.
+             All I can say is wow. Thanks to the Pigeonhire team for exceeding our goal not just in user acquisition but in conversion. Our previous experience with another company resulted in vanity user acquisition. So this is quite refreshing.
             </div>
           </div>
-          <div className="landing__testimonials__inner__cards__card">
+          {/* <div className="landing__testimonials__inner__cards__card">
             <div className="landing__testimonials__inner__cards__card__title">
               <div>Alex Klaxic</div>
 
@@ -140,7 +138,7 @@ export default function Testimonials() {
               resonate with our audience, enhancing both our community's value
               and our collaboration
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

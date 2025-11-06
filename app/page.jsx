@@ -96,7 +96,7 @@ export default function Home() {
         <div className="landing__done-for-you__content">
           <h1 className="landing__done-for-you__content__title">Explore our Done-For-You service</h1>
           <p className="landing__done-for-you__content__subtitle">We find, connect and convert for you</p>
-          <p className="landing__done-for-you__content__description">Think of our Done-For-You service as having a team of outsourced experts as your in-house outreach team. We'll plan, connect, and collaborate on your behalf to make sure your brand, service, or mission reaches the right audience, faster and smarter. You'll get expert-curated connection and community lists, outreach handled by professionals, ongoing relationship management and progress reporting and more. </p>
+          <p className="landing__done-for-you__content__description">Think of our Done-For-You service as an outsourced team working as your in-house outreach experts. We’ll handle the planning, connecting, and collaboration to get your brand, service, or mission to the right audience—quickly and effectively. Our strategy blends SEO, social media, and targeted outreach with curated connection lists, ongoing relationship management, and detailed progress reporting, all backed by data-driven insights for continuous growth. </p>
           <button className="landing__done-for-you__content__button">Get Personalised plan</button>
         </div>
       </div>
