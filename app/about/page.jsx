@@ -31,6 +31,7 @@ export default function About() {
             this gap by connecting them with engaged communities, to foster
             authentic connections for lasting growth.
           </div>
+          
           <div className="w-full max-w-[47.5ch]">
             At Pigeonhire, we understand the power of connection and the need to
             engage audiences where they are most active. Our platform fosters
