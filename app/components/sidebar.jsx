@@ -3,12 +3,12 @@ import Image from "next/image";
 import SearchIcon from "./searchIcon";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
-import NetworkIcon from "@/public/assets/icons/network";
+import NetworkIcon from "./networkIcon";
 import UpgradeModal from "./upgradePlanModal";
 import { useState, useEffect } from "react";
 import UpgradeModalPay from "./upgradePlanModalPay";
-import LeadsIcon from "@/public/assets/icons/leads";
-import SettingsIcon from "@/public/assets/icons/settings";
+import LeadsIcon from "./leadsIcon";
+import SettingsIcon from "./settingsIcon";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Sidebar() {

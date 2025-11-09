@@ -1,5 +1,5 @@
-  // Format date to display in a readable format
-  export const formatDate = (dateString) => {
+// Format date to display in a readable format
+export const formatDate = (dateString) => {
     if (!dateString) return '';
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', { 
