@@ -9,7 +9,7 @@ export default function LandingHeader({ logo }) {
   const [active, setActive] = useState(false)
 
   return (
-    <header className="landing-header">
+    <header className="relative w-full max-w-[1352px] mx-auto px-5 py-16 h-[114px] flex justify-between items-center tablet:h-14 tablet:bg-white">
       <Link href={"/"} prefetch={true}>
         <Image
           alt=""
@@ -20,58 +20,50 @@ export default function LandingHeader({ logo }) {
               ? "/assets/icons/logoBlack.svg"
               : "/assets/icons/logo.svg"
           }
-          className="landing-header__logo-desktop"
+          className="tablet:hidden"
         />
         <Image
           alt=""
           width={250}
           height={50}
-          src={
-           
-            "/assets/icons/logo.svg"
-          }
-          className="landing-header__logo-mobile"
-
+          src={"/assets/icons/logo.svg"}
+          className="hidden tablet:block tablet:w-[114px] tablet:h-[22.8px]"
         />
       </Link>
-      <nav>
+      <nav className="title-18 font-medium text-[#8d8d8d] text-2xl hidden tablet:flex items-center gap-8">
         <Link
           href={"/about"}
           prefetch={true}
-          className={
-            pathname?.includes("about") ? "landing-header__active" : ""
-          }
+          className={pathname?.includes("about") ? "text-secondary" : ""}
         >
           About Us
         </Link>
         <Link
           href={"/pricing"}
           prefetch={true}
-          className={
-            pathname?.includes("pricing") ? "landing-header__active" : ""
-          }
+          className={pathname?.includes("pricing") ? "text-secondary" : ""}
         >
           Pricing
         </Link>
         <Link
           href={"/user"}
           prefetch={true}
-          className={pathname?.includes("user") ? "landing-header__active" : ""}
+          className={pathname?.includes("user") ? "text-secondary" : ""}
         >
           Networks
         </Link>
       </nav>
-      <div className="landing-header__button-group">
-        <Link href="/login" prefetch={true}>
+      <div className="hidden tablet:flex items-center gap-8">
+        <Link href="/login" prefetch={true} className="font-medium text-secondary bg-none border-none underline">
           Login
         </Link>
-        <Link href="/register" prefetch={true}>
+        <Link href="/register" prefetch={true} className="primary-button w-fit h-12 px-8 whitespace-nowrap text-2xl py-6">
           Sign Up for free
         </Link>
       </div>
 
       <Image
-        className="landing-header__hamburger"
+        className="tablet:hidden cursor-pointer"
         alt=""
         width={24}
         height={24}
@@ -79,40 +71,36 @@ export default function LandingHeader({ logo }) {
         onClick={() => setActive(!active)}
       />
 
-      <div className={active ? "landing-header__mobile-menu landing-header__mobile-menu-active" : "landing-header__mobile-menu"}>
-        <nav>
+      <div className={`absolute top-[50px] left-0 w-full bg-white px-0 pb-[72px] pl-3 z-10 transition-all duration-400 ${
+        active ? "[clip-path:polygon(0_100%,100%_100%,100%_0,0_0)]" : "[clip-path:polygon(0_0,100%_0,100%_0,0_0)]"
+      }`}>
+        <nav className="flex flex-col gap-6 mb-6 pt-[18px]">
           <Link
             href={"/about"}
             prefetch={true}
-            className={
-              pathname?.includes("about") ? "landing-header__active" : ""
-            }
+            className={`title-18 font-medium ${pathname?.includes("about") ? "text-secondary" : "text-[#8d8d8d]"}`}
           >
             About Us
           </Link>
           <Link
             href={"/pricing"}
             prefetch={true}
-            className={
-              pathname?.includes("pricing") ? "landing-header__active" : ""
-            }
+            className={`title-18 font-medium ${pathname?.includes("pricing") ? "text-secondary" : "text-[#8d8d8d]"}`}
           >
             Pricing
           </Link>
           <Link
             href={"/user"}
             prefetch={true}
-            className={
-              pathname?.includes("user") ? "landing-header__active" : ""
-            }
+            className={`title-18 font-medium ${pathname?.includes("user") ? "text-secondary" : "text-[#8d8d8d]"}`}
           >
             Networks
           </Link>
         </nav>
 
-        <div className="landing-header__mobile-menu__button-group">
-          <Link href="/login">Login</Link>
-          <Link href="/register">Sign Up for free</Link>
+        <div className="relative w-fit flex items-center justify-center gap-4 mx-auto">
+          <Link href="/login" className="title-18 w-[201px] py-[13px] px-6 bg-[#fff6eb] font-medium rounded-3xl text-secondary whitespace-nowrap flex items-center justify-center phone:w-[120px] phone:text-[11px] phone:h-8">Login</Link>
+          <Link href="/register" className="primary-button max-w-[201px] py-[13px] px-6 whitespace-nowrap">Sign Up for free</Link>
         </div>
       </div>
     </header>

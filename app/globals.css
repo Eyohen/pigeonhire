@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-size: calc(100vw / 1440 * 10);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+
+  @media (min-width: 1440px) {
+    html {
+      font-size: 62.5%;
+    }
+  }
+
+  @media (max-width: 565px) {
+    html {
+      font-size: calc(100vw / 550 * 10);
+    }
+  }
+
+  :root {
+    --font-primary: var(--font-inter), sans-serif;
+  }
+
+  body {
+    @apply font-primary text-normal text-text;
+    line-height: 1;
+  }
+
+  a {
+    @apply text-inherit no-underline cursor-pointer;
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
+
+  textarea {
+    font-family: inherit;
+  }
+
+  label {
+    @apply block font-normal text-base mb-2;
+  }
+
+  input {
+    accent-color: #028c4b;
+  }
+
+  textarea {
+    @apply pt-3;
+  }
+}
+
+@layer components {
+  /* Typography Classes */
+  .title-60 {
+    @apply text-[60px] font-extrabold text-white font-ojuju leading-[72px];
+  }
+
+  @media (max-width: 565px) {
+    .title-60 {
+      @apply text-4xl leading-[48px];
+    }
+  }
+
+  .title-56 {
+    @apply text-[56px];
+  }
+
+  .title-50 {
+    @apply text-[50px] font-extrabold;
+  }
+
+  @media (max-width: 565px) {
+    .title-50 {
+      @apply text-[32px];
+    }
+  }
+
+  .title-48 {
+    @apply text-5xl font-bold;
+  }
+
+  @media (max-width: 565px) {
+    .title-48 {
+      @apply text-[32px];
+    }
+  }
+
+  .title-40 {
+    @apply text-[40px] font-bold leading-[140%] mx-auto text-center;
+  }
+
+  .title-36 {
+    @apply text-4xl font-bold font-ojuju;
+  }
+
+  @media (max-width: 565px) {
+    .title-36 {
+      @apply text-2xl;
+    }
+  }
+
+  .title-32 {
+    @apply text-[32px] font-semibold;
+  }
+
+  .title-24 {
+    @apply text-2xl font-semibold;
+  }
+
+  .title-21 {
+    @apply text-[21px];
+  }
+
+  .title-20 {
+    @apply text-xl font-normal leading-[140%];
+  }
+
+  .title-18 {
+    @apply text-lg font-normal;
+  }
+
+  .title-16 {
+    @apply text-base font-medium;
+  }
+
+  .title-14 {
+    @apply text-sm font-normal leading-[140%];
+  }
+
+  .title-12 {
+    @apply text-xs font-normal;
+  }
+
+  .title-8 {
+    @apply text-[8px];
+  }
+
+  /* Button Classes */
+  .primary-button {
+    @apply w-full max-w-[599px] h-[50px] flex items-center justify-center gap-2.5 bg-primary rounded-button font-medium text-lg text-white border-none;
+    box-shadow: 0px 2px 8px 0px #00000040 inset;
+  }
+
+  @media (max-width: 565px) {
+    .primary-button {
+      @apply w-[120px] text-[11px] h-8;
+    }
+  }
+
+  /* Input Classes */
+  .primary-input {
+    @apply border border-border w-full max-w-[599px] h-14 flex gap-5 justify-between items-center rounded-input px-6;
+  }
+
+  .primary-input > input {
+    @apply w-full border-none outline-none;
+  }
+
+  .primary-input > input::placeholder {
+    @apply text-sm text-gray;
+  }
+
+  .otp-input {
+    @apply w-full h-16 border border-border rounded bg-transparent text-5xl text-center;
+  }
+
+  /* Utility Classes */
+  .main {
+    @apply min-h-screen flex flex-col justify-between;
+  }
+
+  .inner {
+    @apply flex items-center justify-center max-w-container w-full mx-auto;
+  }
+
+  @media (max-width: 565px) {
+    .inner {
+      @apply mx-auto my-0;
+    }
+  }
+
+  .hidden-scroll-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pointer {
+    @apply cursor-pointer;
+  }
+
+  @keyframes marqueeXLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-650px * var(--item-count) - (20px * var(--item-count))));
+    }
+  }
+}

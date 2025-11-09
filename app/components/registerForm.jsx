@@ -62,12 +62,16 @@ export default function RegisterForm(params) {
         watch,
       } = useForm();
     return (
-        <form className="auth__form-register" onSubmit={handleSubmit(onSubmit)}>
+        <form className="max-w-[599px] mx-auto" onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="firstName">First name</label>
-          <div className="auth__form__input">
-            <input type="text" name="firstName" placeholder="e.g John Doe"
-            required
-            {...register("firstName")}
+          <div className="primary-input mb-4">
+            <input
+              type="text"
+              name="firstName"
+              placeholder="e.g John Doe"
+              required
+              {...register("firstName")}
+              disabled={loading}
             />
             <Image
               alt=""
@@ -78,10 +82,14 @@ export default function RegisterForm(params) {
           </div>
 
           <label htmlFor="lastName">Last name</label>
-          <div className="auth__form__input">
-            <input type="text" name="lastName" placeholder="e.g John Doe"
-            required
-            {...register("lastName")}
+          <div className="primary-input mb-4">
+            <input
+              type="text"
+              name="lastName"
+              placeholder="e.g John Doe"
+              required
+              {...register("lastName")}
+              disabled={loading}
             />
             <Image
               alt=""
@@ -90,12 +98,16 @@ export default function RegisterForm(params) {
               src={"/assets/icons/user.svg"}
             />
           </div>
-          <label htmlFor="email">Email address</label>
 
-          <div className="auth__form__input">
-            <input type="email" name="email" placeholder="e.g John Doe"
-            required
-            {...register("email")}
+          <label htmlFor="email">Email address</label>
+          <div className="primary-input mb-4">
+            <input
+              type="email"
+              name="email"
+              placeholder="e.g John Doe"
+              required
+              {...register("email")}
+              disabled={loading}
             />
             <Image
               alt=""
@@ -106,14 +118,15 @@ export default function RegisterForm(params) {
           </div>
 
           <label htmlFor="password">Password</label>
-          <div className="auth__form__input">
+          <div className="primary-input mb-4">
             <input
               type={passwordOpen ? "text" : "password"}
               name="password"
               placeholder="Enter your password"
               required
-            {...register("password")}
-            />{" "}
+              {...register("password")}
+              disabled={loading}
+            />
             <Image
               alt=""
               width={24}
@@ -124,22 +137,23 @@ export default function RegisterForm(params) {
             />
           </div>
 
-          {/* <div className="auth__form__password-instructions">
-            <div>Must have:</div>
+          {/* <div className="text-xs text-[#da1e28] -mt-2 mb-4">
+            <div className="font-medium">Must have:</div>
             <div>Include one uppercase letter.</div>
             <div>Include at least one number.</div>
             <div>At least 8 characters long.</div>
           </div> */}
-          <label htmlFor="password">Confirm password</label>
 
-          <div className="auth__form__input">
+          <label htmlFor="password">Confirm password</label>
+          <div className="primary-input mb-4">
             <input
               type={passwordOpen ? "text" : "password"}
               name="password"
               placeholder="Enter your password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-            />{" "}
+              disabled={loading}
+            />
             <Image
               alt=""
               width={24}
@@ -150,21 +164,25 @@ export default function RegisterForm(params) {
             />
           </div>
 
-          <div className="auth__form__terms">
-            <input required type="checkbox" name="" id="" />
+          <div className="flex items-center gap-3 mb-[25px]">
+            <input required type="checkbox" name="" id="" disabled={loading} className="w-6 h-6" />
             <div>
-              I agree to the <span>Terms & Data policy</span>
+              I agree to the <span className="text-primary">Terms & Data policy</span>
             </div>
           </div>
 
-          <button className="auth__button" disabled={loading}>{loading ? "Loading..." : "Sign Up"}</button>
-          <div className="auth__login">
-            Don’t have an account! <Link href="/login">Login</Link>
-          </div>
-          <div className="auth__line"></div>
-          <div className="auth__signup">or Sign Up with</div>
+          <button className="primary-button mb-6" disabled={loading}>
+            {loading ? "Loading..." : "Sign Up"}
+          </button>
 
-          <button className="auth__oauth">
+          <div className="title-14 text-center mb-[33px] text-[#8d8d8d]">
+            Don't have an account! <Link href="/login" className="text-primary underline">Login</Link>
+          </div>
+
+          <div className="w-full h-px bg-[#e5e5e5] mb-[33px]"></div>
+          <div className="title-14 text-center text-[#8d8d8d] bg-white w-fit mx-auto -mt-[43px] mb-6 px-[15px]">or Sign Up with</div>
+
+          <button className="w-full max-w-[599px] h-16 bg-transparent border border-[#e5e5e5] mb-12 rounded-[32px]" type="button" disabled={loading}>
             <Image
               alt=""
               width={88}

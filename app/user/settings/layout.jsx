@@ -4,10 +4,10 @@ import Image from "next/image";
 export default function SettingsLayout({ children }) {
   
   return (
-    <div className="settings">
+    <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.55fr] gap-6 items-start">
       <SettingsNavigation />
 
-      <div className="settings__inner">
+      <div>
         {children}
       </div>
     </div>

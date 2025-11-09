@@ -10,113 +10,113 @@ export default function SettingsNavigation() {
       console.log("pathname", pathname);
 
   return (
-    <div className="settings__navigation">
-    <Link 
+    <div className="border border-[#E5E5E5] p-5 rounded-3xl flex flex-col gap-5 h-[537px]">
+    <Link
     href={"/user/settings/contact-info"}
     prefetch={true}
-    className={pathname?.includes("contact-info") ? "settings__navigation__card settings__navigation__card-active" : "settings__navigation__card"}
+    className={`p-[15px_12px] border rounded-lg flex items-center gap-3 ${pathname?.includes("contact-info") ? "border-[#F6911F]" : "border-[#E5E5E5]"}`}
     >
       <Image
-        className="search__close"
+        className="flex-shrink-0"
         alt=""
         width={31}
         height={31}
         src={"/assets/icons/profile.svg"}
       />
-      <div>
-        <div className="settings__navigation__card__title">My Profile</div>
-        <div className="settings__navigation__card__subtitle">
+      <div className="w-full">
+        <div className="font-medium mb-1">My Profile</div>
+        <div className="text-sm leading-[140%] text-[#8D8D8D]">
           Provide personal details and how we can reach you
         </div>
       </div>
 
       <Image
-        className="search__close"
+        className="flex-shrink-0"
         alt=""
         width={24}
         height={24}
         src={"/assets/icons/arrowRight.svg"}
       />
     </Link>
-    <Link 
-    className={pathname?.includes("password") ? "settings__navigation__card settings__navigation__card-active" : "settings__navigation__card"}
+    <Link
+    className={`p-[15px_12px] border rounded-lg flex items-center gap-3 ${pathname?.includes("password") ? "border-[#F6911F]" : "border-[#E5E5E5]"}`}
     href={"/user/settings/password"}
     prefetch={true}
     >
       <Image
-        className="search__close"
+        className="flex-shrink-0"
         alt=""
         width={31}
         height={31}
         src={"/assets/icons/password.svg"}
       />
-      <div>
-        <div className="settings__navigation__card__title">
+      <div className="w-full">
+        <div className="font-medium mb-1">
           Password and Security
         </div>
-        <div className="settings__navigation__card__subtitle">
+        <div className="text-sm leading-[140%] text-[#8D8D8D]">
           Update your password and secure your account{" "}
         </div>
       </div>
 
       <Image
-        className="search__close"
+        className="flex-shrink-0"
         alt=""
         width={24}
         height={24}
         src={"/assets/icons/arrowRight.svg"}
       />
     </Link>
-    <Link 
-    className={pathname?.includes("payments") ? "settings__navigation__card settings__navigation__card-active" : "settings__navigation__card"}
+    <Link
+    className={`p-[15px_12px] border rounded-lg flex items-center gap-3 ${pathname?.includes("payments") ? "border-[#F6911F]" : "border-[#E5E5E5]"}`}
     href={"/user/settings/payments"}
     >
       <Image
-        className="search__close"
+        className="flex-shrink-0"
         alt=""
         width={31}
         height={31}
         src={"/assets/icons/payments.svg"}
       />
-      <div>
-        <div className="settings__navigation__card__title">
+      <div className="w-full">
+        <div className="font-medium mb-1">
         Payments
         </div>
-        <div className="settings__navigation__card__subtitle">
+        <div className="text-sm leading-[140%] text-[#8D8D8D]">
         Review payments methods and update card details
         </div>
       </div>
 
       <Image
-        className="search__close"
+        className="flex-shrink-0"
         alt=""
         width={24}
         height={24}
         src={"/assets/icons/arrowRight.svg"}
       />
     </Link>
-    <Link 
-    className={pathname?.includes("notifications") ? "settings__navigation__card settings__navigation__card-active" : "settings__navigation__card"}
+    <Link
+    className={`p-[15px_12px] border rounded-lg flex items-center gap-3 ${pathname?.includes("notifications") ? "border-[#F6911F]" : "border-[#E5E5E5]"}`}
     href={"/user/settings/notifications"}
     >
       <Image
-        className="search__close"
+        className="flex-shrink-0"
         alt=""
         width={31}
         height={31}
         src={"/assets/icons/pushNotifications.svg"}
       />
-      <div>
-        <div className="settings__navigation__card__title">
+      <div className="w-full">
+        <div className="font-medium mb-1">
           Push Notifications
         </div>
-        <div className="settings__navigation__card__subtitle">
+        <div className="text-sm leading-[140%] text-[#8D8D8D]">
           Toggle on/off notifications you want{" "}
         </div>
       </div>
 
       <Image
-        className="search__close"
+        className="flex-shrink-0"
         alt=""
         width={24}
         height={24}

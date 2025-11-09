@@ -65,44 +65,64 @@ export function HomeHero(params) {
     // }, "-=1.6")
   }, []);
   return (
-    <div className="landing__hero">
-      <div className="landing__hero__inner">
-        <div className="landing__hero__inner__title">
-          {/* <Image
-            alt=""
-            width={52}
-            height={52}
-            src={"/assets/icons/bubbles.svg"}
-          /> */}
-          <div className="landing__hero__inner__title__inner">
+    <div className="relative pt-20 pb-12 bg-[#241301] overflow-hidden phone:pt-[60px] phone:pb-[18px]">
+      <div className="w-full max-w-[1352px] px-5 mx-auto phone:px-3">
+        <div className="title-56 w-full max-w-[1000px] text-center font-semibold leading-[140%] mx-auto mb-6 flex justify-center text-white phone:text-[28px]">
+          {/* <div className="w-full max-w-[26ch] text-5xl relative phone:max-w-[20ch]">
             Reach your Target Audience, Right Where they Engage.
-          </div>
-          {/* <Image alt="" width={52} height={52} src={"/assets/icons/star.svg"} /> */}
+          </div> */}
         </div>
-        <div className="landing__hero__inner__button-group">
-          <Link href="/register" prefetch={true}>
+        <div className="text-center">
+          <p className="text-7xl text-white font-semibold">Reach your Target Audience, Right</p>
+          <p className="text-7xl text-white font-semibold pt-6">Where they Engage.</p>
+        </div>
+        <div className="mt-12 relative w-fit flex items-center justify-center py-2 px-4 rounded-[48px] gap-6 shadow-[0px_-2px_12px_2px_#bcbcbc1a,0px_2px_12px_2px_#bcbcbc1a] mx-auto bg-white z-[3] phone:mb-9">
+          {/* <Link href="/register" prefetch={true} className="title-18 w-[201px] py-[13px] px-6 border border-secondary font-medium rounded-[24px] bg-transparent text-secondary whitespace-nowrap flex items-center justify-center phone:w-[120px] phone:text-[11px] phone:h-8">
+            Sign Up
+          </Link> */}
+          <Link href="/register" prefetch={true} className="title-18 px-16 border border-secondary rounded-[24px] text-2xl max-w-[201px] py-[13px] whitespace-nowrap">
             Sign Up
           </Link>
-          <Link href="/user" prefetch={true}>
+          <Link href="/user" prefetch={true} className="primary-button max-w-[201px] py-[13px] px-9 whitespace-nowrap text-2xl">
             Browse Networks
           </Link>
         </div>
-        <div className="landing__hero__inner__cards-img">
+        {/* <div className="relative">
           <Image
-            className="landing__hero__inner__cards-img__desktop"
+            className="-mt-[140px] relative w-full h-auto z-[2] phone:hidden"
             alt=""
             width={1230.2078857421875}
             height={726.2468872070312}
             src={"/assets/home-cards.png"}
           />
           <Image
-            className="landing__hero__inner__cards-img__mobile"
+            className="hidden phone:block relative w-full h-auto z-[2]"
             alt=""
             width={339.34893798828125}
             height={217.29168701171875}
             src={"/assets/home-cards-mobile.png"}
           />
-          <div className="landing__hero__inner__cards-img__banner"></div>
+          <div className="absolute left-1/2 -translate-x-1/2 bg-white w-[2168px] h-[1112px] rounded-[50%] top-[65%] phone:top-[55%] phone:h-[653px] phone:w-[1151px]"></div>
+        </div> */}
+        <div className="relative max-w-[800px] mx-auto">
+          <Image
+            className="-mt-[140px] relative w-full h-auto z-[2] phone:hidden"
+            alt=""
+            width={1230.2078857421875}
+            height={726.2468872070312}
+            src={"/assets/home-cards.png"}
+
+          />
+          <Image
+            className="hidden phone:block relative w-full h-auto z-[2]"
+            alt=""
+            width={339.34893798828125}
+            height={217.29168701171875}
+            src={"/assets/home-cards-mobile.png"}
+         
+
+          />
+          <div className="absolute left-1/2 -translate-x-1/2 bg-white w-[2168px] h-[1112px] rounded-[50%] top-[65%]"></div>
         </div>
       </div>
     </div>

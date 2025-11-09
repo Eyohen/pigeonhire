@@ -3,8 +3,8 @@ import ListConnectorDetails from "@/app/components/listConnectorDetails";
 
 export default function ListCommunity (params) {
     return (
-        <div className="list-community">
-        <div className="list-community__title">
+        <div>
+        <div className="text-lg font-medium mb-6">
         List a Community
             </div>
        <ListConnectorDetails />

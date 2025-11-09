@@ -161,45 +161,42 @@ export default function ListCommunityDetails() {
 
   return (
     <>
-      <div className="list-community__tabs">
+      <div className="flex gap-8 mb-8 border-b border-border">
         <div
-          className={tab === "info" ? "list-community__tabs__active" : ""}
+          className={`title-18 px-4 py-3 whitespace-nowrap font-medium cursor-pointer ${tab === "info" ? "border-b border-secondary text-secondary" : ""}`}
           onClick={() => handleTabChange("info")}
         >
           Community Information
         </div>
         <div
-          className={tab === "image" ? "list-community__tabs__active" : ""}
+          className={`title-18 px-4 py-3 whitespace-nowrap font-medium cursor-pointer ${tab === "image" ? "border-b border-secondary text-secondary" : ""}`}
           onClick={() => handleTabChange("image")}
         >
           Community Image
         </div>
         <div
-          className={
-            tab === "additional-info" ? "list-community__tabs__active" : ""
-          }
+          className={`title-18 px-4 py-3 whitespace-nowrap font-medium cursor-pointer ${tab === "additional-info" ? "border-b border-secondary text-secondary" : ""}`}
           onClick={() => handleTabChange("additional-info")}
         >
           Additional Features
         </div>
         <div
-          className={
-            tab === "contact-info" ? "list-community__tabs__active" : ""
-          }
+          className={`title-18 px-4 py-3 whitespace-nowrap font-medium cursor-pointer ${tab === "contact-info" ? "border-b border-secondary text-secondary" : ""}`}
           onClick={() => handleTabChange("contact-info")}
         >
           Contact Information
         </div>
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-[921px]">
         {tab === "info" && (
-          <div>
+          <div className="w-full max-w-[921px]">
             <label htmlFor="name">Community Name:</label>
             <input
               type="text"
               id="name"
               placeholder="enter name"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("name", { required: "Name is required" })}
             />
             {errors.name && <p className="error">{errors.name.message}</p>}
@@ -208,6 +205,7 @@ export default function ListCommunityDetails() {
             <textarea
               id="description"
               placeholder="enter description"
+              className="border border-border w-full max-w-full rounded px-6 mb-6 pt-4 h-[134px]"
               {...register("description", {
                 required: "Description is required",
               })}
@@ -219,6 +217,7 @@ export default function ListCommunityDetails() {
             <label htmlFor="communityType">Community Type:</label>
             <select
               id="communityType"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("communityType", {
                 required: "Community type is required",
               })}
@@ -280,6 +279,7 @@ export default function ListCommunityDetails() {
             <input
               type="date"
               id="established"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("established", {
                 required: "Established date is required",
               })}
@@ -291,6 +291,7 @@ export default function ListCommunityDetails() {
             <label htmlFor="size">Total Number of Members:</label>
             <select
               id="size"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("size", { required: "Size is required" })}
             >
               <option value="">select numbers</option>
@@ -302,7 +303,7 @@ export default function ListCommunityDetails() {
             </select>
             {errors.size && <p className="error">{errors.size.message}</p>}
 
-            <div className="list-community__input-grid">
+            <div className="grid grid-cols-2 gap-6 max-w-full">
                         <div>
                           <label htmlFor="location">Location:</label>
                           <Controller
@@ -339,13 +340,14 @@ export default function ListCommunityDetails() {
                           <label htmlFor="state">Country:</label>
                           <select
                             id="state"
+                            className="border border-border w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
                             {...register("state", { required: "State is required" })}
                           >
                             <option value="">select country</option>
-                            {countries?.map((country) => 
+                            {countries?.map((country) =>
                             <option value={country?.label}>{country?.label}</option>
                             )}
-                           
+
                             {/* Add more states as needed */}
                           </select>
                           {errors.state && (
@@ -373,6 +375,7 @@ export default function ListCommunityDetails() {
             <label htmlFor="engagementLevel">Engagement Level:</label>
             <select
               id="engagementLevel"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("engagementLevel", {
                 required: "Engagement level is required",
               })}
@@ -393,6 +396,7 @@ export default function ListCommunityDetails() {
               type="text"
               id="frequency"
               placeholder="Number of posting days/week"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("frequency", {
                 required: "Frequency is required",
                 pattern: {
@@ -405,30 +409,31 @@ export default function ListCommunityDetails() {
               <p className="error">{errors.frequency.message}</p>
             )}
 
-            <button type="button" onClick={() => handleTabChange("image")}>
+            <button type="button" className="primary-button max-w-[429px] mx-auto mt-10" onClick={() => handleTabChange("image")}>
               Next
             </button>
           </div>
         )}
 
         {tab === "image" && (
-          <div>
+          <div className="w-full max-w-[921px]">
             <label htmlFor="communityImage">Upload Community image</label>
 
-            <div className="list-community__file">
-              <div className="list-community__file__group">
-                <button type="button">Choose File</button>
+            <div className="flex gap-6 items-center mb-3">
+              <div className="w-full h-[65px] rounded px-3 gap-8 flex items-center bg-gray-light">
+                <button type="button" className="title-14 w-[113px] h-10 border border-[#31A653] rounded-lg bg-white">Choose File</button>
                 <div>No File Chosen</div>
               </div>
 
-              <button type="button">Upload</button>
+              <button type="button" className="w-[124px] h-[66px] bg-[#31A653] rounded-lg border-none font-semibold text-[16.99px] text-white">Upload</button>
             </div>
-            <div className="list-community__file-info">
+            <div className="text-[#667085] mb-6">
               Please upload .jpeg, .jpg, .png or .pdf, size less than 100KB
             </div>
 
             <button
               type="button"
+              className="primary-button max-w-[429px] mx-auto mt-10"
               onClick={() => handleTabChange("additional-info")}
             >
               Next
@@ -437,7 +442,7 @@ export default function ListCommunityDetails() {
         )}
 
         {tab === "additional-info" && (
-          <div>
+          <div className="w-full max-w-[921px]">
             <label htmlFor="contentShared">Types of content shared:</label>
 
             <Controller
@@ -486,12 +491,14 @@ export default function ListCommunityDetails() {
               type="text"
               id="communityInterest"
               placeholder="Enter key topics and interests"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("communityInterest")}
             />
 
             <label htmlFor="communicationPlatform">Platforms Used:</label>
             <select
               id="communicationPlatform"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("communicationPlatform", {
                 required: "Platform is required",
               })}
@@ -558,6 +565,7 @@ export default function ListCommunityDetails() {
               type="text"
               id="usp"
               placeholder="What are your community selling points?"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("usp")}
             />
 
@@ -566,6 +574,7 @@ export default function ListCommunityDetails() {
               type="text"
               id="recognition"
               placeholder="enter special recognition or award received"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("recognition")}
             />
 
@@ -575,11 +584,13 @@ export default function ListCommunityDetails() {
             <textarea
               id="additionalService"
               placeholder="Include any additional service offered"
+              className="border border-border w-full max-w-full rounded px-6 mb-6 pt-4 h-[134px]"
               {...register("additionalService")}
             ></textarea>
 
             <button
               type="button"
+              className="primary-button max-w-[429px] mx-auto mt-10"
               onClick={() => handleTabChange("contact-info")}
             >
               Next
@@ -588,9 +599,9 @@ export default function ListCommunityDetails() {
         )}
 
         {tab === "contact-info" && (
-          <div>
+          <div className="w-full max-w-[921px]">
             <label htmlFor="accessRequirements">Access Requirements:</label>
-            <select id="accessRequirements" {...register("accessType")}>
+            <select id="accessRequirements" className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6" {...register("accessType")}>
               <option value="">select access requirement</option>
               <option value="free">Free</option>
               <option value="paid">Paid</option>
@@ -602,6 +613,7 @@ export default function ListCommunityDetails() {
               type="text"
               id="website"
               placeholder="enter link to your community or website"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("website", {
                 pattern: {
                   value:
@@ -619,6 +631,7 @@ export default function ListCommunityDetails() {
               type="text"
               id="phone"
               placeholder="enter your phone number"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("phone", {
                 pattern: {
                   value: /^[0-9+\-\s()]*$/,
@@ -633,6 +646,7 @@ export default function ListCommunityDetails() {
               type="email"
               id="email"
               placeholder="enter your email address"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("email", {
                 pattern: {
                   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
@@ -641,12 +655,13 @@ export default function ListCommunityDetails() {
               })}
             />
             {errors.email && <p className="error">{errors.email.message}</p>}
-            
-            <label htmlFor="email">Whatsapp:</label>
+
+            <label htmlFor="whatsapp">Whatsapp:</label>
             <input
               type="text"
               id="whatsapp"
               placeholder="enter your whatsapp phone number"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("whatsapp", {
                 pattern: {
                   value: /^[0-9+\-\s()]*$/,
@@ -655,27 +670,29 @@ export default function ListCommunityDetails() {
               })}
             />
             {errors.whatsapp && <p className="error">{errors.whatsapp.message}</p>}
-           
-            <label htmlFor="email">Telegram:</label>
+
+            <label htmlFor="telegram">Telegram:</label>
             <input
               type="text"
               id="telegram"
               placeholder="enter your telegram username. Eg: @henro19"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("telegram")}
             />
             {errors.telegram && <p className="error">{errors.telegram.message}</p>}
-           
+
             <label htmlFor="twitter">Twitter:</label>
             <input
               type="text"
               id="twitter"
               placeholder="enter your twitter username. Eg: HenryEyo14"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("twitter")}
             />
             {errors.twitter && <p className="error">{errors.twitter.message}</p>}
-           
+
             {/* Changed to button type="submit" to trigger the form submission */}
-            <button type="submit">Preview and Save</button>
+            <button type="submit" className="primary-button max-w-[429px] mx-auto mt-10">Preview and Save</button>
           </div>
         )}
       </form>

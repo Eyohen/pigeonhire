@@ -320,49 +320,15 @@ console.log("winning plan data", planData);
     return (
         open && (
             <div
-                className='upgrade-plan-modal'
-                style={{
-                    position: "fixed",
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    backgroundColor: "rgba(0, 0, 0, 0.5)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    zIndex: 1000,
-                    padding: "20px",
-                    overflowY: "auto",
-                }}
+                className="fixed inset-0 bg-black/50 flex items-center justify-center z-[1000] p-5 overflow-y-auto"
             >
                 <div
-                    className='upgrade-plan-modal__inner'
-                    style={{
-                        backgroundColor: "white",
-                        borderRadius: "12px",
-                        width: "100%",
-                        maxWidth: "500px",
-                        maxHeight: "90vh",
-                        display: "flex",
-                        flexDirection: "column",
-                        boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)",
-                        margin: "auto",
-                    }}
+                    className="bg-white rounded-xl w-full max-w-[500px] max-h-[90vh] flex flex-col shadow-xl m-auto"
                 >
                     <div
-                        className='upgrade-plan-modal__inner__title-group'
-                        style={{
-                            padding: "24px 24px 0 24px",
-                            display: "flex",
-                            justifyContent: "space-between",
-                            alignItems: "center",
-                            flexShrink: 0,
-                            borderBottom: "1px solid #e5e7eb",
-                            paddingBottom: "16px",
-                        }}
+                        className="px-6 pt-6 pb-0 flex justify-between items-center shrink-0 border-b border-[#e5e7eb] pb-4"
                     >
-                        <div style={{ fontSize: "20px", fontWeight: "600" }}>
+                        <div className="text-xl font-semibold">
                             Upgrade plan
                         </div>
                         <Image
@@ -372,162 +338,69 @@ console.log("winning plan data", planData);
                             src={"/assets/icons/close.svg"}
                             className='pointer'
                             onClick={() => setOpen(false)}
-                            style={{ cursor: "pointer" }}
                         />
                     </div>
 
                         <div
-                        className='upgrade-plan-modal__inner__content'
-                        style={{
-                            padding: "24px",
-                            overflowY: "auto",
-                            flexGrow: 1,
-                            display: "flex",
-                            flexDirection: "column",
-                            gap: "24px",
-                        }}
+                        className="p-6 overflow-y-auto flex-grow flex flex-col gap-6"
                     >
                         <div
-                            className='upgrade-plan-modal__inner__plan-card'
-                            style={{
-                                border: "1px solid #e5e7eb",
-                                borderRadius: "8px",
-                                padding: "20px",
-                            }}
+                            className="border border-[#e5e7eb] rounded-lg p-5"
                         >
                             <div
-                                className='upgrade-plan-modal__inner__plan-card__title-group'
-                                style={{
-                                    display: "flex",
-                                    justifyContent: "space-between",
-                                    alignItems: "center",
-                                    marginBottom: "16px",
-                                }}
+                                className="flex justify-between items-center mb-4"
                             >
                                 <div
-                                    style={{
-                                        fontSize: "18px",
-                                        fontWeight: "600",
-                                    }}
+                                    className="text-lg font-semibold"
                                 >
                                     {planData?.name || "Plan"}
                                 </div>
                                 <div
-                                    style={{
-                                        fontSize: "18px",
-                                        fontWeight: "700",
-                                        color: "#059669",
-                                    }}
+                                    className="text-lg font-bold text-emerald-600"
                                 >
                                     {planData?.currencySymbol || "$"}
                                     {planData?.amount || "0"} /{" "}
                                     {planData?.interval || "month"}
                                 </div>
                             </div>
-                            <ul
-                                style={{
-                                    listStyle: "none",
-                                    padding: 0,
-                                    margin: 0,
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    gap: "8px",
-                                }}
-                            >
-                                <li
-                                    style={{
-                                        display: "flex",
-                                        alignItems: "center",
-                                        gap: "8px",
-                                    }}
-                                >
-                                    <span style={{ color: "#059669" }}>✓</span>
+                            <ul className="list-none p-0 m-0 flex flex-col gap-2">
+                                <li className="flex items-center gap-2">
+                                    <span className="text-emerald-600">✓</span>
                                     Unlimited access to the full database.
                                 </li>
-                                <li
-                                    style={{
-                                        display: "flex",
-                                        alignItems: "center",
-                                        gap: "8px",
-                                    }}
-                                >
-                                    <span style={{ color: "#059669" }}>✓</span>
+                                <li className="flex items-center gap-2">
+                                    <span className="text-emerald-600">✓</span>
                                     Full database access with intelligent
                                     matchmaking and insights.
                                 </li>
-                                <li
-                                    style={{
-                                        display: "flex",
-                                        alignItems: "center",
-                                        gap: "8px",
-                                    }}
-                                >
-                                    <span style={{ color: "#059669" }}>✓</span>
+                                <li className="flex items-center gap-2">
+                                    <span className="text-emerald-600">✓</span>
                                     Vetted connections.
                                 </li>
-                                <li
-                                    style={{
-                                        display: "flex",
-                                        alignItems: "center",
-                                        gap: "8px",
-                                    }}
-                                >
-                                    <span style={{ color: "#059669" }}>✓</span>
+                                <li className="flex items-center gap-2">
+                                    <span className="text-emerald-600">✓</span>
                                     Quality ratings.
                                 </li>
-                                <li
-                                    style={{
-                                        display: "flex",
-                                        alignItems: "center",
-                                        gap: "8px",
-                                    }}
-                                >
-                                    <span style={{ color: "#059669" }}>✓</span>
+                                <li className="flex items-center gap-2">
+                                    <span className="text-emerald-600">✓</span>
                                     Advanced search.
                                 </li>
                             </ul>
                         </div>
 
                         {paymentStatus === "success" && (
-                            <div
-                                className='payment-success-message'
-                                style={{
-                                    backgroundColor: "#ecfdf5",
-                                    border: "1px solid #10b981",
-                                    borderRadius: "8px",
-                                    padding: "16px",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    gap: "12px",
-                                }}
-                            >
-                                <span style={{ fontSize: "20px" }}>✅</span>
+                            <div className="bg-emerald-50 border border-emerald-500 rounded-lg p-4 flex items-center gap-3">
+                                <span className="text-xl">✅</span>
                                 <div>
-                                    <div
-                                        style={{
-                                            fontWeight: "600",
-                                            color: "#065f46",
-                                        }}
-                                    >
+                                    <div className="font-semibold text-emerald-900">
                                         Payment Successful!
                                     </div>
-                                    <div
-                                        style={{
-                                            color: "#047857",
-                                            fontSize: "14px",
-                                        }}
-                                    >
+                                    <div className="text-emerald-700 text-sm">
                                         Your subscription has been activated.
                                         Redirecting...
                                     </div>
                                     {subscriptionId && (
-                                        <div
-                                            style={{
-                                                color: "#047857",
-                                                fontSize: "12px",
-                                                marginTop: "4px",
-                                            }}
-                                        >
+                                        <div className="text-emerald-700 text-xs mt-1">
                                             Subscription ID: {subscriptionId}
                                         </div>
                                     )}
@@ -536,76 +409,33 @@ console.log("winning plan data", planData);
                         )}
 
                         {paymentStatus === "error" && errorMessage && (
-                            <div
-                                className='payment-error-message'
-                                style={{
-                                    backgroundColor: "#fef2f2",
-                                    border: "1px solid #f87171",
-                                    borderRadius: "8px",
-                                    padding: "16px",
-                                    color: "#991b1b",
-                                }}
-                            >
-                                <div style={{ fontWeight: "600" }}>
+                            <div className="bg-red-50 border border-red-400 rounded-lg p-4 text-red-900">
+                                <div className="font-semibold">
                                     ❌ Payment Failed
                                 </div>
-                                <div
-                                    style={{
-                                        fontSize: "14px",
-                                        marginTop: "4px",
-                                    }}
-                                >
+                                <div className="text-sm mt-1">
                                     {errorMessage}
                                 </div>
                             </div>
                         )}
 
                         {!paymentStatus && errorMessage && (
-                            <div
-                                className='payment-error-message'
-                                style={{
-                                    backgroundColor: "#fffbeb",
-                                    border: "1px solid #f59e0b",
-                                    borderRadius: "8px",
-                                    padding: "16px",
-                                    color: "#92400e",
-                                }}
-                            >
-                                <div style={{ fontWeight: "600" }}>
+                            <div className="bg-amber-50 border border-amber-500 rounded-lg p-4 text-amber-900">
+                                <div className="font-semibold">
                                     ⚠️ Error
                                 </div>
-                                <div
-                                    style={{
-                                        fontSize: "14px",
-                                        marginTop: "4px",
-                                    }}
-                                >
+                                <div className="text-sm mt-1">
                                     {errorMessage}
                                 </div>
                             </div>
                         )}
 
                         {isInitializing && (
-                            <div
-                                className='payment-initializing-message'
-                                style={{
-                                    backgroundColor: "#f0f9ff",
-                                    border: "1px solid #3b82f6",
-                                    borderRadius: "8px",
-                                    padding: "16px",
-                                    color: "#1e40af",
-                                    textAlign: "center",
-                                }}
-                            >
-                                <div style={{ fontWeight: "600" }}>
+                            <div className="bg-blue-50 border border-blue-500 rounded-lg p-4 text-blue-900 text-center">
+                                <div className="font-semibold">
                                     🔄 Initializing subscription payment...
                                 </div>
-                                <div
-                                    style={{
-                                        fontSize: "14px",
-                                        marginTop: "4px",
-                                    }}
-                                >
+                                <div className="text-sm mt-1">
                                     Please wait while we prepare your
                                     subscription.
                                 </div>
@@ -615,34 +445,14 @@ console.log("winning plan data", planData);
                         {!showStripeForm &&
                             paymentStatus === "" &&
                             !isInitializing && (
-                                <div
-                                    className='upgrade-plan-modal__inner__button-group'
-                                    style={{
-                                        display: "flex",
-                                        gap: "12px",
-                                        flexDirection: "column",
-                                    }}
-                                >
+                                <div className="flex gap-3 flex-col">
                                     <button
                                         disabled={!planData?.priceId}
-                                        style={{
-                                            display: "flex",
-                                            alignItems: "center",
-                                            justifyContent: "center",
-                                            gap: "8px",
-                                            padding: "12px 24px",
-                                            backgroundColor: !planData?.priceId
-                                                ? "#e5e7eb"
-                                                : "#059669",
-                                            color: "white",
-                                            border: "none",
-                                            borderRadius: "8px",
-                                            fontSize: "16px",
-                                            fontWeight: "600",
-                                            cursor: !planData?.priceId
-                                                ? "not-allowed"
-                                                : "pointer",
-                                        }}
+                                        className={`title-12 font-semibold w-full h-10 rounded-lg border-none flex items-center justify-center gap-2 text-white ${
+                                            !planData?.priceId
+                                                ? "bg-[#e5e7eb] cursor-not-allowed"
+                                                : "bg-[#07969E] cursor-pointer"
+                                        }`}
                                     >
                                         <Image
                                             alt='Paystack'
@@ -658,26 +468,13 @@ console.log("winning plan data", planData);
                                         disabled={
                                             isInitializing || !planData?.priceId || !hasStripeKey
                                         }
-                                        style={{
-                                            padding: "12px 24px",
-                                            backgroundColor:
-                                                isInitializing ||
-                                                !planData?.priceId ||
-                                                !hasStripeKey
-                                                    ? "#e5e7eb"
-                                                    : "#6366f1",
-                                            color: "white",
-                                            border: "none",
-                                            borderRadius: "8px",
-                                            fontSize: "16px",
-                                            fontWeight: "600",
-                                            cursor:
-                                                isInitializing ||
-                                                !planData?.priceId ||
-                                                !hasStripeKey
-                                                    ? "not-allowed"
-                                                    : "pointer",
-                                        }}
+                                        className={`title-12 font-semibold w-full h-10 rounded-lg border-none text-white ${
+                                            isInitializing ||
+                                            !planData?.priceId ||
+                                            !hasStripeKey
+                                                ? "bg-[#e5e7eb] cursor-not-allowed"
+                                                : "bg-[#635BFF] cursor-pointer"
+                                        }`}
                                     >
                                         {isInitializing
                                             ? "Initializing..."
@@ -719,15 +516,7 @@ console.log("winning plan data", planData);
                                 </Elements>
                             )}
                         {showStripeForm && clientSecret && !hasStripeKey && (
-                            <div
-                                style={{
-                                    backgroundColor: "#fff7ed",
-                                    border: "1px solid #fb923c",
-                                    borderRadius: "8px",
-                                    padding: "16px",
-                                    color: "#c2410c",
-                                }}
-                            >
+                            <div className="bg-orange-50 border border-orange-400 rounded-lg p-4 text-orange-800">
                                 Stripe publishable key is missing. Set NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY and reload.
                             </div>
                         )}
@@ -814,29 +603,17 @@ const CheckoutForm = ({
     return (
         <form
             onSubmit={handleSubmit}
-            className='stripe-checkout-form'
-            style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "16px",
-            }}
+            className="flex flex-col gap-4"
         >
             <PaymentElement />
             <button
                 type='submit'
                 disabled={!stripe || isProcessing}
-                className='stripe-submit-button'
-                style={{
-                    padding: "12px 24px",
-                    backgroundColor:
-                        !stripe || isProcessing ? "#e5e7eb" : "#6366f1",
-                    color: "white",
-                    border: "none",
-                    borderRadius: "8px",
-                    fontSize: "16px",
-                    fontWeight: "600",
-                    cursor: !stripe || isProcessing ? "not-allowed" : "pointer",
-                }}
+                className={`py-3 px-6 text-white border-none rounded-lg text-base font-semibold ${
+                    !stripe || isProcessing
+                        ? "bg-[#e5e7eb] cursor-not-allowed"
+                        : "bg-[#6366f1] cursor-pointer"
+                }`}
             >
                 {isProcessing
                     ? "Processing payment..."
@@ -845,17 +622,7 @@ const CheckoutForm = ({
                       }`}
             </button>
             {errorMessage && (
-                <div
-                    className='stripe-error-message'
-                    style={{
-                        backgroundColor: "#fef2f2",
-                        border: "1px solid #f87171",
-                        borderRadius: "8px",
-                        padding: "12px",
-                        color: "#991b1b",
-                        fontSize: "14px",
-                    }}
-                >
+                <div className="bg-red-50 border border-red-400 rounded-lg p-3 text-red-900 text-sm">
                     ❌ {errorMessage}
                 </div>
             )}

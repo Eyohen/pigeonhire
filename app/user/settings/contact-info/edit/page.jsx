@@ -250,124 +250,113 @@ export default function SettingsContact({ initialData = {} }) {
   };
 
   return (
-    <div className="settings-contact">
-      <div className="settings-contact__inner">
+    <div>
+      <div className="border border-[#E5E5E5] rounded-3xl p-6 mb-8">
         {successMessage && (
-          <div className="success-message" style={{ 
-            padding: '10px', 
-            marginBottom: '20px', 
-            backgroundColor: '#d4edda', 
-            color: '#155724', 
-            border: '1px solid #c3e6cb', 
-            borderRadius: '4px' 
-          }}>
+          <div className="p-2.5 mb-5 bg-[#d4edda] text-[#155724] border border-[#c3e6cb] rounded">
             {successMessage}
           </div>
         )}
-        
+
         {errors.submit && (
-          <div className="error-message" style={{ 
-            padding: '10px', 
-            marginBottom: '20px', 
-            backgroundColor: '#f8d7da', 
-            color: '#721c24', 
-            border: '1px solid #f5c6cb', 
-            borderRadius: '4px' 
-          }}>
+          <div className="p-2.5 mb-5 bg-[#f8d7da] text-[#721c24] border border-[#f5c6cb] rounded">
             {errors.submit}
           </div>
         )}
 
         <form onSubmit={handleSubmit}>
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="firstName">First Name *</label>
-              <input 
-                type="text" 
+          <div className="flex gap-5 mb-5 phone:flex-col phone:gap-0">
+            <div className="mb-5 flex-1">
+              <label htmlFor="firstName" className="block mb-2 font-medium text-[#333]">First Name *</label>
+              <input
+                type="text"
                 id="firstName"
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleInputChange}
-                placeholder="Enter first name" 
-                className={errors.firstName ? 'error' : ''}
+                placeholder="Enter first name"
+                className={`w-full p-3 border rounded text-base transition-colors ${errors.firstName ? 'border-[#dc3545]' : 'border-[#ddd]'} focus:outline-none focus:border-[#007bff] focus:shadow-[0_0_0_2px_rgba(0,123,255,0.25)]`}
               />
-              {errors.firstName && <span className="error-text">{errors.firstName}</span>}
+              {errors.firstName && <span className="text-[#dc3545] text-sm mt-1 block">{errors.firstName}</span>}
             </div>
-            
-            <div className="form-group">
-              <label htmlFor="lastName">Last Name *</label>
-              <input 
-                type="text" 
+
+            <div className="mb-5 flex-1">
+              <label htmlFor="lastName" className="block mb-2 font-medium text-[#333]">Last Name *</label>
+              <input
+                type="text"
                 id="lastName"
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleInputChange}
-                placeholder="Enter last name" 
-                className={errors.lastName ? 'error' : ''}
+                placeholder="Enter last name"
+                className={`w-full p-3 border rounded text-base transition-colors ${errors.lastName ? 'border-[#dc3545]' : 'border-[#ddd]'} focus:outline-none focus:border-[#007bff] focus:shadow-[0_0_0_2px_rgba(0,123,255,0.25)]`}
               />
-              {errors.lastName && <span className="error-text">{errors.lastName}</span>}
+              {errors.lastName && <span className="text-[#dc3545] text-sm mt-1 block">{errors.lastName}</span>}
             </div>
           </div>
 
-          <div className="form-group">
-            <label htmlFor="email">Email Address *</label>
-            <input 
-              type="email" 
+          <div className="mb-5 flex-1">
+            <label htmlFor="email" className="block mb-2 font-medium text-[#333]">Email Address *</label>
+            <input
+              type="email"
               id="email"
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              placeholder="Enter email address" 
-              className={errors.email ? 'error' : ''}
+              placeholder="Enter email address"
+              className={`w-full p-3 border rounded text-base transition-colors ${errors.email ? 'border-[#dc3545]' : 'border-[#ddd]'} focus:outline-none focus:border-[#007bff] focus:shadow-[0_0_0_2px_rgba(0,123,255,0.25)]`}
             />
-            {errors.email && <span className="error-text">{errors.email}</span>}
+            {errors.email && <span className="text-[#dc3545] text-sm mt-1 block">{errors.email}</span>}
           </div>
 
-          <div className="form-group">
-            <label htmlFor="phone">Phone Number</label>
-            <input 
-              type="tel" 
+          <div className="mb-5 flex-1">
+            <label htmlFor="phone" className="block mb-2 font-medium text-[#333]">Phone Number</label>
+            <input
+              type="tel"
               id="phone"
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
-              placeholder="Enter phone number (e.g., +234801234567)" 
-              className={errors.phone ? 'error' : ''}
+              placeholder="Enter phone number (e.g., +234801234567)"
+              className={`w-full p-3 border rounded text-base transition-colors ${errors.phone ? 'border-[#dc3545]' : 'border-[#ddd]'} focus:outline-none focus:border-[#007bff] focus:shadow-[0_0_0_2px_rgba(0,123,255,0.25)]`}
             />
-            {errors.phone && <span className="error-text">{errors.phone}</span>}
+            {errors.phone && <span className="text-[#dc3545] text-sm mt-1 block">{errors.phone}</span>}
           </div>
 
-          <div className="form-group">
-            <label htmlFor="location">Location</label>
-            <input 
-              type="text" 
+          <div className="mb-5 flex-1">
+            <label htmlFor="location" className="block mb-2 font-medium text-[#333]">Location</label>
+            <input
+              type="text"
               id="location"
               name="location"
               value={formData.location}
               onChange={handleInputChange}
-              placeholder="Enter your location (e.g., Lagos, Nigeria)" 
+              placeholder="Enter your location (e.g., Lagos, Nigeria)"
+              className="w-full p-3 border border-[#ddd] rounded text-base transition-colors focus:outline-none focus:border-[#007bff] focus:shadow-[0_0_0_2px_rgba(0,123,255,0.25)]"
             />
           </div>
 
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="dateOfBirth">Date of Birth</label>
-              <input 
-                type="date" 
+          <div className="flex gap-5 mb-5 phone:flex-col phone:gap-0">
+            <div className="mb-5 flex-1">
+              <label htmlFor="dateOfBirth" className="block mb-2 font-medium text-[#333]">Date of Birth</label>
+              <input
+                type="date"
                 id="dateOfBirth"
                 name="dateOfBirth"
                 value={formData.dateOfBirth}
                 onChange={handleInputChange}
+                className="w-full p-3 border border-[#ddd] rounded text-base transition-colors focus:outline-none focus:border-[#007bff] focus:shadow-[0_0_0_2px_rgba(0,123,255,0.25)]"
               />
             </div>
-            
-            <div className="form-group">
-              <label htmlFor="gender">Gender</label>
-              <select 
+
+            <div className="mb-5 flex-1">
+              <label htmlFor="gender" className="block mb-2 font-medium text-[#333]">Gender</label>
+              <select
                 id="gender"
                 name="gender"
                 value={formData.gender}
                 onChange={handleInputChange}
+                className="w-full p-3 border border-[#ddd] rounded text-base transition-colors focus:outline-none focus:border-[#007bff] focus:shadow-[0_0_0_2px_rgba(0,123,255,0.25)]"
               >
                 <option value="">Select gender</option>
                 <option value="male">Male</option>
@@ -378,189 +367,96 @@ export default function SettingsContact({ initialData = {} }) {
             </div>
           </div>
 
-          <div className="form-group">
-            <label htmlFor="bio">Bio</label>
-            <textarea 
+          <div className="mb-5 flex-1">
+            <label htmlFor="bio" className="block mb-2 font-medium text-[#333]">Bio</label>
+            <textarea
               id="bio"
               name="bio"
               value={formData.bio}
               onChange={handleInputChange}
               placeholder="Tell us about yourself..."
               rows="4"
+              className="w-full p-3 border border-[#ddd] rounded text-base transition-colors focus:outline-none focus:border-[#007bff] focus:shadow-[0_0_0_2px_rgba(0,123,255,0.25)]"
             />
           </div>
 
-          <div className="form-group">
-            <label htmlFor="website">Website</label>
-            <input 
-              type="url" 
+          <div className="mb-5 flex-1">
+            <label htmlFor="website" className="block mb-2 font-medium text-[#333]">Website</label>
+            <input
+              type="url"
               id="website"
               name="website"
               value={formData.website}
               onChange={handleInputChange}
-              placeholder="https://yourwebsite.com" 
-              className={errors.website ? 'error' : ''}
+              placeholder="https://yourwebsite.com"
+              className={`w-full p-3 border rounded text-base transition-colors ${errors.website ? 'border-[#dc3545]' : 'border-[#ddd]'} focus:outline-none focus:border-[#007bff] focus:shadow-[0_0_0_2px_rgba(0,123,255,0.25)]`}
             />
-            {errors.website && <span className="error-text">{errors.website}</span>}
+            {errors.website && <span className="text-[#dc3545] text-sm mt-1 block">{errors.website}</span>}
           </div>
 
-          <div className="social-links">
-            <h4>Social Media Links</h4>
-            
-            <div className="form-group">
-              <label htmlFor="linkedIn">LinkedIn</label>
-              <input 
-                type="url" 
+          <div className="mt-[30px] pt-5 border-t border-[#eee]">
+            <h4 className="mb-5 text-[#333]">Social Media Links</h4>
+
+            <div className="mb-5">
+              <label htmlFor="linkedIn" className="block mb-2 font-medium text-[#333]">LinkedIn</label>
+              <input
+                type="url"
                 id="linkedIn"
                 name="linkedIn"
                 value={formData.linkedIn}
                 onChange={handleInputChange}
-                placeholder="https://linkedin.com/in/yourusername" 
+                placeholder="https://linkedin.com/in/yourusername"
+                className="w-full p-3 border border-[#ddd] rounded text-base transition-colors focus:outline-none focus:border-[#007bff] focus:shadow-[0_0_0_2px_rgba(0,123,255,0.25)]"
               />
             </div>
 
-            <div className="form-group">
-              <label htmlFor="twitter">Twitter</label>
-              <input 
-                type="url" 
+            <div className="mb-5">
+              <label htmlFor="twitter" className="block mb-2 font-medium text-[#333]">Twitter</label>
+              <input
+                type="url"
                 id="twitter"
                 name="twitter"
                 value={formData.twitter}
                 onChange={handleInputChange}
-                placeholder="https://twitter.com/yourusername" 
+                placeholder="https://twitter.com/yourusername"
+                className="w-full p-3 border border-[#ddd] rounded text-base transition-colors focus:outline-none focus:border-[#007bff] focus:shadow-[0_0_0_2px_rgba(0,123,255,0.25)]"
               />
             </div>
 
-            <div className="form-group">
-              <label htmlFor="instagram">Instagram</label>
-              <input 
-                type="url" 
+            <div className="mb-5">
+              <label htmlFor="instagram" className="block mb-2 font-medium text-[#333]">Instagram</label>
+              <input
+                type="url"
                 id="instagram"
                 name="instagram"
                 value={formData.instagram}
                 onChange={handleInputChange}
-                placeholder="https://instagram.com/yourusername" 
+                placeholder="https://instagram.com/yourusername"
+                className="w-full p-3 border border-[#ddd] rounded text-base transition-colors focus:outline-none focus:border-[#007bff] focus:shadow-[0_0_0_2px_rgba(0,123,255,0.25)]"
               />
             </div>
           </div>
         </form>
       </div>
 
-      <div className="settings-contact__button-group">
-        <button 
-          type="button" 
+      <div className="flex gap-2 items-center justify-end phone:flex-col">
+        <button
+          type="button"
           onClick={handleCancel}
           disabled={loading}
+          className="w-[180px] h-[42px] font-semibold border border-[#E5E5E5] rounded bg-transparent text-[#8D8D8D] cursor-pointer phone:w-full"
         >
           Cancel
         </button>
-        <button 
+        <button
           type="submit"
           onClick={handleSubmit}
           disabled={loading}
+          className="w-[180px] h-[42px] font-semibold bg-[#F6911F] border-none rounded text-white cursor-pointer phone:w-full"
         >
           {loading ? "Saving..." : "Save changes"}
         </button>
       </div>
-
-      <style jsx>{`
-        .settings-contact {
-          max-width: 600px;
-          margin: 0 auto;
-        }
-        
-        .settings-contact__inner {
-          padding: 20px;
-        }
-        
-        .form-row {
-          display: flex;
-          gap: 20px;
-          margin-bottom: 20px;
-        }
-        
-        .form-group {
-          margin-bottom: 20px;
-          flex: 1;
-        }
-        
-        .form-group label {
-          display: block;
-          margin-bottom: 8px;
-          font-weight: 500;
-          color: #333;
-        }
-        
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-          width: 100%;
-          padding: 12px;
-          border: 1px solid #ddd;
-          border-radius: 4px;
-          font-size: 16px;
-          transition: border-color 0.3s;
-        }
-        
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-          outline: none;
-          border-color: #007bff;
-          box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
-        }
-        
-        .form-group input.error,
-        .form-group select.error,
-        .form-group textarea.error {
-          border-color: #dc3545;
-        }
-        
-        .error-text {
-          color: #dc3545;
-          font-size: 14px;
-          margin-top: 4px;
-          display: block;
-        }
-        
-        .social-links {
-          margin-top: 30px;
-          padding-top: 20px;
-          border-top: 1px solid #eee;
-        }
-        
-        .social-links h4 {
-          margin-bottom: 20px;
-          color: #333;
-        }
-        
-        .settings-contact__button-group {
-          display: flex;
-          justify-content: flex-end;
-          gap: 15px;
-          padding: 20px;
-          border-top: 1px solid #eee;
-        }
-        
-        .settings-contact__button-group button {
-          cursor: pointer;
-        }
-        
-        @media (max-width: 768px) {
-          .form-row {
-            flex-direction: column;
-            gap: 0;
-          }
-          
-          .settings-contact__button-group {
-            flex-direction: column;
-          }
-          
-          .settings-contact__button-group button {
-            width: 100%;
-          }
-        }
-      `}</style>
     </div>
   );
 }

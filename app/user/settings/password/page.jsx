@@ -137,11 +137,11 @@ export default function SettingsPassword() {
     };
 
     return (
-        <div className='password'>
-            <div className='settings-contact__inner__header'>
+        <div className='border border-[#E5E5E5] rounded-3xl p-6'>
+            <div className='flex items-center justify-between mb-4'>
                 <div>Password and Security</div>
                 {!isEditing && (
-                    <div className='pointer' onClick={() => setIsEditing(true)}>
+                    <div className='cursor-pointer' onClick={() => setIsEditing(true)}>
                         <Image
                             alt='Edit'
                             width={50}
@@ -154,34 +154,18 @@ export default function SettingsPassword() {
 
             {/* Display messages */}
             {error && (
-                <div
-                    style={{
-                        color: "red",
-                        marginBottom: "10px",
-                        padding: "10px",
-                        backgroundColor: "#ffe6e6",
-                        borderRadius: "4px",
-                    }}
-                >
+                <div className="text-red-600 mb-2.5 p-2.5 bg-[#ffe6e6] rounded">
                     {error}
                 </div>
             )}
             {success && (
-                <div
-                    style={{
-                        color: "green",
-                        marginBottom: "10px",
-                        padding: "10px",
-                        backgroundColor: "#e6ffe6",
-                        borderRadius: "4px",
-                    }}
-                >
+                <div className="text-green-600 mb-2.5 p-2.5 bg-[#e6ffe6] rounded">
                     {success}
                 </div>
             )}
 
             {/* Security Notice */}
-            <div className='password__disclaimer'>
+            <div className='text-sm leading-[140%] font-medium flex items-center gap-1 mb-4'>
                 <Image
                     alt=''
                     width={16}
@@ -194,17 +178,17 @@ export default function SettingsPassword() {
             </div>
 
             {/* Email Display */}
-            <div className='password__grid'>
-                <div>Email:</div>
-                <div style={{ fontWeight: 'bold' }}>{maskEmail(userEmail)}</div>
+            <div className='text-sm leading-[140%] grid grid-cols-[60px_auto] gap-2 mb-4'>
+                <div className="text-[#8D8D8D]">Email:</div>
+                <div className="font-medium">{maskEmail(userEmail)}</div>
             </div>
 
             {!isEditing ? (
                 // Display mode - show masked password
-                <div className='password__group'>
-                    <label htmlFor=''>Password:</label>
+                <div className='grid grid-cols-[90px_auto] items-center gap-[38px]'>
+                    <label htmlFor='' className='text-sm leading-[140%] text-[#8D8D8D] whitespace-nowrap mb-0'>Password:</label>
                     <OutlinedInput
-                        className='password__group__input'
+                        className='w-full text-base h-[42px]'
                         id='display-password'
                         name='display-password'
                         type='password'
@@ -215,10 +199,10 @@ export default function SettingsPassword() {
             ) : (
                 // Edit mode - show password change form
                 <>
-                    <div className='password__group'>
-                        <label htmlFor=''>Current password:</label>
+                    <div className='grid grid-cols-[90px_auto] items-center gap-[38px]'>
+                        <label htmlFor='' className='text-sm leading-[140%] text-[#8D8D8D] whitespace-nowrap mb-0'>Current password:</label>
                         <OutlinedInput
-                            className='password__group__input'
+                            className='w-full text-base h-[42px]'
                             required
                             id='current-password'
                             name='current-password'
@@ -247,10 +231,10 @@ export default function SettingsPassword() {
                     </div>
                     <br />
 
-                    <div className='password__group'>
-                        <label htmlFor=''>New password:</label>
+                    <div className='grid grid-cols-[90px_auto] items-center gap-[38px]'>
+                        <label htmlFor='' className='text-sm leading-[140%] text-[#8D8D8D] whitespace-nowrap mb-0'>New password:</label>
                         <OutlinedInput
-                            className='password__group__input'
+                            className='w-full text-base h-[42px]'
                             required
                             id='new-password'
                             name='new-password'
@@ -279,10 +263,10 @@ export default function SettingsPassword() {
                     </div>
                     <br />
 
-                    <div className='password__group'>
-                        <label htmlFor=''>Confirm password:</label>
+                    <div className='grid grid-cols-[90px_auto] items-center gap-[38px]'>
+                        <label htmlFor='' className='text-sm leading-[140%] text-[#8D8D8D] whitespace-nowrap mb-0'>Confirm password:</label>
                         <OutlinedInput
-                            className='password__group__input'
+                            className='w-full text-base h-[42px]'
                             required
                             id='confirm-password'
                             name='confirm-password'
@@ -312,11 +296,12 @@ export default function SettingsPassword() {
                     <br />
                     <br />
 
-                    <div className='settings-contact__button-group'>
-                        <button onClick={handleCancel} disabled={loading}>
+                    <div className='flex gap-2 items-center justify-end phone:flex-col'>
+                        <button className='w-[180px] h-[42px] font-semibold border border-[#E5E5E5] rounded bg-transparent text-[#8D8D8D] cursor-pointer phone:w-full' onClick={handleCancel} disabled={loading}>
                             Cancel
                         </button>
                         <button
+                            className='w-[180px] h-[42px] font-semibold bg-[#F6911F] border-none rounded text-white cursor-pointer phone:w-full'
                             onClick={handlePasswordChange}
                             disabled={loading}
                         >

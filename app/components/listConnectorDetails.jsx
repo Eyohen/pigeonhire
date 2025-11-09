@@ -162,37 +162,38 @@ export default function ListConnectorDetails() {
 
   return (
     <>
-      <div className="list-community__tabs">
+      <div className="flex gap-8 mb-8 border-b border-border">
         <div
-          className={tab === "personal" ? "list-community__tabs__active" : ""}
+          className={`title-18 px-4 py-3 whitespace-nowrap font-medium cursor-pointer ${tab === "personal" ? "border-b border-secondary text-secondary" : ""}`}
           onClick={() => handleTabChange("personal")}
         >
           Personal & Professional details
         </div>
         <div
-          className={tab === "connection" ? "list-community__tabs__active" : ""}
+          className={`title-18 px-4 py-3 whitespace-nowrap font-medium cursor-pointer ${tab === "connection" ? "border-b border-secondary text-secondary" : ""}`}
           onClick={() => handleTabChange("connection")}
         >
           Connection details
         </div>
         <div
-          className={tab === "contact" ? "list-community__tabs__active" : ""}
+          className={`title-18 px-4 py-3 whitespace-nowrap font-medium cursor-pointer ${tab === "contact" ? "border-b border-secondary text-secondary" : ""}`}
           onClick={() => handleTabChange("contact")}
         >
           Contact Information
         </div>
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-[921px]">
         {tab === "personal" && (
-          <div>
-            <div className="list-community__input-grid">
+          <div className="w-full max-w-[921px]">
+            <div className="grid grid-cols-2 gap-6 max-w-full">
               <div>
                 <label htmlFor="firstName">First Name:</label>
                 <input
                   type="text"
                   id="firstName"
                   placeholder="enter first name"
+                  className="border border-border w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
                   {...register("firstName", {
                     required: "First name is required",
                   })}
@@ -207,6 +208,7 @@ export default function ListConnectorDetails() {
                   type="text"
                   id="lastName"
                   placeholder="enter last name"
+                  className="border border-border w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
                   {...register("lastName", {
                     required: "Last name is required",
                   })}
@@ -223,6 +225,7 @@ export default function ListConnectorDetails() {
 
             <select
               id="communityName"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("communityName", {
                 required: "Community is required",
               })}
@@ -243,6 +246,7 @@ export default function ListConnectorDetails() {
               type="text"
               id="role"
               placeholder="enter role"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("role", { required: "Role is required" })}
             />
             {errors.role && <p className="error">{errors.role.message}</p>}
@@ -251,6 +255,7 @@ export default function ListConnectorDetails() {
             <textarea
               id="description"
               placeholder="enter description"
+              className="border border-border w-full max-w-full rounded px-6 mb-6 pt-4 h-[134px]"
               {...register("description", {
                 required: "Description is required",
               })}
@@ -262,6 +267,7 @@ export default function ListConnectorDetails() {
             <label htmlFor="sourceOfInfo">Source of information:</label>
             <select
               id="sourceOfInfo"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("sourceOfInfo", {
                 required: "Source of information is required",
               })}
@@ -282,6 +288,7 @@ export default function ListConnectorDetails() {
               type="text"
               id="postFrequency"
               placeholder="Number of posting days/week"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("postFrequency", {
                 required: "Frequency is required",
                 pattern: {
@@ -294,7 +301,7 @@ export default function ListConnectorDetails() {
               <p className="error">{errors.postFrequency.message}</p>
             )}
 
-            <div className="list-community__input-grid">
+            <div className="grid grid-cols-2 gap-6 max-w-full">
               <div>
                 <label htmlFor="location">Location:</label>
                 <Controller
@@ -331,13 +338,14 @@ export default function ListConnectorDetails() {
                 <label htmlFor="state">Country:</label>
                 <select
                   id="state"
+                  className="border border-border w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
                   {...register("state", { required: "State is required" })}
                 >
                   <option value="">select country</option>
-                  {countries?.map((country) => 
+                  {countries?.map((country) =>
                   <option value={country?.label}>{country?.label}</option>
                   )}
-                 
+
                   {/* Add more states as needed */}
                 </select>
                 {errors.state && (
@@ -349,6 +357,7 @@ export default function ListConnectorDetails() {
             <label htmlFor="accessRequirement">Access Requirements:</label>
             <select
               id="accessRequirement"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("accessRequirement", {
                 required: "Access requirement is required",
               })}
@@ -362,17 +371,18 @@ export default function ListConnectorDetails() {
               <p className="error">{errors.accessRequirement.message}</p>
             )}
 
-            <button type="button" onClick={() => handleTabChange("connection")}>
+            <button type="button" className="primary-button max-w-[429px] mx-auto mt-10" onClick={() => handleTabChange("connection")}>
               Next
             </button>
           </div>
         )}
 
         {tab === "connection" && (
-          <div>
+          <div className="w-full max-w-[921px]">
             <label htmlFor="connectionType">Connection Type:</label>
             <select
               id="connectionType"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("connectionType", {
                 required: "Connection type is required",
               })}
@@ -391,6 +401,7 @@ export default function ListConnectorDetails() {
             <label htmlFor="connectionPlatform">Connection Platform:</label>
             <select
               id="connectionPlatform"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("connectionPlatform", {
                 required: "Connection platform is required",
               })}
@@ -411,6 +422,7 @@ export default function ListConnectorDetails() {
               type="text"
               id="usp"
               placeholder="What are your community selling points?"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("usp")}
             />
 
@@ -419,6 +431,7 @@ export default function ListConnectorDetails() {
               type="text"
               id="recognition"
               placeholder="enter special recognition or award received"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("recognition")}
             />
 
@@ -428,22 +441,24 @@ export default function ListConnectorDetails() {
             <textarea
               id="additionalInfo"
               placeholder="List any companies, individuals, or sectors you can connect anyone to—e.g., funders, companies, service providers, or experts in tech, finance, education, health, legal, etc. Be as specific as possible."
+              className="border border-border w-full max-w-full rounded px-6 mb-6 pt-4 h-[134px]"
               {...register("additionalInfo")}
             ></textarea>
 
-            <button type="button" onClick={() => handleTabChange("contact")}>
+            <button type="button" className="primary-button max-w-[429px] mx-auto mt-10" onClick={() => handleTabChange("contact")}>
               Next
             </button>
           </div>
         )}
 
         {tab === "contact" && (
-          <div>
+          <div className="w-full max-w-[921px]">
             <label htmlFor="website">Link to Community page / website:</label>
             <input
               type="text"
               id="website"
               placeholder="enter link to your community or website"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("website", {
                 pattern: {
                   value:
@@ -461,6 +476,7 @@ export default function ListConnectorDetails() {
               type="email"
               id="email"
               placeholder="enter email"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("email", {
                 required: "Email is required",
                 pattern: {
@@ -476,6 +492,7 @@ export default function ListConnectorDetails() {
               type="text"
               id="phone"
               placeholder="enter phone number"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("phone", {
                 pattern: {
                   value: /^[0-9+\-\s()]*$/,
@@ -490,6 +507,7 @@ export default function ListConnectorDetails() {
               type="text"
               id="instagram"
               placeholder="Instagram Profile:"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("instagram")}
             />
 
@@ -498,6 +516,7 @@ export default function ListConnectorDetails() {
               type="text"
               id="linkedIn"
               placeholder="enter linkedin URL"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("linkedIn")}
             />
 
@@ -506,6 +525,7 @@ export default function ListConnectorDetails() {
               type="text"
               id="twitter"
               placeholder="enter X/Twitter URL"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("twitter")}
             />
 
@@ -514,6 +534,7 @@ export default function ListConnectorDetails() {
               type="text"
               id="whatsapp"
               placeholder="enter whatsapp URL"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("whatsapp")}
             />
 
@@ -522,10 +543,11 @@ export default function ListConnectorDetails() {
               type="text"
               id="otherContact"
               placeholder="enter other contact"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
               {...register("otherContact")}
             />
 
-            <button type="submit">Preview and Save</button>
+            <button type="submit" className="primary-button max-w-[429px] mx-auto mt-10">Preview and Save</button>
           </div>
         )}
       </form>

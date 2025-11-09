@@ -36,44 +36,44 @@ export default function ManageNetwork() {
   };
 
   return (
-    <div className="manage-network">
-      <div className="manage-network__cards">
-        <div className="manage-network__cards__card">
+    <div>
+      <div className="grid grid-cols-3 gap-6 mb-8">
+        <div className="w-full h-[94px] border border-[#D9D9D9] rounded-lg p-3 px-6 flex gap-2">
           <Image
             src={"/assets/icons/communities.svg"}
             width={36}
             height={36}
             alt=""
           />
-          <div className="manage-network__cards__card__group">
-            <div>Total Communities</div>
-            <div className="manage-network__cards__card__number">4</div>
+          <div>
+            <div className="text-sm font-normal leading-[140%] mt-[9px] mb-[17px]">Total Communities</div>
+            <div className="text-2xl font-semibold">4</div>
           </div>
         </div>
-        <div className="manage-network__cards__card">
+        <div className="w-full h-[94px] border border-[#D9D9D9] rounded-lg p-3 px-6 flex gap-2">
             <Image
               src={"/assets/icons/profileView.svg"}
               width={36}
               height={36}
               alt=""
             />
-          <div className="manage-network__cards__card__group">
-            <div>Total Profile view</div>
-          <div className="manage-network__cards__card__number-mini">
+          <div>
+            <div className="text-sm font-normal leading-[140%] mt-[9px] mb-[17px]">Total Profile view</div>
+          <div className="font-semibold">
             {getCardValue(analyticsData?.analytics?.profilesViewed, 1200)}
           </div>
           </div>
         </div>
-        <div className="manage-network__cards__card">
+        <div className="w-full h-[94px] border border-[#D9D9D9] rounded-lg p-3 px-6 flex gap-2">
             <Image
               src={"/assets/icons/profileView.svg"}
               width={36}
               height={36}
               alt=""
             />
-          <div className="manage-network__cards__card__group">
-            <div>Total Contact click</div>
-          <div className="manage-network__cards__card__number-mini">
+          <div>
+            <div className="text-sm font-normal leading-[140%] mt-[9px] mb-[17px]">Total Contact click</div>
+          <div className="font-semibold">
             {/* 500 */}
             {getCardValue(analyticsData?.recentActivity?.contacts, 500)}
           </div>
@@ -82,18 +82,12 @@ export default function ManageNetwork() {
       </div>
 
       {error && (
-        <div className="error-message" style={{ 
-          color: 'red', 
-          margin: '10px 0', 
-          padding: '10px', 
-          backgroundColor: '#ffe6e6', 
-          borderRadius: '4px' 
-        }}>
+        <div className="text-red-600 my-[10px] p-[10px] bg-[#ffe6e6] rounded">
           Error loading analytics: {error}
         </div>
       )}
 
-      <div className="manage-network__title">My Networks</div>
+      <div className="text-lg font-medium mb-4">My Networks</div>
       <ManageNetworkTable />
     </div>
   );

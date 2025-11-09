@@ -67,13 +67,13 @@ console.log("userInfo", userInfo);
   };
 
   return (
-    !!token && 
-    <div className="sidebar">
-      <Link href="/" prefetch={true} className="sidebar__logo">
+    !!token &&
+    <div className="w-[265px] max-w-[265px] bg-gray-light pb-10">
+      <Link href="/" prefetch={true} className="w-full h-36 flex items-center justify-center">
         <Image alt="" width={200} height={40} src={"/assets/icons/logo.svg"} />
       </Link>
 
-      <div className="sidebar__form">
+      <div className="w-full h-14 bg-white flex items-center gap-2 px-8 font-medium">
       <div>
         <SearchIcon />
       </div>
@@ -81,22 +81,22 @@ console.log("userInfo", userInfo);
         <div>Explore networks</div>
       </div>
 
-      <div className="sidebar__nav">
-        <Link className={pathname?.includes("manage-network") ? "sidebar__nav__item sidebar__nav__item-active" : "sidebar__nav__item"} href="/user/manage-network" prefetch={true}>
+      <div>
+        <Link className={pathname?.includes("manage-network") ? "w-full h-14 px-8 mt-8 flex items-center gap-2 bg-white text-black cursor-pointer" : "w-full h-14 px-8 mt-8 flex items-center gap-2 text-gray cursor-pointer"} href="/user/manage-network" prefetch={true}>
           <NetworkIcon color={pathname?.includes("manage-network") && "#000"} />
           Manage Network
         </Link>
-        <Link className={pathname?.includes("leads") ? "sidebar__nav__item sidebar__nav__item-active" : "sidebar__nav__item"} href="/user/leads" prefetch={true}>
+        <Link className={pathname?.includes("leads") ? "w-full h-14 px-8 mt-8 flex items-center gap-2 bg-white text-black cursor-pointer" : "w-full h-14 px-8 mt-8 flex items-center gap-2 text-gray cursor-pointer"} href="/user/leads" prefetch={true}>
         <LeadsIcon color={pathname?.includes("leads") && "#000"} />
 
           Leads
         </Link>
-        <Link className={pathname?.includes("settings") ? "sidebar__nav__item sidebar__nav__item-active" : "sidebar__nav__item"} href="/user/settings/contact-info" prefetch={true}>
+        <Link className={pathname?.includes("settings") ? "w-full h-14 px-8 mt-8 flex items-center gap-2 bg-white text-black cursor-pointer" : "w-full h-14 px-8 mt-8 flex items-center gap-2 text-gray cursor-pointer"} href="/user/settings/contact-info" prefetch={true}>
         <SettingsIcon color={pathname?.includes("settings") && "#000"} />
-          
+
           Settings
         </Link>
-        <div className="sidebar__nav__item"
+        <div className="w-full h-14 px-8 mt-8 flex items-center gap-2 text-gray cursor-pointer"
         onClick={handleLogout}
         >
           <Image
@@ -109,12 +109,13 @@ console.log("userInfo", userInfo);
         </div>
       </div>
 
-      <div className="sidebar__plan">
-        <div className="sidebar__plan__inner">
-          <div className="sidebar__plan__inner__title">{currentPlan}</div>
-          <div className="sidebar__plan__inner__line"></div>
+      <div className="w-full px-8 my-[124px]">
+        <div className="w-full h-[130px] rounded-2xl bg-white">
+          <div className="text-sm font-normal leading-[140%] py-4 px-6">{currentPlan}</div>
+          <div className="w-full h-px bg-border mb-4"></div>
           <button
           onClick={() => setOpen(true)}
+          className="primary-button max-w-fit px-4 mx-auto"
           >
             <Image
               alt=""
@@ -127,11 +128,11 @@ console.log("userInfo", userInfo);
         </div>
       </div>
 
-      <div className="sidebar__account">
-        <div className="sidebar__account__initials">{userInfo?.user?.fname?.split('')[0]}</div>
+      <div className="w-full px-8 flex items-center gap-2">
+        <div className="font-medium text-white min-w-[32px] h-8 flex items-center justify-center rounded-full bg-primary">{userInfo?.user?.fname?.split('')[0]}</div>
         <div>
-          <div className="sidebar__account__name"> {userInfo?.user?.fname} {userInfo?.user?.lname}</div>
-          <div className="sidebar__account__email">
+          <div className="font-medium mb-1"> {userInfo?.user?.fname} {userInfo?.user?.lname}</div>
+          <div className="text-xs font-normal text-gray">
             {userInfo?.user?.email}
           </div>
         </div>

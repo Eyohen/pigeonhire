@@ -21,18 +21,26 @@ export default function ManageNetworkTable() {
   };
 
   return (
-    <div className="manage-network-table">
-      <div className="manage-network-table__header">
-        <div>
+    <div className="w-full h-fit border border-[#EFEFEF] rounded-xl relative pb-2.5 max-phone:overflow-x-auto">
+      <div className="flex items-center justify-between px-6 py-2 border-b border-[#EFEFEF] bg-[#FAFAFA] rounded-t-xl max-phone:w-[800px]">
+        <div className="flex items-center gap-2.5 bg-[#F0F2F5] rounded-lg p-2">
           <button
-            className={userType === "communities" && "active"}
+            className={`title-18 font-medium min-w-[115px] h-[46px] outline-none rounded border-none px-3 ${
+              userType === "communities"
+                ? "border border-secondary bg-white shadow-[0_2px_2px_-2px_rgba(246,145,31,0.1)] text-text"
+                : "bg-transparent text-gray"
+            }`}
             onClick={() => setUserType("communities")}
           >
             Communities
           </button>
-          {!userType && <div></div>}
+          {!userType && <div className="w-px h-[19px] bg-[#E4E7EC]"></div>}
           <button
-            className={userType === "connector" && "active"}
+            className={`title-18 font-medium min-w-[115px] h-[46px] outline-none rounded border-none px-3 ${
+              userType === "connector"
+                ? "border border-secondary bg-white shadow-[0_2px_2px_-2px_rgba(246,145,31,0.1)] text-text"
+                : "bg-transparent text-gray"
+            }`}
             onClick={() => setUserType("connector")}
           >
             Connector
@@ -42,15 +50,15 @@ export default function ManageNetworkTable() {
       </div>
 
       {userType === "communities" && (
-        <table className="manage-network-table__label">
-          <thead className="bg-[#F5F5F5]">
-            <tr className="">
-              <th>Date</th>
-              <th>Community name</th>
-              <th>Category</th>
-              <th>Total profile view</th>
-              <th>Contact clicks</th>
-              <th>
+        <table className="w-full title-14 text-black">
+          <thead className="w-full border-b border-[rgba(177,177,177,0.4)]">
+            <tr>
+              <th className="py-5 bg-[#F5F5F5] text-center">Date</th>
+              <th className="py-5 bg-[#F5F5F5] text-center">Community name</th>
+              <th className="py-5 bg-[#F5F5F5] text-center">Category</th>
+              <th className="py-5 bg-[#F5F5F5] text-center">Total profile view</th>
+              <th className="py-5 bg-[#F5F5F5] text-center">Contact clicks</th>
+              <th className="py-5 bg-[#F5F5F5] text-center pr-2.5">
                 <Image
                   src={"/assets/icons/more.svg"}
                   width={16}
@@ -60,14 +68,14 @@ export default function ManageNetworkTable() {
               </th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>12/03/2025</td>
-              <td>Startup entrepreneurship hub</td>
-              <td>Business</td>
-              <td>100</td>
-              <td>56</td>
-              <td onClick={handleClickFour}>
+          <tbody className="w-full">
+            <tr className="border-b border-[#E5E5E5]">
+              <td className="py-5 bg-white text-center">12/03/2025</td>
+              <td className="py-5 bg-white text-center">Startup entrepreneurship hub</td>
+              <td className="py-5 bg-white text-center">Business</td>
+              <td className="py-5 bg-white text-center">100</td>
+              <td className="py-5 bg-white text-center">56</td>
+              <td className="py-5 bg-white text-center pr-2.5 cursor-pointer" onClick={handleClickFour}>
                 <Image
                   src={"/assets/icons/more.svg"}
                   width={16}
@@ -77,13 +85,13 @@ export default function ManageNetworkTable() {
               </td>
             </tr>
 
-            <tr>
-              <td>12/03/2025</td>
-              <td>Startup entrepreneurship hub</td>
-              <td>Business</td>
-              <td>100</td>
-              <td>56</td>
-              <td onClick={handleClickFour}>
+            <tr className="border-b border-[#E5E5E5]">
+              <td className="py-5 bg-white text-center">12/03/2025</td>
+              <td className="py-5 bg-white text-center">Startup entrepreneurship hub</td>
+              <td className="py-5 bg-white text-center">Business</td>
+              <td className="py-5 bg-white text-center">100</td>
+              <td className="py-5 bg-white text-center">56</td>
+              <td className="py-5 bg-white text-center pr-2.5 cursor-pointer" onClick={handleClickFour}>
                 <Image
                   src={"/assets/icons/more.svg"}
                   width={16}
@@ -93,13 +101,13 @@ export default function ManageNetworkTable() {
               </td>
             </tr>
 
-            <tr>
-              <td>12/03/2025</td>
-              <td>Startup entrepreneurship hub</td>
-              <td>Business</td>
-              <td>100</td>
-              <td>56</td>
-              <td onClick={handleClickFour}>
+            <tr className="border-b border-[#E5E5E5]">
+              <td className="py-5 bg-white text-center">12/03/2025</td>
+              <td className="py-5 bg-white text-center">Startup entrepreneurship hub</td>
+              <td className="py-5 bg-white text-center">Business</td>
+              <td className="py-5 bg-white text-center">100</td>
+              <td className="py-5 bg-white text-center">56</td>
+              <td className="py-5 bg-white text-center pr-2.5 cursor-pointer" onClick={handleClickFour}>
                 <Image
                   src={"/assets/icons/more.svg"}
                   width={16}
@@ -109,13 +117,13 @@ export default function ManageNetworkTable() {
               </td>
             </tr>
 
-            <tr>
-              <td>12/03/2025</td>
-              <td>Startup entrepreneurship hub</td>
-              <td>Business</td>
-              <td>100</td>
-              <td>56</td>
-              <td onClick={handleClickFour}>
+            <tr className="border-b border-[#E5E5E5]">
+              <td className="py-5 bg-white text-center">12/03/2025</td>
+              <td className="py-5 bg-white text-center">Startup entrepreneurship hub</td>
+              <td className="py-5 bg-white text-center">Business</td>
+              <td className="py-5 bg-white text-center">100</td>
+              <td className="py-5 bg-white text-center">56</td>
+              <td className="py-5 bg-white text-center pr-2.5 cursor-pointer" onClick={handleClickFour}>
                 <Image
                   src={"/assets/icons/more.svg"}
                   width={16}
@@ -125,13 +133,13 @@ export default function ManageNetworkTable() {
               </td>
             </tr>
 
-            <tr>
-              <td>12/03/2025</td>
-              <td>Startup entrepreneurship hub</td>
-              <td>Business</td>
-              <td>100</td>
-              <td>56</td>
-              <td onClick={handleClickFour}>
+            <tr className="border-b border-[#E5E5E5]">
+              <td className="py-5 bg-white text-center">12/03/2025</td>
+              <td className="py-5 bg-white text-center">Startup entrepreneurship hub</td>
+              <td className="py-5 bg-white text-center">Business</td>
+              <td className="py-5 bg-white text-center">100</td>
+              <td className="py-5 bg-white text-center">56</td>
+              <td className="py-5 bg-white text-center pr-2.5 cursor-pointer" onClick={handleClickFour}>
                 <Image
                   src={"/assets/icons/more.svg"}
                   width={16}
@@ -141,13 +149,13 @@ export default function ManageNetworkTable() {
               </td>
             </tr>
 
-            <tr>
-              <td>12/03/2025</td>
-              <td>Startup entrepreneurship hub</td>
-              <td>Business</td>
-              <td>100</td>
-              <td>56</td>
-              <td onClick={handleClickFour}>
+            <tr className="border-b border-[#E5E5E5]">
+              <td className="py-5 bg-white text-center">12/03/2025</td>
+              <td className="py-5 bg-white text-center">Startup entrepreneurship hub</td>
+              <td className="py-5 bg-white text-center">Business</td>
+              <td className="py-5 bg-white text-center">100</td>
+              <td className="py-5 bg-white text-center">56</td>
+              <td className="py-5 bg-white text-center pr-2.5 cursor-pointer" onClick={handleClickFour}>
                 <Image
                   src={"/assets/icons/more.svg"}
                   width={16}
@@ -230,15 +238,15 @@ export default function ManageNetworkTable() {
         </table>
       )}
       {userType === "connector" && (
-        <table className="manage-network-table__label">
-          <thead className="bg-[#F5F5F5]">
-            <tr className="">
-              <th>Date</th>
-              <th>Name</th>
-              <th>Category</th>
-              <th>Role</th>
-              <th>Contact clicks</th>
-              <th>
+        <table className="w-full title-14 text-black">
+          <thead className="w-full border-b border-[rgba(177,177,177,0.4)]">
+            <tr>
+              <th className="py-5 bg-[#F5F5F5] text-center">Date</th>
+              <th className="py-5 bg-[#F5F5F5] text-center">Name</th>
+              <th className="py-5 bg-[#F5F5F5] text-center">Category</th>
+              <th className="py-5 bg-[#F5F5F5] text-center">Role</th>
+              <th className="py-5 bg-[#F5F5F5] text-center">Contact clicks</th>
+              <th className="py-5 bg-[#F5F5F5] text-center pr-2.5">
                 <Image
                   src={"/assets/icons/more.svg"}
                   width={16}
@@ -248,14 +256,14 @@ export default function ManageNetworkTable() {
               </th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>12/03/2025</td>
-              <td>Fola Agoro</td>
-              <td>Business</td>
-              <td>Senior buyer at coca-cola</td>
-              <td>56</td>
-              <td onClick={handleClickFour}>
+          <tbody className="w-full">
+            <tr className="border-b border-[#E5E5E5]">
+              <td className="py-5 bg-white text-center">12/03/2025</td>
+              <td className="py-5 bg-white text-center">Fola Agoro</td>
+              <td className="py-5 bg-white text-center">Business</td>
+              <td className="py-5 bg-white text-center">Senior buyer at coca-cola</td>
+              <td className="py-5 bg-white text-center">56</td>
+              <td className="py-5 bg-white text-center pr-2.5 cursor-pointer" onClick={handleClickFour}>
                 <Image
                   src={"/assets/icons/more.svg"}
                   width={16}
@@ -265,13 +273,13 @@ export default function ManageNetworkTable() {
               </td>
             </tr>
 
-            <tr>
-              <td>12/03/2025</td>
-              <td>Fola Agoro</td>
-              <td>Business</td>
-              <td>Senior buyer at coca-cola</td>
-              <td>56</td>
-              <td onClick={handleClickFour}>
+            <tr className="border-b border-[#E5E5E5]">
+              <td className="py-5 bg-white text-center">12/03/2025</td>
+              <td className="py-5 bg-white text-center">Fola Agoro</td>
+              <td className="py-5 bg-white text-center">Business</td>
+              <td className="py-5 bg-white text-center">Senior buyer at coca-cola</td>
+              <td className="py-5 bg-white text-center">56</td>
+              <td className="py-5 bg-white text-center pr-2.5 cursor-pointer" onClick={handleClickFour}>
                 <Image
                   src={"/assets/icons/more.svg"}
                   width={16}
@@ -281,13 +289,13 @@ export default function ManageNetworkTable() {
               </td>
             </tr>
 
-            <tr>
-              <td>12/03/2025</td>
-              <td>Fola Agoro</td>
-              <td>Business</td>
-              <td>Senior buyer at coca-cola</td>
-              <td>56</td>
-              <td onClick={handleClickFour}>
+            <tr className="border-b border-[#E5E5E5]">
+              <td className="py-5 bg-white text-center">12/03/2025</td>
+              <td className="py-5 bg-white text-center">Fola Agoro</td>
+              <td className="py-5 bg-white text-center">Business</td>
+              <td className="py-5 bg-white text-center">Senior buyer at coca-cola</td>
+              <td className="py-5 bg-white text-center">56</td>
+              <td className="py-5 bg-white text-center pr-2.5 cursor-pointer" onClick={handleClickFour}>
                 <Image
                   src={"/assets/icons/more.svg"}
                   width={16}
@@ -297,13 +305,13 @@ export default function ManageNetworkTable() {
               </td>
             </tr>
 
-            <tr>
-              <td>12/03/2025</td>
-              <td>Fola Agoro</td>
-              <td>Business</td>
-              <td>Senior buyer at coca-cola</td>
-              <td>56</td>
-              <td onClick={handleClickFour}>
+            <tr className="border-b border-[#E5E5E5]">
+              <td className="py-5 bg-white text-center">12/03/2025</td>
+              <td className="py-5 bg-white text-center">Fola Agoro</td>
+              <td className="py-5 bg-white text-center">Business</td>
+              <td className="py-5 bg-white text-center">Senior buyer at coca-cola</td>
+              <td className="py-5 bg-white text-center">56</td>
+              <td className="py-5 bg-white text-center pr-2.5 cursor-pointer" onClick={handleClickFour}>
                 <Image
                   src={"/assets/icons/more.svg"}
                   width={16}
@@ -313,13 +321,13 @@ export default function ManageNetworkTable() {
               </td>
             </tr>
 
-            <tr>
-              <td>12/03/2025</td>
-              <td>Fola Agoro</td>
-              <td>Business</td>
-              <td>Senior buyer at coca-cola</td>
-              <td>56</td>
-              <td onClick={handleClickFour}>
+            <tr className="border-b border-[#E5E5E5]">
+              <td className="py-5 bg-white text-center">12/03/2025</td>
+              <td className="py-5 bg-white text-center">Fola Agoro</td>
+              <td className="py-5 bg-white text-center">Business</td>
+              <td className="py-5 bg-white text-center">Senior buyer at coca-cola</td>
+              <td className="py-5 bg-white text-center">56</td>
+              <td className="py-5 bg-white text-center pr-2.5 cursor-pointer" onClick={handleClickFour}>
                 <Image
                   src={"/assets/icons/more.svg"}
                   width={16}

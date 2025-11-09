@@ -142,14 +142,14 @@ export default function ConnectorDetails() {
 
     return (
         <>
-            <div className='community__card-cover'>
-                <div className='community__card'>
-                    <div className='connector-card__image'></div>
+            <div className='border border-border rounded-3xl p-6 mb-8'>
+                <div className='flex gap-[22px]'>
+                    <div className='min-w-[83px] h-[77px] bg-gray-light'></div>
 
-                    <div className='community__card__middle'>
-                        <div className='community__card__name'>
-                            <div>Name:</div>
-                            <div>
+                    <div className='w-full'>
+                        <div className='flex mb-6 whitespace-nowrap'>
+                            <div className='title-14 text-gray mr-[45px]'>Name:</div>
+                            <div className='title-18 font-medium mr-4'>
                                 {connector?.firstName} {connector?.lastName}
                             </div>
                             <Image
@@ -157,19 +157,18 @@ export default function ConnectorDetails() {
                                 width={60}
                                 height={24}
                                 src={"/assets/icons/verified.svg"}
-                                className='connector-card__role'
                             />
                         </div>
-                        <div className='community__card__description'>
-                            <div>Description:</div>
-                            <div>{connector?.description}</div>
+                        <div className='flex gap-2 mb-6'>
+                            <div className='title-14 text-gray'>Description:</div>
+                            <div className='leading-[140%] w-full max-w-[70ch]'>{connector?.description}</div>
                         </div>
-                        <div className='community__card__connector-size'>
-                            <div>Role:</div>
-                            <div>{connector?.description}</div>
-                            <div>Location:</div>
-                            <div>{connector?.community?.location}</div>
-                            <div>Category:</div>
+                        <div className='flex mb-4 whitespace-nowrap'>
+                            <div className='title-14 text-gray mr-[22px]'>Role:</div>
+                            <div className='mr-[29px]'>{connector?.description}</div>
+                            <div className='title-14 text-gray mr-[27px]'>Location:</div>
+                            <div className='mr-8 whitespace-normal break-words'>{connector?.community?.location}</div>
+                            <div className='title-14 text-gray mr-[22px]'>Category:</div>
                             <div>
                                 {Array.isArray(
                                     connector?.community?.commTypeCategory
@@ -183,7 +182,7 @@ export default function ConnectorDetails() {
                         </div>
                         {subscribed && (
                             <button
-                                className='community__card__contact'
+                                className='primary-button max-w-[328px] h-[42px] shadow-none bg-secondary mt-8 mb-4'
                                 onClick={() => setOpen(true)}
                             >
                                 Contact
@@ -193,7 +192,7 @@ export default function ConnectorDetails() {
 
                     {/* Save connector as favorite and create as lead*/}
                     <div
-                        className='community__card__save pointer'
+                        className='cursor-pointer'
                         onClick={
                             isFavorite
                                 ? handleRemoveFavoriteConnector
@@ -215,9 +214,9 @@ export default function ConnectorDetails() {
                         Save
                     </div>
                 </div>
-                <div className='community__divider'></div>
-                <div className='community__details'>
-                    <div className='community__details__dropdown'>
+                <div className='w-full h-px bg-border my-2 mb-6'></div>
+                <div className='pl-[99px]'>
+                    <div className='title-18 font-medium flex items-center gap-2 mb-[34px]'>
                         Connector Details
                         {!subscribed && (
                             <Image
@@ -230,12 +229,12 @@ export default function ConnectorDetails() {
                     </div>
 
                     {subscribed && (
-                        <div className='community__details__grid'>
-                            <div>Connection type:</div>
+                        <div className='grid grid-cols-[167px_auto] gap-x-4 gap-y-6'>
+                            <div className='title-14 text-gray'>Connection type:</div>
                             <div>{connector?.connectionType}</div>
-                            <div>Created:</div>
+                            <div className='title-14 text-gray'>Created:</div>
                             <div>21st of January 2025</div>
-                            <div>Price tag:</div>
+                            <div className='title-14 text-gray'>Price tag:</div>
                             <div>
                                 {" "}
                                 <Image
@@ -250,10 +249,11 @@ export default function ConnectorDetails() {
                                     alt=''
                                 />
                             </div>
-                            <div>Communication platform:</div>
-                            <div className='community__details__grid__platforms'>
+                            <div className='title-14 text-gray'>Communication platform:</div>
+                            <div className='flex gap-2'>
                                 {connector?.facebook && (
                                     <div
+                                        className='title-14 bg-gray-light border border-[#F6911F33] px-2 py-1 rounded-[18px] cursor-pointer'
                                         onClick={() =>
                                             window.open(
                                                 `https://facebook.com/${
@@ -273,6 +273,7 @@ export default function ConnectorDetails() {
                                 )}
                                 {connector?.instagram && (
                                     <div
+                                        className='title-14 bg-gray-light border border-[#F6911F33] px-2 py-1 rounded-[18px] cursor-pointer'
                                         onClick={() =>
                                             window.open(
                                                 `https://instagram.com/${
@@ -292,6 +293,7 @@ export default function ConnectorDetails() {
                                 )}
                                 {connector?.twitter && (
                                     <div
+                                        className='title-14 bg-gray-light border border-[#F6911F33] px-2 py-1 rounded-[18px] cursor-pointer'
                                         onClick={() =>
                                             window.open(
                                                 `https://twitter.com/${
@@ -311,6 +313,7 @@ export default function ConnectorDetails() {
                                 )}
                                 {connector?.telegram && (
                                     <div
+                                        className='title-14 bg-gray-light border border-[#F6911F33] px-2 py-1 rounded-[18px] cursor-pointer'
                                         onClick={() =>
                                             window.open(
                                                 `https://t.me/${
@@ -330,6 +333,7 @@ export default function ConnectorDetails() {
                                 )}
                                 {connector?.linkedIn && (
                                     <div
+                                        className='title-14 bg-gray-light border border-[#F6911F33] px-2 py-1 rounded-[18px] cursor-pointer'
                                         onClick={() =>
                                             window.open(
                                                 `https://linkedin.com/in/${
@@ -348,9 +352,9 @@ export default function ConnectorDetails() {
                                     </div>
                                 )}
                             </div>
-                            <div>Special achievements:</div>
+                            <div className='title-14 text-gray'>Special achievements:</div>
                             <div>{connector?.community?.recognition}</div>
-                            <div>Additional services:</div>
+                            <div className='title-14 text-gray'>Additional services:</div>
                             <div>{connector?.community?.additionalService}</div>
                         </div>
                     )}
@@ -358,13 +362,13 @@ export default function ConnectorDetails() {
                     {!subscribed && (
                         <>
                             <button
-                                className='community__details__button'
+                                className='primary-button max-w-[318px] h-[66px] shadow-none rounded-[48px] bg-secondary ml-[158px] mb-4'
                                 onClick={() => setSubscribed(true)}
                             >
                                 Subscribe to view
                             </button>
 
-                            <div className='community__details__info'>
+                            <div className='title-14 ml-[158px] font-medium'>
                                 Subscribe to connect with the community owner
                             </div>
                         </>
@@ -380,7 +384,7 @@ export default function ConnectorDetails() {
             )}
             {!subscribed && (
                 <>
-                    <div className='community__related-communities'>
+                    <div className='title-18 font-medium mb-4'>
                         Related connectors
                     </div>
 

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function ManageNetworkDetails() {
   return (
-      <div className="manage-network-details">
+      <div>
           <NavigationDirectory
                   links={[
                     {
@@ -19,10 +19,10 @@ export default function ManageNetworkDetails() {
                     },
                   ]}
                 />
-          
-                <div className="edit-network-details__banner"></div>
+
+                <div className="w-full h-[136px] bg-[#FAFAFA] mb-4"></div>
 <br />
-                <div className="manage-network-details__grid">
+                <div className="grid grid-cols-[191px_auto] gap-x-4 gap-y-8 items-center [&>:nth-child(odd)]:text-[#8D8D8D] [&>:nth-child(even)]:text-lg [&>:nth-child(even)]:font-medium [&>:nth-child(even)]:leading-[140%]">
                 <div>Name:</div>
 <div>Startup & Entrepreneurship Hub</div>
 <div>Description:</div>
@@ -38,8 +38,8 @@ export default function ManageNetworkDetails() {
 <div>Contact information:</div>
 <div>+315</div>
 </div>
-<div className="manage-network-details__divider"></div>
-<div className="manage-network-details__grid">
+<div className="w-full h-px bg-[#E5E5E5] my-6"></div>
+<div className="grid grid-cols-[191px_auto] gap-x-4 gap-y-8 items-center [&>:nth-child(odd)]:text-[#8D8D8D] [&>:nth-child(even)]:text-lg [&>:nth-child(even)]:font-medium [&>:nth-child(even)]:leading-[140%]">
 <div>Connection type:</div>
 <div>Startup and Entrepreneur Networks</div>
 <div>Created:</div>
@@ -52,23 +52,23 @@ export default function ManageNetworkDetails() {
                       alt=""
                     /></div>
 <div>Communication platform:</div>
-<div className="manage-network-details__grid__socials"><div>Facebook</div>
-<div>Twitter</div>
-<div>Telegram</div></div>
+<div className="flex gap-2"><div className="text-lg font-medium bg-[#F5F5F5] border border-[#F6911F33] px-2 py-1.5 rounded-[18px]">Facebook</div>
+<div className="text-lg font-medium bg-[#F5F5F5] border border-[#F6911F33] px-2 py-1.5 rounded-[18px]">Twitter</div>
+<div className="text-lg font-medium bg-[#F5F5F5] border border-[#F6911F33] px-2 py-1.5 rounded-[18px]">Telegram</div></div>
 <div>Engagement level:</div>
 <div>Active participation</div>
 <div>Post frequency:</div>
-<div className="manage-network-details__grid__socials">
-<div>7days/week</div>
+<div className="flex gap-2">
+<div className="text-lg font-medium bg-[#F5F5F5] border border-[#F6911F33] px-2 py-1.5 rounded-[18px]">7days/week</div>
 </div>
 </div>
-<div className="manage-network-details__divider"></div>
-<div className="manage-network-details__grid">
+<div className="w-full h-px bg-[#E5E5E5] my-6"></div>
+<div className="grid grid-cols-[191px_auto] gap-x-4 gap-y-8 items-center [&>:nth-child(odd)]:text-[#8D8D8D] [&>:nth-child(even)]:text-lg [&>:nth-child(even)]:font-medium [&>:nth-child(even)]:leading-[140%]">
 
 <div>Content shared:</div>
-<div className="manage-network-details__grid__socials">
-<div>Articles and blog posts</div>
-<div>Discussion threads</div>
+<div className="flex gap-2">
+<div className="text-lg font-medium bg-[#F5F5F5] border border-[#F6911F33] px-2 py-1.5 rounded-[18px]">Articles and blog posts</div>
+<div className="text-lg font-medium bg-[#F5F5F5] border border-[#F6911F33] px-2 py-1.5 rounded-[18px]">Discussion threads</div>
 </div>
 <div>Communities interest:</div>
 <div>Entrepreneurship / Startups</div>
@@ -77,16 +77,16 @@ export default function ManageNetworkDetails() {
 <div>Link to community:</div>
 <div>URL</div>
 <div>Interaction type:</div>
-<div className="manage-network-details__grid__socials">
-<div>Growth</div>
-<div>Networking</div>
+<div className="flex gap-2">
+<div className="text-lg font-medium bg-[#F5F5F5] border border-[#F6911F33] px-2 py-1.5 rounded-[18px]">Growth</div>
+<div className="text-lg font-medium bg-[#F5F5F5] border border-[#F6911F33] px-2 py-1.5 rounded-[18px]">Networking</div>
 </div>
 <div>Special achievements:</div>
 <div>24 awards</div>
 <div>Additional services:</div>
 <div>Exclusive content</div>
                 </div>
-          
+
       </div>
   )
 }

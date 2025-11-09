@@ -84,11 +84,12 @@ useEffect(() => {
 
 
   return (
-    <div className="landing__social-banner">
-      <div className="landing__social-banner__title">
+    <div className="w-full bg-[#fff9f2] py-[42px] mb-16 overflow-hidden scroll-smooth phone:py-6 phone:mb-8">
+      {/* <div className="text-5xl font-semibold text-center mb-12 leading-[140%] phone:text-base phone:w-full phone:max-w-[30ch] phone:mx-auto phone:mb-[27px]">
         Discover thousands of Communities, Connectors and Businesses
-      </div>
-      <div className="landing__social-banner__group">
+      </div> */}
+      <p className="font-semibold text-4xl text-center pb-8">Discover thousands of Communities, Connectors and Businesses</p>
+      <div className="flex items-center justify-center gap-[42px] [animation:marqueeXLeft_45s_linear_infinite]">
         {duplicatedItemsLeft?.map((item, index) => (
           <Image
             alt=""

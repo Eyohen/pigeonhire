@@ -60,14 +60,15 @@ const faqs = [
 export default function Faq() {
   const [selectedFaq, setSelectedFaq] = useState(null);
   return (
-    <div className="landing__faq">
-      <div className="landing__faq__title">
+    <div className="mb-[148px] tablet-pro:px-3">
+      {/* <div className="title-48 font-semibold mb-12 text-center phone:text-lg phone:mb-6">
         Frequently asked questions (FAQ)
-      </div>
+      </div> */}
+      <p className="text-7xl font-semibold text-center p-8"> Frequently asked questions (FAQ)</p>
       {faqs?.map((faq, index) => (
-        <div className="landing__faq__card" key={index}>
+        <div className="w-full max-w-[1090px] p-8 mx-auto border border-border rounded-2xl mb-6 cursor-pointer transition-all duration-[400ms]" key={index}>
           <div
-            className="landing__faq__card__title"
+            className="flex items-center justify-between"
             onClick={() => selectedFaq === index ? setSelectedFaq(null) : setSelectedFaq(index)}
           >
             <div>{faq?.title}</div>
@@ -83,7 +84,7 @@ export default function Faq() {
             />
           </div>
 
-          {selectedFaq === index && <div className="landing__faq__card__subtitle">{faq?.subtitle}</div>}
+          {selectedFaq === index && <div className="title-18 mt-4 leading-[140%] text-gray phone:text-sm">{faq?.subtitle}</div>}
         </div>
       ))}
     </div>

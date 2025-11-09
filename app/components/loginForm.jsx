@@ -200,12 +200,12 @@ export default function LoginForm(params) {
     };
 
     return (
-        <form className="auth__form-login" onSubmit={handleSubmit(onSubmit)}>
+        <form className="max-w-[496px] mx-auto" onSubmit={handleSubmit(onSubmit)}>
             <label htmlFor="email">Email address</label>
-            <div className="auth__form__input-login">
-                <input 
-                    type="email" 
-                    name="email" 
+            <div className="primary-input mb-8">
+                <input
+                    type="email"
+                    name="email"
                     placeholder="e.g John Doe"
                     required
                     {...register("email")}
@@ -220,7 +220,7 @@ export default function LoginForm(params) {
             </div>
 
             <label htmlFor="password">Password</label>
-            <div className="auth__form__input-login">
+            <div className="primary-input mb-8">
                 <input
                     type={passwordOpen ? "text" : "password"}
                     name="password"
@@ -239,29 +239,28 @@ export default function LoginForm(params) {
                 />
             </div>
 
-            <div className="auth__form__forgot">
-                <div>
-                    <input type="checkbox" name="" id="" disabled={loading} />
+            <div className="w-full flex justify-between items-center mb-[33px] -mt-4">
+                <div className="flex gap-3 items-center">
+                    <input type="checkbox" name="" id="" disabled={loading} className="w-6 h-6" />
                     Remember me
                 </div>
-                <div>
+                <div className="text-[#da1e28]">
                     <Link href={"/forgot-password"}>Forgot password?</Link>
                 </div>
             </div>
 
-            <button className="auth__button" disabled={loading}>
+            <button className="primary-button mb-6" disabled={loading}>
                 {loading ? "Loading..." : "Login"}
             </button>
-            
-            <div className="auth__login">
-                Don't have an account! <Link href="/register">Sign Up</Link>
+
+            <div className="title-14 text-center mb-[33px] text-[#8d8d8d]">
+                Don't have an account! <Link href="/register" className="text-primary underline">Sign Up</Link>
             </div>
-            <br />
-            <br />
-            <div className="auth__line"></div>
-            <div className="auth__signup">or login with</div>
-            <br />
-            <button className="auth__oauth" type="button" disabled={loading}>
+
+            <div className="w-full h-px bg-[#e5e5e5] mb-[33px]"></div>
+            <div className="title-14 text-center text-[#8d8d8d] bg-white w-fit mx-auto -mt-[43px] mb-6 px-[15px]">or login with</div>
+
+            <button className="w-full max-w-[599px] h-16 bg-transparent border border-[#e5e5e5] mb-12 rounded-[32px]" type="button" disabled={loading}>
                 <Image
                     alt=""
                     width={88}
@@ -269,9 +268,6 @@ export default function LoginForm(params) {
                     src={"/assets/icons/google.svg"}
                 />
             </button>
-            <br />
-            <br />
-            <br />
         </form>
     );
 }

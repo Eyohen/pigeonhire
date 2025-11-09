@@ -8,31 +8,31 @@ export default function Blogs() {
   return (
     <div className="blogs">
       <LandingHeader />
-      <div className="blogs__inner">
-        <div className="blogs__inner__title-group">
-          <div>Blog</div>
-          <div>
+      <div className="w-full max-w-[1352px] px-5 mx-auto py-20">
+        <div className="w-full max-w-[1352px] px-5 mx-auto flex items-center justify-between mb-8">
+          <div className="text-[56px] font-semibold">Blog</div>
+          <div className="text-lg w-full max-w-[40ch] text-[#8D8D8D] leading-[140%]">
             Insights, stories, and strategies to help you connect, grow, and
-            thrive in today’s networked world.
+            thrive in today's networked world.
           </div>
         </div>
 
-        <div className="blogs__inner__form">
-          <input type="text" placeholder="Enter your email" />
-          <button>Subscribe</button>
+        <div className="w-full max-w-[497px] h-[50px] border border-[#E5E5E5] flex items-center mb-16 rounded-[28px]">
+          <input type="text" placeholder="Enter your email" className="w-full h-full border-none bg-transparent pl-4" />
+          <button className="w-full max-w-[133px] h-[50px] flex items-center justify-center gap-2.5 bg-[#df7c0d] rounded-[28px] font-medium text-lg text-white shadow-[0px_2px_8px_0px_rgba(0,0,0,0.25)_inset] border-none phone:w-[120px] phone:text-[11px] phone:h-8">Subscribe</button>
         </div>
 
-        <div className="blogs__inner__cards">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-16 mb-16">
           <BlogCard image={"/assets/blog1.png"} />
           <BlogCard image={"/assets/blog2.png"} />
           <BlogCard image={"/assets/blog1.png"} />
           <BlogCard image={"/assets/blog2.png"} />
         </div>
 
-        <div className="blogs__inner__article-title">
+        <div className="text-2xl font-semibold mb-6 flex items-center justify-between">
           <div>Articles</div>
 
-          <div className="blogs__inner__article-title__navigation">
+          <div className="flex items-center gap-3 cursor-pointer">
             <Image
               alt=""
               width={24}
@@ -48,11 +48,11 @@ export default function Blogs() {
           </div>
         </div>
 
-        <div className="blogs__inner__articles">
+        <div className="flex items-center gap-[25px] overflow-x-auto">
           <ArticleCard
             title={"Mistakes Brands Make When Approaching Online Communities"}
             subtitle={
-              "Before you post or pitch, read this. These common missteps can make or break your brand’s relationship with online groups."
+              "Before you post or pitch, read this. These common missteps can make or break your brand's relationship with online groups."
             }
           />
           <ArticleCard
@@ -72,7 +72,7 @@ export default function Blogs() {
            <ArticleCard
             title={"Mistakes Brands Make When Approaching Online Communities"}
             subtitle={
-              "Before you post or pitch, read this. These common missteps can make or break your brand’s relationship with online groups."
+              "Before you post or pitch, read this. These common missteps can make or break your brand's relationship with online groups."
             }
           />
           <ArticleCard

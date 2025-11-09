@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function Reach() {
+export default function Contact() {
   return (
     <div className="bg-white pb-44 phone:pb-10" id="contact">
       <div className="w-full max-w-[926px] mx-auto px-5 phone:px-3">

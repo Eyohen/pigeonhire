@@ -51,60 +51,60 @@ export default function Leads() {
   };
 
   return (
-    <div className="leads">
-      <div className="leads__cards">
-        <div className="leads__cards__card">
+    <div>
+      <div className="grid grid-cols-4 gap-6 mb-8">
+        <div className="w-full h-[94px] border border-border-light rounded-lg p-3 px-6 flex gap-2">
           <Image
             src={"/assets/icons/communities.svg"}
             width={36}
             height={36}
             alt=""
           />
-          <div className="leads__cards__card__group">
-            <div>Saved Communities</div>
-            <div className="leads__cards__card__number">
+          <div>
+            <div className="text-sm mt-[9px] mb-[17px]">Saved Communities</div>
+            <div className="text-2xl font-semibold">
               {loading ? "..." : getSavedCommunitiesCount()}
             </div>
           </div>
         </div>
-        <div className="leads__cards__card">
+        <div className="w-full h-[94px] border border-border-light rounded-lg p-3 px-6 flex gap-2">
             <Image
               src={"/assets/icons/savedConnectors.svg"}
               width={36}
               height={36}
               alt=""
             />
-          <div className="leads__cards__card__group">
-            <div>Saved Connectors</div>
-          <div className="leads__cards__card__number-mini">
+          <div>
+            <div className="text-sm mt-[9px] mb-[17px]">Saved Connectors</div>
+          <div className="font-semibold">
             {loading ? "..." : getSavedConnectorsCount()}
           </div>
           </div>
         </div>
-        <div className="leads__cards__card">
+        <div className="w-full h-[94px] border border-border-light rounded-lg p-3 px-6 flex gap-2">
             <Image
               src={"/assets/icons/totalContacted.svg"}
               width={36}
               height={36}
               alt=""
             />
-          <div className="leads__cards__card__group">
-            <div>Total contacted</div>
-          <div className="leads__cards__card__number-mini">
+          <div>
+            <div className="text-sm mt-[9px] mb-[17px]">Total contacted</div>
+          <div className="font-semibold">
             {getCardValue(analyticsData?.analytics?.totalContacted, 500)}
           </div>
           </div>
         </div>
-        <div className="leads__cards__card">
+        <div className="w-full h-[94px] border border-border-light rounded-lg p-3 px-6 flex gap-2">
             <Image
               src={"/assets/icons/profilesViewed.svg"}
               width={36}
               height={36}
               alt=""
             />
-          <div className="leads__cards__card__group">
-            <div>Total profile viewed</div>
-          <div className="leads__cards__card__number-mini">
+          <div>
+            <div className="text-sm mt-[9px] mb-[17px]">Total profile viewed</div>
+          <div className="font-semibold">
             {getCardValue(analyticsData?.analytics?.profilesViewed, 500)}
           </div>
           </div>
@@ -112,18 +112,12 @@ export default function Leads() {
       </div>
 
       {error && (
-        <div className="error-message" style={{ 
-          color: 'red', 
-          margin: '10px 0', 
-          padding: '10px', 
-          backgroundColor: '#ffe6e6', 
-          borderRadius: '4px' 
-        }}>
+        <div className="text-red-600 my-2.5 p-2.5 bg-red-50 rounded">
           Error loading analytics: {error}
         </div>
       )}
 
-      <div className="leads__title">My Leads</div>
+      <div className="text-lg font-medium mb-4">My Leads</div>
       <LeadsTable />
     </div>
   );

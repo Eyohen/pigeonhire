@@ -30,17 +30,17 @@ export default function ForgotPassword() {
     }
   };
   return (
-    <div className="auth">
-      <div className="auth__form">
+    <div className="w-full max-w-[1440px] px-16 py-12 mx-auto grid grid-cols-2 gap-[69px]">
+      <div>
         <Image
           alt=""
-          className="auth__form__login-logo"
+          className="mb-16"
           width={240}
           height={48}
           src={"/assets/icons/logo.svg"}
         />
 
-        <div className="auth__form__back">
+        <div className="flex items-center gap-0.5 font-semibold text-[#0c1a13] mb-[34.5px] -mt-[19.5px]">
           <Image
             alt=""
             src="/assets/icons/backArrow.svg"
@@ -50,14 +50,14 @@ export default function ForgotPassword() {
           Back
         </div>
 
-        <div className="auth__form__title text-center">Password Recovery</div>
-        <div className="auth__form__subtitle auth__form__subtitle-login text-center">
+        <div className="text-[32px] font-semibold mb-4 text-center">Password Recovery</div>
+        <div className="text-lg font-normal text-[#8d8d8d] mb-8 text-center">
           Kindly provide the email address linked to your account.{" "}
         </div>
-        <form className="auth__form-login" onSubmit={handleSubmit}>
+        <form className="max-w-[496px] mx-auto" onSubmit={handleSubmit}>
           <label htmlFor="email">Email address</label>
 
-          <div className="auth__form__input-login">
+          <div className="border border-[#e5e5e5] w-full max-w-[599px] h-14 flex gap-5 justify-between items-center rounded-3xl px-6 mb-8">
             <input
               type="email"
               name="email"
@@ -65,6 +65,7 @@ export default function ForgotPassword() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              className="w-full border-none outline-none placeholder:text-sm placeholder:text-[#8d8d8d]"
             />
             <Image
               alt=""
@@ -74,7 +75,7 @@ export default function ForgotPassword() {
             />
           </div>
 
-          <button className="auth__button" disabled={loading}>{loading ? "Loading..." : "Continue"}</button>
+          <button className="w-full max-w-[599px] h-[50px] flex items-center justify-center gap-2.5 bg-[#df7c0d] rounded-[28px] font-medium text-lg text-white shadow-[0px_2px_8px_0px_#00000040_inset] border-none mb-6" disabled={loading}>{loading ? "Loading..." : "Continue"}</button>
         </form>
         <br />
         <br />
@@ -87,11 +88,11 @@ export default function ForgotPassword() {
         <br />
         <br />
         <br />
-        <div className="auth__footer">
-          <div className="auth__footer__copy">
+        <div className="flex justify-between">
+          <div className="text-sm font-normal leading-[140%] text-[#8d8d8d]">
             © 2025 Pigeonhire Inc. All Right Reserved.
           </div>
-          <div className="auth__footer__links">
+          <div className="flex gap-2 font-medium whitespace-nowrap items-center">
             <div>Privacy Policy</div>
             <Image alt="" src={"/assets/icons/dot.svg"} width={8} height={8} />
             <div>Terms & Condition</div>
@@ -99,11 +100,11 @@ export default function ForgotPassword() {
         </div>
       </div>
 
-      <div className="auth__illustration"></div>
+      <div className="w-full h-full bg-[url('/assets/auth.png')] bg-cover bg-no-repeat bg-center rounded-[14px]"></div>
 
       <EmailSentModal open={open} setOpen={setOpen} />
 
-      <div className="home__mobile">
+      <div className="hidden max-[768px]:flex fixed top-0 left-0 w-full h-full justify-center items-center bg-white text-[28px] font-semibold">
         View on desktop for better experience
       </div>
     </div>

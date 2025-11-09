@@ -14,23 +14,24 @@ export default function DeactivationModal({open, setOpen}) {
       };
     
   return (
-    open && 
-    <div className="deactivation-modal">
-      {stage === 1 && <div className="deactivation-modal__inner">
+    open &&
+    <div className="fixed top-0 left-0 w-full h-screen flex items-center justify-center bg-black/[0.33]">
+      {stage === 1 && <div className="w-full max-w-[467px] h-fit rounded-2xl px-[47px] py-8 flex flex-col items-center justify-center bg-white">
         <Image
           alt=""
           width={80}
           height={80}
           src={"/assets/icons/error.svg"}
+          className="mb-4"
         />
 
-        <div className="deactivation-modal__inner__title">Confirm Deactivation?</div>
-        <div className="deactivation-modal__inner__subtitle">
+        <div className="text-2xl font-semibold mb-4">Confirm Deactivation?</div>
+        <div className="text-[#8D8D8D] mb-4 text-center">
         To confirm, enter your password
         </div>
-        <label htmlFor="">Enter Password</label>
+        <label htmlFor="" className="w-full">Enter Password</label>
         <OutlinedInput
-          className="password__group__input"
+          className="primary-input"
           required
           id="password"
           name="password"
@@ -53,28 +54,29 @@ export default function DeactivationModal({open, setOpen}) {
           }
         />
 
-        <div className="deactivation-modal__inner__button-group">
-            <button onClick={() => setStage(2)}>Cancel</button>
-            <button onClick={() => setStage(2)}>Deactivate</button>
+        <div className="w-full flex gap-2 items-center mt-8">
+            <button onClick={() => setStage(2)} className="w-full h-[42px] font-semibold border border-[#E5E5E5] rounded text-[#8D8D8D] bg-transparent">Cancel</button>
+            <button onClick={() => setStage(2)} className="w-full h-[42px] font-semibold bg-[#F6911F] border-none rounded text-white">Deactivate</button>
         </div>
       </div>}
-      {stage === 2 && <div className="deactivation-modal__inner">
+      {stage === 2 && <div className="w-full max-w-[467px] h-fit rounded-2xl px-[47px] py-8 flex flex-col items-center justify-center bg-white">
         <Image
           alt=""
           width={80}
           height={80}
           src={"/assets/icons/error.svg"}
+          className="mb-4"
         />
 
-        <div className="deactivation-modal__inner__title">Deactivate account?</div>
-        <div className="deactivation-modal__inner__subtitle">
+        <div className="text-2xl font-semibold mb-4">Deactivate account?</div>
+        <div className="text-[#8D8D8D] mb-4 text-center">
         This is a permanent action. All data would be lost. Are you sure you want to continue?
         </div>
-      
 
-        <div className="deactivation-modal__inner__button-group-green">
-            <button onClick={() => setOpen(false)}>Yes</button>
-            <button onClick={() => setOpen(false)}>No</button>
+
+        <div className="w-full flex gap-2 items-center mt-8">
+            <button onClick={() => setOpen(false)} className="w-full h-[42px] font-semibold border border-[#DA1E28] rounded text-[#DA1E28] bg-transparent">Yes</button>
+            <button onClick={() => setOpen(false)} className="w-full h-[42px] font-semibold bg-[#42BE65] border-none rounded text-white">No</button>
         </div>
       </div>}
     </div>

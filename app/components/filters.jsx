@@ -5,12 +5,12 @@ import { useState } from "react";
 
 export default function Filters() {
       const [open, setOpen] = useState(false)
-  
-  return (
-    <div className="filters">
-        <div className="filters__inner">
 
-      <div className="filters__all"
+  return (
+    <div className="w-full max-w-[1100px] overflow-x-auto mx-auto mb-8 hidden-scroll-bar">
+        <div className="w-full flex items-center gap-4 mt-8">
+
+      <div className="title-14 bg-[#F5F5F5] border border-[#E5E5E5] flex gap-2 px-3 py-2 rounded-2xl whitespace-nowrap cursor-pointer"
       onClick={() => setOpen(true)}
       >
         <Image
@@ -21,7 +21,7 @@ export default function Filters() {
         />
         All filters
       </div>
-      <div className="filters__item">Category
+      <div className="title-14 text-[#8D8D8D] border border-[#E5E5E5] flex gap-2 px-3 py-2 rounded-2xl whitespace-nowrap cursor-pointer">Category
 
       <Image
           alt=""
@@ -30,8 +30,8 @@ export default function Filters() {
           src={"/assets/icons/arrowDown.svg"}
         />
       </div>
-      <div className="filters__item">Connectors</div>
-      <div className="filters__item">Connector type
+      <div className="title-14 text-[#8D8D8D] border border-[#E5E5E5] flex gap-2 px-3 py-2 rounded-2xl whitespace-nowrap cursor-pointer">Connectors</div>
+      <div className="title-14 text-[#8D8D8D] border border-[#E5E5E5] flex gap-2 px-3 py-2 rounded-2xl whitespace-nowrap cursor-pointer">Connector type
       <Image
           alt=""
           width={16}
@@ -39,7 +39,7 @@ export default function Filters() {
           src={"/assets/icons/arrowDown.svg"}
         />
       </div>
-      <div className="filters__item">Connector platform
+      <div className="title-14 text-[#8D8D8D] border border-[#E5E5E5] flex gap-2 px-3 py-2 rounded-2xl whitespace-nowrap cursor-pointer">Connector platform
 
       <Image
           alt=""
@@ -48,10 +48,10 @@ export default function Filters() {
           src={"/assets/icons/arrowDown.svg"}
         />
       </div>
-      <div className="filters__item">
+      <div className="title-14 text-[#8D8D8D] border border-[#E5E5E5] flex gap-2 px-3 py-2 rounded-2xl whitespace-nowrap cursor-pointer">
         Communities
       </div>
-      <div className="filters__item">
+      <div className="title-14 text-[#8D8D8D] border border-[#E5E5E5] flex gap-2 px-3 py-2 rounded-2xl whitespace-nowrap cursor-pointer">
         Connectors
         <Image
           alt=""
@@ -60,7 +60,7 @@ export default function Filters() {
           src={"/assets/icons/arrowDown.svg"}
         />
       </div>
-      <div className="filters__item">Community type
+      <div className="title-14 text-[#8D8D8D] border border-[#E5E5E5] flex gap-2 px-3 py-2 rounded-2xl whitespace-nowrap cursor-pointer">Community type
       <Image
           alt=""
           width={16}
@@ -68,9 +68,9 @@ export default function Filters() {
           src={"/assets/icons/arrowDown.svg"}
         />
       </div>
-      <div className="filters__item">Community size</div>
-      <div className="filters__item">Connectors</div>
-      <div className="filters__item">Connectors</div>
+      <div className="title-14 text-[#8D8D8D] border border-[#E5E5E5] flex gap-2 px-3 py-2 rounded-2xl whitespace-nowrap cursor-pointer">Community size</div>
+      <div className="title-14 text-[#8D8D8D] border border-[#E5E5E5] flex gap-2 px-3 py-2 rounded-2xl whitespace-nowrap cursor-pointer">Connectors</div>
+      <div className="title-14 text-[#8D8D8D] border border-[#E5E5E5] flex gap-2 px-3 py-2 rounded-2xl whitespace-nowrap cursor-pointer">Connectors</div>
         </div>
 
         <FiltersSidebar open={open} setOpen={setOpen} />

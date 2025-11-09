@@ -73,18 +73,26 @@ export default function LeadsTable() {
   };
 
   return (
-    <div className="manage-network-table">
-      <div className="manage-network-table__header">
-        <div>
+    <div className="w-full h-fit border border-[#EFEFEF] rounded-xl relative pb-2.5 max-phone:overflow-x-auto">
+      <div className="flex items-center justify-between px-6 py-2 border-b border-[#EFEFEF] bg-[#FAFAFA] rounded-t-xl max-phone:w-[800px]">
+        <div className="flex items-center gap-2.5 bg-[#F0F2F5] rounded-lg p-2">
           <button
-            className={userType === "communities" && "active"}
+            className={`title-18 font-medium min-w-[115px] h-[46px] outline-none rounded border-none px-3 ${
+              userType === "communities"
+                ? "border border-secondary bg-white shadow-[0_2px_2px_-2px_rgba(246,145,31,0.1)] text-text"
+                : "bg-transparent text-gray"
+            }`}
             onClick={() => setUserType("communities")}
           >
             Communities
           </button>
-          {!userType && <div></div>}
+          {!userType && <div className="w-px h-[19px] bg-[#E4E7EC]"></div>}
           <button
-            className={userType === "connector" && "active"}
+            className={`title-18 font-medium min-w-[115px] h-[46px] outline-none rounded border-none px-3 ${
+              userType === "connector"
+                ? "border border-secondary bg-white shadow-[0_2px_2px_-2px_rgba(246,145,31,0.1)] text-text"
+                : "bg-transparent text-gray"
+            }`}
             onClick={() => setUserType("connector")}
           >
             Connector
@@ -94,15 +102,15 @@ export default function LeadsTable() {
       </div>
 
       {userType === "communities" && (
-        <table className="manage-network-table__label">
-          <thead className="bg-[#F5F5F5]">
-            <tr className="">
-              <th>Date</th>
-              <th>Community name</th>
-              <th>Contact</th>
-              <th>Category</th>
-              <th>Contacted</th>
-              <th>
+        <table className="w-full title-14 text-black">
+          <thead className="w-full border-b border-[rgba(177,177,177,0.4)]">
+            <tr>
+              <th className="py-5 bg-[#F5F5F5] text-center">Date</th>
+              <th className="py-5 bg-[#F5F5F5] text-center">Community name</th>
+              <th className="py-5 bg-[#F5F5F5] text-center">Contact</th>
+              <th className="py-5 bg-[#F5F5F5] text-center">Category</th>
+              <th className="py-5 bg-[#F5F5F5] text-center">Contacted</th>
+              <th className="py-5 bg-[#F5F5F5] text-center pr-2.5">
                 <Image
                   src={"/assets/icons/more.svg"}
                   width={16}
@@ -112,20 +120,20 @@ export default function LeadsTable() {
               </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="w-full">
             {loading ? (
-              <tr>
-                <td colSpan="6">Loading...</td>
+              <tr className="border-b border-[#E5E5E5]">
+                <td colSpan="6" className="py-5 bg-white text-center">Loading...</td>
               </tr>
             ) : communityLeads.length > 0 ? (
               communityLeads.map((lead) => (
-                <tr key={lead.id}>
-                  <td>{formatDate(lead.createdAt)}</td>
-                  <td>{lead.community?.name || 'N/A'}</td>
-                  <td>{lead.community?.email || 'N/A'}</td>
-                  <td>{getCommunityCategory(lead.community?.communityType)}</td>
-                  <td>{lead.status === 'contacted' ? '✓' : ''}</td>
-                  <td onClick={handleClickFour}>
+                <tr key={lead.id} className="border-b border-[#E5E5E5]">
+                  <td className="py-5 bg-white text-center">{formatDate(lead.createdAt)}</td>
+                  <td className="py-5 bg-white text-center">{lead.community?.name || 'N/A'}</td>
+                  <td className="py-5 bg-white text-center">{lead.community?.email || 'N/A'}</td>
+                  <td className="py-5 bg-white text-center">{getCommunityCategory(lead.community?.communityType)}</td>
+                  <td className="py-5 bg-white text-center">{lead.status === 'contacted' ? '✓' : ''}</td>
+                  <td className="py-5 bg-white text-center pr-2.5 cursor-pointer" onClick={handleClickFour}>
                     <Image
                       src={"/assets/icons/more.svg"}
                       width={16}
@@ -136,8 +144,8 @@ export default function LeadsTable() {
                 </tr>
               ))
             ) : (
-              <tr>
-                <td colSpan="6" style={{textAlign: 'center', padding: '20px'}}>
+              <tr className="border-b border-[#E5E5E5]">
+                <td colSpan="6" className="py-5 bg-white text-center">
                   No community leads data found
                 </td>
               </tr>
@@ -216,16 +224,16 @@ export default function LeadsTable() {
         </table>
       )}
       {userType === "connector" && (
-        <table className="manage-network-table__label">
-          <thead className="bg-[#F5F5F5]">
-            <tr className="">
-              <th>Date</th>
-              <th>Connector name</th>
-              <th>Role</th>
-              <th>Contact</th>
-              <th>Category</th>
-              <th>Contacted</th>
-              <th>
+        <table className="w-full title-14 text-black">
+          <thead className="w-full border-b border-[rgba(177,177,177,0.4)]">
+            <tr>
+              <th className="py-5 bg-[#F5F5F5] text-center">Date</th>
+              <th className="py-5 bg-[#F5F5F5] text-center">Connector name</th>
+              <th className="py-5 bg-[#F5F5F5] text-center">Role</th>
+              <th className="py-5 bg-[#F5F5F5] text-center">Contact</th>
+              <th className="py-5 bg-[#F5F5F5] text-center">Category</th>
+              <th className="py-5 bg-[#F5F5F5] text-center">Contacted</th>
+              <th className="py-5 bg-[#F5F5F5] text-center pr-2.5">
                 <Image
                   src={"/assets/icons/more.svg"}
                   width={16}
@@ -235,21 +243,21 @@ export default function LeadsTable() {
               </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="w-full">
             {loading ? (
-              <tr>
-                <td colSpan="7">Loading...</td>
+              <tr className="border-b border-[#E5E5E5]">
+                <td colSpan="7" className="py-5 bg-white text-center">Loading...</td>
               </tr>
             ) : connectorLeads.length > 0 ? (
               connectorLeads.map((lead) => (
-                <tr key={lead.id}>
-                  <td>{formatDate(lead.createdAt)}</td>
-                  <td>{`${lead.connector?.firstName || ''} ${lead.connector?.lastName || ''}`.trim() || 'N/A'}</td>
-                  <td>{lead.connector?.role || 'N/A'}</td>
-                  <td>{lead.connector?.email || 'N/A'}</td>
-                  <td>Business</td>
-                  <td>{lead.status === 'contacted' ? '✓' : ''}</td>
-                  <td onClick={handleClickFour}>
+                <tr key={lead.id} className="border-b border-[#E5E5E5]">
+                  <td className="py-5 bg-white text-center">{formatDate(lead.createdAt)}</td>
+                  <td className="py-5 bg-white text-center">{`${lead.connector?.firstName || ''} ${lead.connector?.lastName || ''}`.trim() || 'N/A'}</td>
+                  <td className="py-5 bg-white text-center">{lead.connector?.role || 'N/A'}</td>
+                  <td className="py-5 bg-white text-center">{lead.connector?.email || 'N/A'}</td>
+                  <td className="py-5 bg-white text-center">Business</td>
+                  <td className="py-5 bg-white text-center">{lead.status === 'contacted' ? '✓' : ''}</td>
+                  <td className="py-5 bg-white text-center pr-2.5 cursor-pointer" onClick={handleClickFour}>
                     <Image
                       src={"/assets/icons/more.svg"}
                       width={16}
@@ -260,8 +268,8 @@ export default function LeadsTable() {
                 </tr>
               ))
             ) : (
-              <tr>
-                <td colSpan="7" style={{textAlign: 'center', padding: '20px'}}>
+              <tr className="border-b border-[#E5E5E5]">
+                <td colSpan="7" className="py-5 bg-white text-center">
                   No connector leads data found
                 </td>
               </tr>

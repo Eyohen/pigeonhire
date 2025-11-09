@@ -8,16 +8,16 @@ export default function CategoryInner() {
   const [tab, setTab] = useState("connectors");
 
   return (
-    <div className="category__inner">
-      <div className="category__inner__tabs">
+    <div>
+      <div className="flex gap-8 mb-4 border-b border-border">
         <div
-          className={tab === "connectors" && "category__inner__tabs__active"}
+          className={`text-lg font-medium text-gray h-[46px] flex items-center justify-center cursor-pointer px-4 ${tab === "connectors" ? "!text-secondary border-b border-secondary" : ""}`}
           onClick={() => setTab("connectors")}
         >
           Connectors for Content & Copywriting
         </div>
         <div
-          className={tab === "communities" && "category__inner__tabs__active"}
+          className={`text-lg font-medium text-gray h-[46px] flex items-center justify-center cursor-pointer px-4 ${tab === "communities" ? "!text-secondary border-b border-secondary" : ""}`}
           onClick={() => setTab("communities")}
         >
           Communities for Content & Copywriting

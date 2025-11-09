@@ -4,8 +4,8 @@ import Link from "next/link";
 
 export default function Category() {
   return (
-    <div className="category">
-      <Link className="community__back" href="/" prefetch={true}>
+    <div>
+      <Link className="font-medium flex items-center gap-0.5 mb-[17px]" href="/" prefetch={true}>
         <Image
           src={"/assets/icons/backArrow.svg"}
           width={24}
@@ -15,7 +15,7 @@ export default function Category() {
         Back
       </Link>
 
-      <div className="community__navigation">
+      <div className="text-sm flex items-center gap-1 mb-6">
         <div>Home</div>
         <Image
           src={"/assets/icons/navigation.svg"}

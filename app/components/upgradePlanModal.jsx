@@ -285,16 +285,17 @@ Please refresh the page to see your updated subscription status.`);
 
   return (
     open && (
-      <div className="upgrade-plan-modal" onClick={handleClose}>
-        <div className="upgrade-plan-modal__inner">
-          <div className="upgrade-plan-modal__inner__title">Upgrade plan</div>
+      <div className="fixed top-0 left-0 w-full h-screen flex items-center justify-center bg-[#00000053]" onClick={handleClose}>
+        <div className="w-full max-w-[467px] h-fit rounded-2xl flex flex-col items-center justify-center bg-white p-8">
+          <div className="title-24 font-semibold mb-6">Upgrade plan</div>
 
-          <select 
-            name="currency" 
+          <select
+            name="currency"
             id="currency"
             value={selectedCurrency}
             onChange={handleCurrencyChange}
             disabled={loading}
+            className="border border-[#E5E5E5] rounded-3xl w-[205px] h-[42px] mb-4"
           >
             {currencyOptions.map((currency) => (
               <option key={currency.code} value={currency.code}>
@@ -304,7 +305,7 @@ Please refresh the page to see your updated subscription status.`);
           </select>
 
           {loading ? (
-            <div style={{ padding: '20px', textAlign: 'center' }}>
+            <div className="p-5 text-center">
               Loading subscription plans...
             </div>
           ) : (
@@ -312,18 +313,18 @@ Please refresh the page to see your updated subscription status.`);
               Object.entries(currencyPlan.plans).map(([planType, planDetails]) => (
                 <div
                   key={`${currencyPlan.currency}-${planType}`}
-                  className={`upgrade-plan-modal__inner__card ${!planDetails.active ? 'disabled' : ''}`}
+                  className={`w-full border border-[#E5E5E5] rounded-lg p-2.5 mb-4 cursor-pointer ${!planDetails.active ? 'disabled' : ''}`}
                   onClick={() => planDetails.active && handlePlanClick(currencyPlan, planType)}
                   style={{
                     opacity: planDetails.active ? 1 : 0.5,
                     cursor: planDetails.active ? 'pointer' : 'not-allowed'
                   }}
                 >
-                  <div className="upgrade-plan-modal__inner__card__title-group">
+                  <div className="flex items-center justify-between title-12 font-medium mb-4">
                     <div>{getPlanName(planType)}</div>
-                    <div>{getSubscriptionPeriod(planType, planDetails.intervalCount)}</div>
+                    <div className="text-[#8D8D8D] font-normal">{getSubscriptionPeriod(planType, planDetails.intervalCount)}</div>
                   </div>
-                  <div className="upgrade-plan-modal__inner__card__price-group">
+                  <div className="flex items-center justify-between title-24 font-semibold">
                     <div>
                       {getCurrencySymbol(currencyPlan.currency)}
                       {planDetails.amount.toLocaleString()}
@@ -339,11 +340,11 @@ Please refresh the page to see your updated subscription status.`);
                     )}
                   </div>
                   {/* Status indicator */}
-                  <div style={{ fontSize: '10px', marginTop: '5px' }}>
+                  <div className="text-[10px] mt-[5px]">
                     {planDetails.active ? (
-                      <span style={{ color: 'green' }}>✅ Active</span>
+                      <span className="text-green-600">✅ Active</span>
                     ) : (
-                      <span style={{ color: 'orange' }}>⚠️ Inactive</span>
+                      <span className="text-orange-500">⚠️ Inactive</span>
                     )}
                   </div>
                 </div>
@@ -352,9 +353,9 @@ Please refresh the page to see your updated subscription status.`);
           )}
         </div>
 
-        <UpgradeModalPay 
-          open={payOpen} 
-          setOpen={setPayOpen} 
+        <UpgradeModalPay
+          open={payOpen}
+          setOpen={setPayOpen}
           planData={selectedPlan}
           userId={userId}
           onSuccess={handlePaymentSuccess}

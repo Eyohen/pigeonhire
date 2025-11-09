@@ -32,20 +32,20 @@ export default function ConnectorsAndCommunities() {
     handleGetCommunities();
   }, []);
   return (
-    <div className="connectors-and-communities">
-      <div className="connectors-and-communities__tabs">
+    <div className="w-full mt-8">
+      <div className="flex gap-8 mb-4 border-b border-[#E5E5E5]">
         <div
-          className={
-            tab === "connectors" && "connectors-and-communities__tabs__active"
-          }
+          className={`title-18 font-medium w-48 h-[46px] flex items-center justify-center cursor-pointer ${
+            tab === "connectors" ? "text-secondary border-b border-secondary" : "text-[#8D8D8D]"
+          }`}
           onClick={() => setTab("connectors")}
         >
           Latest Connectors
         </div>
         <div
-          className={
-            tab === "communities" && "connectors-and-communities__tabs__active"
-          }
+          className={`title-18 font-medium w-48 h-[46px] flex items-center justify-center cursor-pointer ${
+            tab === "communities" ? "text-secondary border-b border-secondary" : "text-[#8D8D8D]"
+          }`}
           onClick={() => setTab("communities")}
         >
           Latest Communities
@@ -53,7 +53,7 @@ export default function ConnectorsAndCommunities() {
       </div>
 
       {tab === "connectors" && (
-         connectors?.map((connector) => 
+         connectors?.map((connector) =>
           <ConnectorCard
           type="connector"
           verified={true}
@@ -64,11 +64,11 @@ export default function ConnectorsAndCommunities() {
           date={connector?.createdAt}
           />
         )
-         
+
       )}
 
       {tab === "communities" && (
-        communities?.map((community) => 
+        communities?.map((community) =>
           <ConnectorCard
           type="community"
           verified={true}
@@ -81,9 +81,9 @@ export default function ConnectorsAndCommunities() {
         )
       )}
 
-      <div className="connectors-and-communities__title">All</div>
+      <div className="title-18 font-medium my-4">All</div>
       {tab === "connectors" && (
-         connectors?.map((connector) => 
+         connectors?.map((connector) =>
           <ConnectorCard
           type="connector"
           verified={true}
@@ -94,12 +94,12 @@ export default function ConnectorsAndCommunities() {
           date={connector?.createdAt}
           />
         )
-         
+
       )}
 
       {tab === "communities" &&
-        
-          communities?.map((community) => 
+
+          communities?.map((community) =>
             <ConnectorCard
             type="community"
             verified={true}
@@ -110,7 +110,7 @@ export default function ConnectorsAndCommunities() {
             date={community?.createdAt}
             />
           )
-      
+
       }
     </div>
   );

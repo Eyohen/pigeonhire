@@ -7,8 +7,8 @@ import Link from "next/link";
 export default function Connector() {
 
   return (
-    <div className="community">
-      <Link className="community__back" href="/user" prefetch={true}>
+    <div>
+      <Link className="font-medium flex items-center gap-0.5 mb-[17px]" href="/user" prefetch={true}>
         <Image
           src={"/assets/icons/backArrow.svg"}
           width={24}

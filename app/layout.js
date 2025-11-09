@@ -1,4 +1,4 @@
-import "../styles/index.scss";
+import "./globals.css";
 import { Inter, Syne, Geist } from "next/font/google";
 import localFont from "next/font/local";
 

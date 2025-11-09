@@ -235,19 +235,13 @@ export default function PricingInner() {
 
     return (
         <>
-            <select 
-                name="currency" 
+            <select
+                name="currency"
                 id="currency"
                 value={selectedCurrency}
                 onChange={handleCurrencyChange}
                 disabled={loading}
-                style={{ 
-                    padding: '10px', 
-                    borderRadius: '8px', 
-                    border: '1px solid #e5e7eb',
-                    marginBottom: '20px',
-                    fontSize: '16px'
-                }}
+                className="border border-[#e5e5e5] rounded-3xl w-[205px] h-12 mx-auto mb-10 flex items-center justify-center px-5 md:mb-6"
             >
                 {currencyOptions.map((currency) => (
                     <option key={currency.code} value={currency.code}>
@@ -257,11 +251,11 @@ export default function PricingInner() {
             </select>
 
             {loading ? (
-                <div style={{ padding: '40px', textAlign: 'center' }}>
+                <div className="p-10 text-center">
                     Loading subscription plans...
                 </div>
             ) : (
-                <div className="pricing__inner__cards">
+                <div className="grid grid-cols-3 gap-6 md:grid-cols-1">
                     {planOrder.map((planType) => {
                         const planDetails = plans[planType];
                         if (!planDetails) return null;
@@ -270,14 +264,11 @@ export default function PricingInner() {
                         const features = getPlanFeatures(planType);
 
                         return (
-                            <div 
+                            <div
                                 key={planType}
-                                className="pricing__inner__cards__card"
-                                style={{
-                                    opacity: planDetails.active ? 1 : 0.6,
-                                }}
+                                className={`p-8 rounded-2xl border border-[#E5E5E5] md:py-6 md:px-4 ${isPopular ? 'bg-[#13100A] text-white' : ''} ${planDetails.active ? 'opacity-100' : 'opacity-60'}`}
                             >
-                                <div className="pricing__inner__cards__card__title">
+                                <div className="title-24 font-normal mb-6 flex items-center justify-between md:text-base md:mb-3">
                                     {isPopular ? (
                                         <>
                                             <div>{getPlanName(planType)}</div>
@@ -292,32 +283,29 @@ export default function PricingInner() {
                                         <div>{getPlanName(planType)}</div>
                                     )}
                                 </div>
-                                <div className="pricing__inner__cards__card__title-group">
-                                    <div>
+                                <div className="flex gap-4 items-center mb-6 md:gap-3 md:mb-3">
+                                    <div className="title-32 font-semibold md:text-2xl">
                                         {getCurrencySymbol(selectedCurrency)}
                                         {planDetails.amount.toLocaleString()}
                                     </div>
-                                    <div>{getSubscriptionPeriod(planType, planDetails.intervalCount)}</div>
+                                    <div className="title-18 font-medium md:text-sm">{getSubscriptionPeriod(planType, planDetails.intervalCount)}</div>
                                 </div>
 
-                                <div className="pricing__inner__cards__card__subtitle">
+                                <div className="leading-[140%] mb-8 md:text-sm md:mb-4">
                                     {getPlanSubtitle(planType)}
                                 </div>
 
                                 <button
                                     onClick={() => planDetails.active && currencyPlan && handlePlanClick(planType, planDetails, currencyPlan)}
                                     disabled={!planDetails.active}
-                                    style={{
-                                        cursor: planDetails.active ? 'pointer' : 'not-allowed',
-                                        opacity: planDetails.active ? 1 : 0.5
-                                    }}
+                                    className={`primary-button mb-8 md:w-full md:h-12 md:text-lg md:mb-4 ${planDetails.active ? 'cursor-pointer opacity-100' : 'cursor-not-allowed opacity-50'}`}
                                 >
                                     Choose plan
                                 </button>
 
-                                <div className="pricing__inner__cards__card__features-title">Features</div>
+                                <div className="title-18 mb-4 text-[#8D8D8D] md:text-base md:mb-3">Features</div>
 
-                                <div className="pricing__inner__cards__card__features-grid">
+                                <div className="grid grid-cols-[24px_auto] gap-x-4 gap-y-6 md:gap-x-2 md:gap-y-4 md:text-sm">
                                     {features.map((feature, index) => (
                                         <React.Fragment key={index}>
                                             <Image

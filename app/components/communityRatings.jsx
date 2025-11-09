@@ -107,14 +107,14 @@ console.log("userInfo", userInfo);
 
   const ratings = [5, 4, 3, 2, 1];
   return (
-    <div className="ratings">
-      <div className="ratings__title">Ratings</div>
+    <div className="p-6 border border-[#E5E5E5] rounded-3xl">
+      <div className="max-w-[829px] mx-auto title-18 font-medium mb-6">Ratings</div>
 
-      <div className="ratings__grid">
-        <div className="ratings__grid__summary">
-          <div className="ratings__grid__summary__title">{averageRating}</div>
-          <div className="ratings__grid__summary__stars">
-              <Image
+      <div className="max-w-[829px] mx-auto flex">
+        <div className="flex flex-col items-center justify-center mr-8 min-w-[128px]">
+          <div className="title-32 font-semibold mb-6">{averageRating}</div>
+          <div className="flex items-center gap-1 mb-2">
+            <Image
               width={24}
               height={24}
               src={averageRating >= 1 ? FilledStar : EmptyStar}
@@ -145,92 +145,91 @@ console.log("userInfo", userInfo);
               alt=""
             />
           </div>
-          <div className="ratings__grid__summary__subtitle">{reviews?.length} ratings</div>
+          <div className="title-14 text-[#8D8D8D]">{reviews?.length} ratings</div>
         </div>
-        <div className="ratings__grid__divider"></div>
-        <div className="ratings__grid__range">
-        {ratings?.map(rating => (
-          <div className="ratings__grid__range__bar-cover" key={rating}>
-            <div className="ratings__grid__range__bar">
-              <div 
-                className={`ratings__grid__range__bar__inner ratings__grid__range__bar__${rating}`}
-                style={{ width: `${calculatePercentage(ratingCounts[rating])}%` }}
-              ></div>
-            </div>
+        <div className="w-px h-[154px] bg-[#E5E5E5] mr-8"></div>
+        <div className="w-full mr-8">
+          {ratings?.map(rating => (
+            <div className="flex items-center gap-8 mb-[19px]" key={rating}>
+              <div className="w-full h-3 rounded-2xl bg-[#FAFAFA]">
+                <div
+                  className="h-full bg-[#0EA42A] rounded-2xl"
+                  style={{ width: `${calculatePercentage(ratingCounts[rating])}%` }}
+                ></div>
+              </div>
 
-            <div className="ratings__grid__review">
-              <div>{rating}.0</div>
-              <div>{ratingCounts[rating]} reviews</div>
+              <div className="title-14 leading-none grid grid-cols-2 gap-2 whitespace-nowrap">
+                <div>{rating}.0</div>
+                <div className="text-[#8D8D8D]">{ratingCounts[rating]} reviews</div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
         </div>
-
-       
       </div>
-<div className="ratings__divider">
 
-</div>
-      <div className="ratings__reviews">
-        <div className="ratings__reviews__title">Reviews</div>
-<div className="ratings__reviews__cards">
+      <div className="w-full h-px bg-[#E5E5E5] my-6"></div>
 
-     {reviews?.map((review) => 
-    <ReviewCard review={review} />
-    )}
-</div>
+      <div>
+        <div className="w-full max-w-[829px] mx-auto title-18 font-medium mb-6">Reviews</div>
+        <div className="w-full max-w-[829px] mx-auto">
+          {reviews?.map((review) =>
+            <ReviewCard review={review} />
+          )}
+        </div>
 
-        {/* <div className="ratings__reviews__dropdown">
-          Read all reviews <ArrowDown color={"#F6911F"} />
-        </div> */}
-
-        <div className="ratings__reviews__divider"></div>
-        <div className="ratings__reviews__submit">
-          <div className="ratings__reviews__submit__title">
+        <div className="w-full h-px bg-[#E5E5E5] my-6"></div>
+        <div className="w-full max-w-[829px] mx-auto">
+          <div className="title-18 font-medium mb-6">
             Rate & Submit Review
           </div>
-          <div className="ratings__reviews__submit__experience">
+          <div className="title-14 text-center mb-6">
             How was your experience?
           </div>
 
-          <div 
-      className="ratings__reviews__submit__stars "
-      onMouseLeave={handleMouseLeave}
-    >
-      {stars.map((_, index) => {
-        // Star index is 1-based for better readability
-        const starIndex = index + 1;
-        
-        // Determine if the star should be filled
-        const isFilled = 
-          hoveredRating > 0 
-            ? starIndex <= hoveredRating // Show filled stars on hover
-            : starIndex <= rating; // Show filled stars based on rating
-        
-        return (
-          <div 
-            key={index} 
-            onMouseEnter={() => handleMouseEnter(starIndex)}
-            onClick={() => handleClick(starIndex)}
-            className="star-container pointer"
+          <div
+            className="flex items-center justify-center gap-4 mb-8"
+            onMouseLeave={handleMouseLeave}
           >
-            <Image
-              width={42}
-              height={42}
-              src={isFilled ? "/assets/icons/filledStar.svg" : "/assets/icons/emptyStar.svg"}
-              alt={`Star ${starIndex}`}
-            />
-          </div>
-        );
-      })}
-    </div>
+            {stars.map((_, index) => {
+              const starIndex = index + 1;
+              const isFilled =
+                hoveredRating > 0
+                  ? starIndex <= hoveredRating
+                  : starIndex <= rating;
 
-          <textarea name="" id="" placeholder="Write about your experience"
-          onChange={(e) => setComment(e.target.value)
-          }
-          value={comment}
+              return (
+                <div
+                  key={index}
+                  onMouseEnter={() => handleMouseEnter(starIndex)}
+                  onClick={() => handleClick(starIndex)}
+                  className="star-container pointer"
+                >
+                  <Image
+                    width={42}
+                    height={42}
+                    src={isFilled ? "/assets/icons/filledStar.svg" : "/assets/icons/emptyStar.svg"}
+                    alt={`Star ${starIndex}`}
+                  />
+                </div>
+              );
+            })}
+          </div>
+
+          <textarea
+            name=""
+            id=""
+            placeholder="Write about your experience"
+            onChange={(e) => setComment(e.target.value)}
+            value={comment}
+            className="w-full h-[139px] border border-[#E5E5E5] rounded mb-8 px-6 py-4"
           ></textarea>
-          <button onClick={handleSubmit} disabled={loading}>{loading ? "Loading..." : "Submit Review"}</button>
+          <button
+            onClick={handleSubmit}
+            disabled={loading}
+            className="primary-button max-w-[429px] h-14 rounded-[48px] mx-auto"
+          >
+            {loading ? "Loading..." : "Submit Review"}
+          </button>
         </div>
       </div>
     </div>

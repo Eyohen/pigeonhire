@@ -267,46 +267,46 @@ const items8 = [
 
 export default function AllFilters() {
   return (
-    <div className="all-filters">
-      <div className="all-filters__group">
-        <div className="all-filters__group__item">
+    <div className="overflow-x-auto max-w-[1100px]">
+      <div className="flex items-start gap-8">
+        <div className="min-w-[181px] border border-border h-fit p-2 py-0 flex flex-col gap-4 rounded-lg">
           {items1?.map((item) => (
-            <div>{item?.name}</div>
+            <div className="text-sm w-full h-[34px] py-2 px-3 text-gray">{item?.name}</div>
           ))}
         </div>
-        <div className="all-filters__group__item">
+        <div className="min-w-[181px] border border-border h-fit p-2 py-0 flex flex-col gap-4 rounded-lg">
           {items2?.map((item) => (
-            <div>{item?.name}</div>
+            <div className="text-sm w-full h-[34px] py-2 px-3 text-gray">{item?.name}</div>
           ))}
         </div>
-        <div className="all-filters__group__item">
+        <div className="min-w-[181px] border border-border h-fit p-2 py-0 flex flex-col gap-4 rounded-lg">
           {items3?.map((item) => (
-            <div>{item?.name}</div>
+            <div className="text-sm w-full h-[34px] py-2 px-3 text-gray">{item?.name}</div>
           ))}
         </div>
-        <div className="all-filters__group__item">
+        <div className="min-w-[181px] border border-border h-fit p-2 py-0 flex flex-col gap-4 rounded-lg">
           {items4?.map((item) => (
-            <div>{item?.name}</div>
+            <div className="text-sm w-full h-[34px] py-2 px-3 text-gray">{item?.name}</div>
           ))}
         </div>
-        <div className="all-filters__group__item">
+        <div className="min-w-[181px] border border-border h-fit p-2 py-0 flex flex-col gap-4 rounded-lg">
           {items5?.map((item) => (
-            <div>{item?.name}</div>
+            <div className="text-sm w-full h-[34px] py-2 px-3 text-gray">{item?.name}</div>
           ))}
         </div>
-        <div className="all-filters__group__item">
+        <div className="min-w-[181px] border border-border h-fit p-2 py-0 flex flex-col gap-4 rounded-lg">
           {items6?.map((item) => (
-            <div>{item?.name}</div>
+            <div className="text-sm w-full h-[34px] py-2 px-3 text-gray">{item?.name}</div>
           ))}
         </div>
-        <div className="all-filters__group__item">
+        <div className="min-w-[181px] border border-border h-fit p-2 py-0 flex flex-col gap-4 rounded-lg">
           {items7?.map((item) => (
-            <div>{item?.name}</div>
+            <div className="text-sm w-full h-[34px] py-2 px-3 text-gray">{item?.name}</div>
           ))}
         </div>
-        <div className="all-filters__group__item">
+        <div className="min-w-[181px] border border-border h-fit p-2 py-0 flex flex-col gap-4 rounded-lg">
           {items8?.map((item) => (
-            <div>{item?.name}</div>
+            <div className="text-sm w-full h-[34px] py-2 px-3 text-gray">{item?.name}</div>
           ))}
         </div>
       </div>
