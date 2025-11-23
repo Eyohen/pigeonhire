@@ -9,6 +9,7 @@ import { getUserAnalytics } from "../apis/analyticsService"; // Adjust path as n
 export default function LeadsTable() {
   const [userType, setUserType] = useState("communities");
   const [anchorElFour, setAnchorElFour] = useState(null);
+  const [selectedItem, setSelectedItem] = useState(null);
   const [open, setOpen] = useState(null);
   const [communityLeads, setCommunityLeads] = useState([]);
   const [connectorLeads, setConnectorLeads] = useState([]);
@@ -51,10 +52,12 @@ export default function LeadsTable() {
 
   const handleCloseFour = () => {
     setAnchorElFour(null);
+    setSelectedItem(null);
   };
 
-  const handleClickFour = (event) => {
+  const handleClickFour = (event, item) => {
     setAnchorElFour(event.currentTarget);
+    setSelectedItem(item);
   };
 
   const formatDate = (dateString) => {
@@ -133,7 +136,7 @@ export default function LeadsTable() {
                   <td className="py-5 bg-white text-center">{lead.community?.email || 'N/A'}</td>
                   <td className="py-5 bg-white text-center">{getCommunityCategory(lead.community?.communityType)}</td>
                   <td className="py-5 bg-white text-center">{lead.status === 'contacted' ? '✓' : ''}</td>
-                  <td className="py-5 bg-white text-center pr-2.5 cursor-pointer" onClick={handleClickFour}>
+                  <td className="py-5 bg-white text-center pr-2.5 cursor-pointer" onClick={(e) => handleClickFour(e, lead)}>
                     <Image
                       src={"/assets/icons/more.svg"}
                       width={16}
@@ -160,7 +163,7 @@ export default function LeadsTable() {
                 "aria-labelledby": "basic-button",
               }}
             >
-              <Link href={"/user/manage-network/community/edit/1"}>
+              <Link href={selectedItem?.community?.id ? `/user/manage-network/community/edit/${selectedItem.community.id}` : "#"}>
                 <MenuItem
                   sx={{
                     width: "18.4rem",
@@ -179,7 +182,7 @@ export default function LeadsTable() {
                   Edit
                 </MenuItem>
               </Link>
-              <Link href={"/user/manage-network/community/1"}>
+              <Link href={selectedItem?.community?.id ? `/user/manage-network/community/${selectedItem.community.id}` : "#"}>
                 <MenuItem
                   sx={{
                     width: "18.4rem",
@@ -257,7 +260,7 @@ export default function LeadsTable() {
                   <td className="py-5 bg-white text-center">{lead.connector?.email || 'N/A'}</td>
                   <td className="py-5 bg-white text-center">Business</td>
                   <td className="py-5 bg-white text-center">{lead.status === 'contacted' ? '✓' : ''}</td>
-                  <td className="py-5 bg-white text-center pr-2.5 cursor-pointer" onClick={handleClickFour}>
+                  <td className="py-5 bg-white text-center pr-2.5 cursor-pointer" onClick={(e) => handleClickFour(e, lead)}>
                     <Image
                       src={"/assets/icons/more.svg"}
                       width={16}
@@ -284,7 +287,7 @@ export default function LeadsTable() {
                 "aria-labelledby": "basic-button",
               }}
             >
-              <Link href={"/user/manage-network/connector/edit/1"}>
+              <Link href={selectedItem?.connector?.id ? `/user/manage-network/connector/edit/${selectedItem.connector.id}` : "#"}>
                 <MenuItem
                   sx={{
                     width: "18.4rem",
@@ -303,7 +306,7 @@ export default function LeadsTable() {
                   Edit
                 </MenuItem>
               </Link>
-              <Link href={"/user/manage-network/connector/1"}>
+              <Link href={selectedItem?.connector?.id ? `/user/manage-network/connector/${selectedItem.connector.id}` : "#"}>
                 <MenuItem
                   sx={{
                     width: "18.4rem",

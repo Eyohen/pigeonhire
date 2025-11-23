@@ -6,11 +6,12 @@ import Footer from "../components/footer";
 
 export default function About() {
   return (
-    <div className="bg-[#13100A]">
-      <LandingHeader logo={"black"} />
+    <div >
+      <LandingHeader />
+      <div className="bg-[#13100A] -mt-24">
 
-      <div className="font-semibold leading-[140%] mb-2 text-center text-white mt-20 md:text-[28px] md:mb-4 md:mt-[60px] text-7xl">About Us</div>
-      <div className="title-24 font-normal mb-[128px] text-center text-white md:w-full md:max-w-[30ch] md:mx-auto md:text-base md:font-semibold md:mb-[100px] md:leading-[140%]">
+      <div className="font-semibold leading-[140%] mb-2 text-center text-white mt-20  md:mb-4 md:mt-[60px] text-7xl pt-10">About Us</div>
+      <div className="text-2xl font-normal text-center text-white md:w-full md:mx-auto md:font-semibold md:mb-[100px] md:leading-[140%]">
         Connecting innovators with engaged communities for lasting impact.
       </div>
 
@@ -21,17 +22,17 @@ export default function About() {
           <Image alt="" width={353} height={260} src={"/assets/about3.png"} className="w-full h-auto rounded-2xl md:rounded-[5.44px]" />
         </div>
 
-        <div className="title-48 w-full max-w-[1312px] mx-auto font-semibold mb-12 text-center lg:-mt-[100px] md:-mt-[168px] md:text-base md:mb-2 md:text-left">
+        <div className="text-7xl w-full max-w-[1312px] mx-auto font-semibold text-center mt-6 p-6">
           Bridging Connections, Driving Growth
         </div>
-        <div className="title-18 max-w-[1312px] mx-auto flex justify-between items-center text-[#8D8D8D] leading-[140%] gap-5 md:flex-col md:text-sm md:gap-2">
+        <div className="text-2xl gap-x-12 mx-auto flex justify-center items-center text-[#8D8D8D] leading-[140%]">
           <div className="w-full max-w-[58ch]">
             In today's digital world, many brands, marketers, and startups have
             great ideas but struggle to reach their audience. Pigeonhire bridges
             this gap by connecting them with engaged communities, to foster
             authentic connections for lasting growth.
           </div>
-          
+
           <div className="w-full max-w-[47.5ch]">
             At Pigeonhire, we understand the power of connection and the need to
             engage audiences where they are most active. Our platform fosters
@@ -42,8 +43,8 @@ export default function About() {
       </div>
 
       <div className="bg-[#FAFAFA] py-16 px-5 md:py-6 md:px-3">
-        <div className="title-48 font-semibold text-secondary text-center mb-[42px] md:text-base md:mb-4">Our Story</div>
-        <div className="title-24 w-full max-w-[1040px] mx-auto font-normal text-center leading-[140%] mb-6 md:text-sm md:mb-4">
+        <div className="text-7xl font-semibold text-secondary text-center mb-[42px] md:mb-4 p-10">Our Story</div>
+        <div className="text-2xl w-full max-w-[1040px] mx-auto font-normal text-center leading-[140%] mb-6  md:mb-4">
           When I started Pigeonhire, my vision was to create a world where
           businesses and communities interact but are genuinely connected, where
           the power of human engagement drives innovation and growth. Our
@@ -56,82 +57,82 @@ export default function About() {
           inspire change, drive progress, and celebrate the power of unity
         </div>
         <div>
-          <div className="title-32 font-semibold leading-[140%] mb-2 text-center md:text-base md:mb-2">Temi R</div>
-          <div className="title-18 font-normal leading-[140%] text-[#8D8D8D] text-center md:text-xs">Co-Founder, Pigeonhire</div>
+          <div className="text-5xl font-semibold leading-[140%] mb-2 text-center md:mb-2">Temi R</div>
+          <div className="text-2xl font-normal leading-[140%] text-[#8D8D8D] text-center">Co-Founder, Pigeonhire</div>
         </div>
       </div>
 
       <div className="bg-white py-16 md:py-8">
-       <div className="w-full max-w-[1352px] px-5 flex justify-center gap-5 items-center mx-auto lg:flex-col lg:items-center lg:justify-center md:px-3">
-       <Image alt="" width={733} height={512} src={"/assets/aboutwe.png"} className="w-full max-w-[733px] h-auto rounded-2xl md:rounded-none" />
+        <div className="w-full max-w-[1352px] px-5 flex justify-center gap-5 items-center mx-auto lg:flex-col lg:items-center lg:justify-center md:px-3">
+          <Image alt="" width={733} height={512} src={"/assets/aboutwe.png"} className="w-full max-w-[733px] h-auto rounded-2xl md:rounded-none" />
 
-<div className="title-24 w-full max-w-[34ch] font-normal leading-[140%] lg:text-center lg:max-w-full md:text-sm">
-  We aim to revolutionize how businesses and communities interact,
-  fostering an ecosystem where genuine relationships lead to shared
-  success. We are committed to offering a platform where every
-  interaction is an opportunity for growth, learning, and meaningful
-  exchange.
-</div>
-       </div>
+          <div className="text-2xl w-full max-w-[34ch] font-normal leading-[140%] lg:text-center lg:max-w-full">
+            We aim to revolutionize how businesses and communities interact,
+            fostering an ecosystem where genuine relationships lead to shared
+            success. We are committed to offering a platform where every
+            interaction is an opportunity for growth, learning, and meaningful
+            exchange.
+          </div>
+        </div>
       </div>
 
       <div className="bg-white pb-16 md:pb-8">
 
         <div className="w-full max-w-[1165px] px-5 mx-auto md:px-3">
 
-      <div className="title-48 font-semibold mb-[42px] text-center md:text-lg md:mb-6">
-      The value we bring
-        </div>
-      <div className="grid grid-cols-3 gap-12 lg:grid-cols-1 md:gap-4">
-      <div className="flex flex-col justify-center items-center">
-         <Image
-                  alt=""
-                  width={82}
-                  height={82}
-                  src={"/assets/icons/community.svg"}
-                  className="mb-6"
-                />
+          <div className="text-7xl font-semibold mb-[42px] text-center md:mb-6 p-10">
+            The value we bring
+          </div>
+          <div className="grid grid-cols-3 gap-12 lg:grid-cols-1 md:gap-4">
+            <div className="flex flex-col justify-center items-center">
+              <Image
+                alt=""
+                width={82}
+                height={82}
+                src={"/assets/icons/community.svg"}
+                className="mb-6"
+              />
 
-                <div className="title-24 font-semibold mb-4 text-center md:text-base md:mb-2">
+              <div className="text-2xl font-semibold mb-4 text-center md:mb-2">
                 Community-Centric
-                </div>
-                <div className="title-18 text-[#8D8D8D] leading-[140%] text-center w-full md:w-full md:max-w-[35ch] md:text-sm">
+              </div>
+              <div className="text-xl text-[#8D8D8D] leading-[140%] text-center w-full md:w-full md:max-w-[35ch]">
                 We are passionate about building a platform where communities can thrive, and businesses can find their tribe.
-                </div>
-      </div>
-      <div className="flex flex-col justify-center items-center">
-         <Image
-                  alt=""
-                  width={82}
-                  height={82}
-                  src={"/assets/icons/growth.svg"}
-                  className="mb-6"
-                />
+              </div>
+            </div>
+            <div className="flex flex-col justify-center items-center">
+              <Image
+                alt=""
+                width={82}
+                height={82}
+                src={"/assets/icons/growth.svg"}
+                className="mb-6"
+              />
 
-                <div className="title-24 font-semibold mb-4 text-center md:text-base md:mb-2">
+              <div className="text-2xl font-semibold mb-4 text-center md:mb-2">
                 Growth
-                </div>
-                <div className="title-18 text-[#8D8D8D] leading-[140%] text-center w-full md:w-full md:max-w-[35ch] md:text-sm">
+              </div>
+              <div className="text-xl text-[#8D8D8D] leading-[140%] text-center w-full md:w-full md:max-w-[35ch]">
                 We are dedicated to developing our users, communities, and platform, ensuring that every connection made on Pigeonhire is a step toward collective success.
-                </div>
-      </div>
-      <div className="flex flex-col justify-center items-center">
-         <Image
-                  alt=""
-                  width={82}
-                  height={82}
-                  src={"/assets/icons/authenticity.svg"}
-                  className="mb-6"
-                />
+              </div>
+            </div>
+            <div className="flex flex-col justify-center items-center">
+              <Image
+                alt=""
+                width={82}
+                height={82}
+                src={"/assets/icons/authenticity.svg"}
+                className="mb-6"
+              />
 
-                <div className="title-24 font-semibold mb-4 text-center md:text-base md:mb-2">
+              <div className="text-2xl font-semibold mb-4 text-center md:mb-2">
                 Authenticity
-                </div>
-                <div className="title-18 text-[#8D8D8D] leading-[140%] text-center w-full md:w-full md:max-w-[35ch] md:text-sm">
+              </div>
+              <div className="text-xl text-[#8D8D8D] leading-[140%] text-center w-full md:w-full md:max-w-[35ch]">
                 We champion genuine interactions, believing authenticity is the cornerstone of meaningful engagement.
-                </div>
-      </div>
-        </div>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -141,6 +142,7 @@ export default function About() {
       <Reach />
 
       <Footer />
+      </div>
     </div>
   );
 }

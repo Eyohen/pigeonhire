@@ -1,23 +1,35 @@
 import Link from "next/link";
 
 export default function Categories() {
+    const categories = [
+        "Arts & Culture",
+        "Social & Community",
+        "Creative & Expressive",
+        "Health & Wellness",
+        "Technology & Science",
+        "Lifestyles & Hobbies",
+        "Business Technology",
+        "Business & Finance",
+        "Entertainment & Leisure",
+        "Environment & Sustainability",
+        "Special Interest",
+        "Education & Learning"
+    ];
+
     return (
-        <div className="w-full">
-            <div className="font-medium mb-4">Explore by categories</div>
+        <div className="w-full py-4">
+            <div className="text-base font-medium mb-5 text-gray-900">Explore by categories</div>
             <div className="grid grid-cols-4 gap-4">
-                <Link href={"/user/category"} className="w-full h-16 flex items-center justify-center bg-[#fafafa] font-medium rounded-[15px] cursor-pointer hover:bg-secondary hover:text-white">Arts & Culture</Link>
-                <Link href={"/user/category"} className="w-full h-16 flex items-center justify-center bg-[#fafafa] font-medium rounded-[15px] cursor-pointer hover:bg-secondary hover:text-white">Social & Community</Link>
-                <Link href={"/user/category"} className="w-full h-16 flex items-center justify-center bg-[#fafafa] font-medium rounded-[15px] cursor-pointer hover:bg-secondary hover:text-white">Creative & Expressive</Link>
-                <Link href={"/user/category"} className="w-full h-16 flex items-center justify-center bg-[#fafafa] font-medium rounded-[15px] cursor-pointer hover:bg-secondary hover:text-white">Health & Wellness</Link>
-                <Link href={"/user/category"} className="w-full h-16 flex items-center justify-center bg-[#fafafa] font-medium rounded-[15px] cursor-pointer hover:bg-secondary hover:text-white">Technology & Science</Link>
-                <Link href={"/user/category"} className="w-full h-16 flex items-center justify-center bg-[#fafafa] font-medium rounded-[15px] cursor-pointer hover:bg-secondary hover:text-white">Lifestyles & Hobbies</Link>
-                <Link href={"/user/category"} className="w-full h-16 flex items-center justify-center bg-[#fafafa] font-medium rounded-[15px] cursor-pointer hover:bg-secondary hover:text-white">Business Technology</Link>
-                <Link href={"/user/category"} className="w-full h-16 flex items-center justify-center bg-[#fafafa] font-medium rounded-[15px] cursor-pointer hover:bg-secondary hover:text-white">Business & Finance</Link>
-                <Link href={"/user/category"} className="w-full h-16 flex items-center justify-center bg-[#fafafa] font-medium rounded-[15px] cursor-pointer hover:bg-secondary hover:text-white">Entertainment & Leisure</Link>
-                <Link href={"/user/category"} className="w-full h-16 flex items-center justify-center bg-[#fafafa] font-medium rounded-[15px] cursor-pointer hover:bg-secondary hover:text-white">Environment & Sustainability</Link>
-                <Link href={"/user/category"} className="w-full h-16 flex items-center justify-center bg-[#fafafa] font-medium rounded-[15px] cursor-pointer hover:bg-secondary hover:text-white">Special Interest</Link>
-                <Link href={"/user/category"} className="w-full h-16 flex items-center justify-center bg-[#fafafa] font-medium rounded-[15px] cursor-pointer hover:bg-secondary hover:text-white">Education & Learning</Link>
+                {categories.map((category) => (
+                    <Link
+                        key={category}
+                        href={`/user/category?category=${encodeURIComponent(category)}`}
+                        className="w-full h-16 flex items-center justify-center bg-[#fafafa] font-medium text-sm rounded-[15px] cursor-pointer hover:bg-secondary hover:text-white transition-all duration-200 border border-transparent hover:shadow-sm"
+                    >
+                        {category}
+                    </Link>
+                ))}
             </div>
         </div>
-    )
+    );
 }

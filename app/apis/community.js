@@ -6,7 +6,7 @@ export const getCommunityTypes = async () => {
 };
 
 export const getGoals = async () => {
-  const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/goals`);
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/interactionTypes`);
   return res;
 };
 
@@ -38,15 +38,23 @@ export const getCurrencies = async () => {
   const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/currencies`);
   return res;
 };
-export const getCommunities = async () => {
-  const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/communities`);
+export const getCommunities = async (page = 1, filters = {}) => {
+  const params = new URLSearchParams({ page: page.toString() });
+
+  // Add filters to query params if they exist
+  if (filters.category) params.append('category', filters.category);
+  if (filters.communityType) params.append('communityType', filters.communityType);
+  if (filters.platform) params.append('platform', filters.platform);
+  if (filters.search) params.append('search', filters.search);
+
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/communities?${params.toString()}`);
   console.log("here", res);
 
   return res;
 };
 export const getPlatformUsed = async () => {
   const res = await axios.get(
-    `${process.env.NEXT_PUBLIC_URL}/communicationPlatforms`
+    `${process.env.NEXT_PUBLIC_URL}/communicationTypes`
   );
   console.log("here", res);
 
@@ -154,7 +162,7 @@ export const communityFavoriteChecker = async (userId, communityId, token) => {
 };
 
 export const removeFavoriteCommunity = async (userId, communityId, token) => {
-  
+
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -170,6 +178,21 @@ export const removeFavoriteCommunity = async (userId, communityId, token) => {
     config
   );
   console.log("here", res);
+
+  return res;
+};
+
+export const getUserCommunities = async (userId, token, page = 1) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const res = await axios.get(
+    `${process.env.NEXT_PUBLIC_URL}/connectors/${userId}/communities?page=${page}`,
+    config
+  );
 
   return res;
 };

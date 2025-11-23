@@ -1,6 +1,101 @@
+"use client";
+
+import { useParams, useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
+import { getCommunity } from "@/app/apis/community";
+import { toast } from "react-toastify";
+import axios from "axios";
 import NavigationDirectory from "@/app/components/navigationDirectory";
 
-export default function EditNetworkDetails() {
+export default function EditCommunity() {
+  const { id } = useParams();
+  const router = useRouter();
+  const { token } = useSelector((state) => state.auth);
+  const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
+
+  const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm();
+
+  useEffect(() => {
+    const fetchCommunity = async () => {
+      try {
+        const response = await getCommunity(id);
+        const community = response?.data;
+
+        if (community) {
+          // Populate form fields
+          setValue("name", community.name);
+          setValue("description", community.description);
+          setValue("email", community.email);
+          setValue("phone", community.phone);
+          setValue("location", community.location);
+          setValue("state", community.state);
+          setValue("website", community.website);
+          setValue("whatsapp", community.whatsapp);
+          setValue("telegram", community.telegram);
+          setValue("twitter", community.twitter);
+          setValue("linkedin", community.linkedin);
+          setValue("communityType", community.communityType);
+          setValue("communityInterest", community.communityInterest);
+          setValue("size", community.size);
+          setValue("engagementLevel", community.engagementLevel);
+          setValue("frequency", community.frequency);
+          setValue("accessType", community.accessType);
+          setValue("communicationPlatform", community.communicationPlatform);
+          setValue("recognition", community.recognition);
+          setValue("additionalService", community.additionalService);
+        }
+      } catch (error) {
+        console.error("Error fetching community:", error);
+        toast.error("Failed to load community data");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (id) {
+      fetchCommunity();
+    }
+  }, [id, setValue]);
+
+  const onSubmit = async (data) => {
+    setSubmitting(true);
+
+    try {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
+      const response = await axios.put(
+        `${process.env.NEXT_PUBLIC_URL}/communities/${id}`,
+        data,
+        config
+      );
+
+      if (response.status === 200) {
+        toast.success("Community updated successfully!");
+        router.push("/user/manage-network");
+      }
+    } catch (error) {
+      console.error("Error updating community:", error);
+      toast.error(error?.response?.data?.message || "Failed to update community");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="w-full max-w-[921px]">
+        <div className="text-center py-12">Loading community data...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="w-full max-w-[921px]">
       <NavigationDirectory
@@ -10,96 +105,212 @@ export default function EditNetworkDetails() {
             link: "/user",
           },
           {
-            name: "Start entrepreneurship hub ",
-            link: "/",
+            name: "Manage Network",
+            link: "/user/manage-network",
           },
           {
-            name: "Edit",
+            name: "Edit Community",
           },
         ]}
       />
 
-      <div className="w-full h-[136px] bg-[#FAFAFA] mb-4"></div>
+      <div className="w-full font-semibold text-2xl mb-6 mt-4">Edit Community</div>
 
-      <div className="w-full font-semibold text-[#1C871B] text-center">Edit</div>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <label htmlFor="name" className="block mb-2 font-medium">Name *</label>
+        <input
+          type="text"
+          id="name"
+          {...register("name", { required: "Name is required" })}
+          className="border border-[#e5e5e5] w-full max-w-[599px] h-14 flex gap-5 justify-between items-center rounded-3xl px-6 mb-6"
+        />
+        {errors.name && <p className="text-red-500 text-sm -mt-4 mb-4">{errors.name.message}</p>}
 
-      <form action="">
-      <label htmlFor="">Name</label>
-      <input type="text" className="border border-[#e5e5e5] w-full max-w-[599px] h-14 flex gap-5 justify-between items-center rounded-3xl px-6 mb-6" />
-      <label htmlFor="">Description</label>
-      <textarea name="" id="" className="border border-[#e5e5e5] w-full max-w-[599px] flex gap-5 justify-between items-center rounded px-6 mb-6 pt-4 h-[134px]"></textarea>
-      <div className="grid grid-cols-2 gap-6 max-w-full">
-        <div>
-          <label htmlFor="">Category</label>
-          <select name="" id="" className="border border-[#e5e5e5] w-full max-w-[599px] h-14 flex gap-5 justify-between items-center rounded-3xl px-6 mb-6">
-            <option value=""></option>
-          </select>
-        </div>
-        <div>
-          <label htmlFor="">Location</label>
-          <select name="" id="" className="border border-[#e5e5e5] w-full max-w-[599px] h-14 flex gap-5 justify-between items-center rounded-3xl px-6 mb-6">
-            <option value=""></option>
-          </select>
-        </div>
-        <div>
-          <label htmlFor="">Facilitator</label>
-          <select name="" id="" className="border border-[#e5e5e5] w-full max-w-[599px] h-14 flex gap-5 justify-between items-center rounded-3xl px-6 mb-6">
-            <option value=""></option>
-          </select>
-        </div>
-        <div>
-          <label htmlFor="">Facilitator</label>
-          <select name="" id="" className="border border-[#e5e5e5] w-full max-w-[599px] h-14 flex gap-5 justify-between items-center rounded-3xl px-6 mb-6">
-            <option value=""></option>
-          </select>
-        </div>
-      </div>
-      <label htmlFor="">Contact information</label>
-      <input type="text" className="border border-[#e5e5e5] w-full max-w-[599px] h-14 flex gap-5 justify-between items-center rounded-3xl px-6 mb-6" />
-      <label htmlFor="">Connection type</label>
-      <select name="" id="" className="border border-[#e5e5e5] w-full max-w-[599px] h-14 flex gap-5 justify-between items-center rounded-3xl px-6 mb-6">
-        <option value=""></option>
-      </select>
-      <label htmlFor="">Created</label>
-      <select name="" id="" className="border border-[#e5e5e5] w-full max-w-[599px] h-14 flex gap-5 justify-between items-center rounded-3xl px-6 mb-6">
-        <option value=""></option>
-      </select>
-      <label htmlFor="">Price tag</label>
-      <select name="" id="" className="border border-[#e5e5e5] w-full max-w-[599px] h-14 flex gap-5 justify-between items-center rounded-3xl px-6 mb-6">
-        <option value=""></option>
-      </select>
-      <label htmlFor="">Communication platform</label>
-      <select name="" id="" className="border border-[#e5e5e5] w-full max-w-[599px] h-14 flex gap-5 justify-between items-center rounded-3xl px-6 mb-6">
-        <option value=""></option>
-      </select>
-      <label htmlFor="">Engagement level</label>
-      <select name="" id="" className="border border-[#e5e5e5] w-full max-w-[599px] h-14 flex gap-5 justify-between items-center rounded-3xl px-6 mb-6">
-        <option value=""></option>
-      </select>
-      <label htmlFor="">Post frequency</label>
-      <select name="" id="" className="border border-[#e5e5e5] w-full max-w-[599px] h-14 flex gap-5 justify-between items-center rounded-3xl px-6 mb-6">
-        <option value=""></option>
-      </select>
-      <label htmlFor="">Communities interest</label>
-      <select name="" id="" className="border border-[#e5e5e5] w-full max-w-[599px] h-14 flex gap-5 justify-between items-center rounded-3xl px-6 mb-6">
-        <option value=""></option>
-      </select>
-      <label htmlFor="">Access requirements:</label>
-      <select name="" id="" className="border border-[#e5e5e5] w-full max-w-[599px] h-14 flex gap-5 justify-between items-center rounded-3xl px-6 mb-6">
-        <option value=""></option>
-      </select>
-      <label htmlFor="">Link to community:</label>
-      <input type="text" className="border border-[#e5e5e5] w-full max-w-[599px] h-14 flex gap-5 justify-between items-center rounded-3xl px-6 mb-6" />
-      <label htmlFor="">Interaction type:</label>
-      <select name="" id="" className="border border-[#e5e5e5] w-full max-w-[599px] h-14 flex gap-5 justify-between items-center rounded-3xl px-6 mb-6">
-        <option value=""></option>
-      </select>
-      <label htmlFor="">Special achievements:</label>
-      <textarea name="" id="" className="border border-[#e5e5e5] w-full max-w-[599px] flex gap-5 justify-between items-center rounded px-6 mb-6 pt-4 h-[134px]"></textarea>
-      <label htmlFor="">Additional services:</label>
-      <textarea name="" id="" className="border border-[#e5e5e5] w-full max-w-[599px] flex gap-5 justify-between items-center rounded px-6 mb-6 pt-4 h-[134px]"></textarea>
+        <label htmlFor="description" className="block mb-2 font-medium">Description</label>
+        <textarea
+          id="description"
+          {...register("description")}
+          className="border border-[#e5e5e5] w-full max-w-[599px] flex gap-5 justify-between items-center rounded px-6 mb-6 pt-4 h-[134px]"
+        />
 
-      <button className="w-full max-w-[429px] h-[50px] flex items-center justify-center gap-2.5 bg-[#df7c0d] rounded-[28px] font-medium text-lg text-white shadow-[0px_2px_8px_0px_#00000040_inset] border-none mx-auto mt-10 phone:w-[120px] phone:text-[11px] phone:h-8">Save Changes</button>
+        <div className="grid grid-cols-2 gap-6 max-w-full mb-6">
+          <div>
+            <label htmlFor="email" className="block mb-2 font-medium">Email</label>
+            <input
+              type="email"
+              id="email"
+              {...register("email")}
+              className="border border-[#e5e5e5] w-full h-14 rounded-3xl px-6"
+            />
+          </div>
+          <div>
+            <label htmlFor="phone" className="block mb-2 font-medium">Phone</label>
+            <input
+              type="text"
+              id="phone"
+              {...register("phone")}
+              className="border border-[#e5e5e5] w-full h-14 rounded-3xl px-6"
+            />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-6 max-w-full mb-6">
+          <div>
+            <label htmlFor="location" className="block mb-2 font-medium">Location</label>
+            <input
+              type="text"
+              id="location"
+              {...register("location")}
+              className="border border-[#e5e5e5] w-full h-14 rounded-3xl px-6"
+            />
+          </div>
+          <div>
+            <label htmlFor="state" className="block mb-2 font-medium">State</label>
+            <input
+              type="text"
+              id="state"
+              {...register("state")}
+              className="border border-[#e5e5e5] w-full h-14 rounded-3xl px-6"
+            />
+          </div>
+        </div>
+
+        <label htmlFor="website" className="block mb-2 font-medium">Website</label>
+        <input
+          type="text"
+          id="website"
+          {...register("website")}
+          className="border border-[#e5e5e5] w-full max-w-[599px] h-14 rounded-3xl px-6 mb-6"
+        />
+
+        <div className="grid grid-cols-2 gap-6 max-w-full mb-6">
+          <div>
+            <label htmlFor="whatsapp" className="block mb-2 font-medium">WhatsApp</label>
+            <input
+              type="text"
+              id="whatsapp"
+              {...register("whatsapp")}
+              className="border border-[#e5e5e5] w-full h-14 rounded-3xl px-6"
+            />
+          </div>
+          <div>
+            <label htmlFor="telegram" className="block mb-2 font-medium">Telegram</label>
+            <input
+              type="text"
+              id="telegram"
+              {...register("telegram")}
+              className="border border-[#e5e5e5] w-full h-14 rounded-3xl px-6"
+            />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-6 max-w-full mb-6">
+          <div>
+            <label htmlFor="twitter" className="block mb-2 font-medium">Twitter</label>
+            <input
+              type="text"
+              id="twitter"
+              {...register("twitter")}
+              className="border border-[#e5e5e5] w-full h-14 rounded-3xl px-6"
+            />
+          </div>
+          <div>
+            <label htmlFor="linkedin" className="block mb-2 font-medium">LinkedIn</label>
+            <input
+              type="text"
+              id="linkedin"
+              {...register("linkedin")}
+              className="border border-[#e5e5e5] w-full h-14 rounded-3xl px-6"
+            />
+          </div>
+        </div>
+
+        <label htmlFor="communityType" className="block mb-2 font-medium">Community Type</label>
+        <input
+          type="text"
+          id="communityType"
+          {...register("communityType")}
+          className="border border-[#e5e5e5] w-full max-w-[599px] h-14 rounded-3xl px-6 mb-6"
+        />
+
+        <label htmlFor="communityInterest" className="block mb-2 font-medium">Community Interest</label>
+        <input
+          type="text"
+          id="communityInterest"
+          {...register("communityInterest")}
+          className="border border-[#e5e5e5] w-full max-w-[599px] h-14 rounded-3xl px-6 mb-6"
+        />
+
+        <label htmlFor="size" className="block mb-2 font-medium">Size</label>
+        <input
+          type="text"
+          id="size"
+          {...register("size")}
+          className="border border-[#e5e5e5] w-full max-w-[599px] h-14 rounded-3xl px-6 mb-6"
+        />
+
+        <label htmlFor="engagementLevel" className="block mb-2 font-medium">Engagement Level</label>
+        <input
+          type="text"
+          id="engagementLevel"
+          {...register("engagementLevel")}
+          className="border border-[#e5e5e5] w-full max-w-[599px] h-14 rounded-3xl px-6 mb-6"
+        />
+
+        <label htmlFor="frequency" className="block mb-2 font-medium">Post Frequency</label>
+        <input
+          type="text"
+          id="frequency"
+          {...register("frequency")}
+          className="border border-[#e5e5e5] w-full max-w-[599px] h-14 rounded-3xl px-6 mb-6"
+        />
+
+        <label htmlFor="accessType" className="block mb-2 font-medium">Access Type</label>
+        <input
+          type="text"
+          id="accessType"
+          {...register("accessType")}
+          className="border border-[#e5e5e5] w-full max-w-[599px] h-14 rounded-3xl px-6 mb-6"
+        />
+
+        <label htmlFor="communicationPlatform" className="block mb-2 font-medium">Communication Platform</label>
+        <input
+          type="text"
+          id="communicationPlatform"
+          {...register("communicationPlatform")}
+          className="border border-[#e5e5e5] w-full max-w-[599px] h-14 rounded-3xl px-6 mb-6"
+        />
+
+        <label htmlFor="recognition" className="block mb-2 font-medium">Special Recognition/Awards</label>
+        <textarea
+          id="recognition"
+          {...register("recognition")}
+          className="border border-[#e5e5e5] w-full max-w-[599px] rounded px-6 mb-6 pt-4 h-[134px]"
+        />
+
+        <label htmlFor="additionalService" className="block mb-2 font-medium">Additional Services</label>
+        <textarea
+          id="additionalService"
+          {...register("additionalService")}
+          className="border border-[#e5e5e5] w-full max-w-[599px] rounded px-6 mb-6 pt-4 h-[134px]"
+        />
+
+        <div className="flex gap-4 mt-8">
+          <button
+            type="button"
+            onClick={() => router.push("/user/manage-network")}
+            className="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            disabled={submitting}
+            className="px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {submitting ? "Updating..." : "Update Community"}
+          </button>
+        </div>
       </form>
     </div>
   );

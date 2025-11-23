@@ -16,11 +16,15 @@ export default function Sidebar() {
   const [open, setOpen] = useState("");
   const dispatch = useDispatch();
   const router = useRouter();
-  // const { token } = useSelector((state) => state.auth);
+  const [mounted, setMounted] = useState(false);
   const [currentPlan, setCurrentPlan] = useState("Free plan");
 
   const {token, userInfo} = useSelector((state) => state.auth);
-console.log("userInfo", userInfo);
+  console.log("userInfo", userInfo);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (!token) return;
@@ -66,38 +70,72 @@ console.log("userInfo", userInfo);
     window.scrollTo(0, 0);
   };
 
+  // Don't render until mounted to avoid hydration mismatch
+  if (!mounted || !token) {
+    return null;
+  }
+
   return (
-    !!token &&
-    <div className="w-[265px] max-w-[265px] bg-gray-light pb-10">
-      <Link href="/" prefetch={true} className="w-full h-36 flex items-center justify-center">
+    <div className="w-[265px] min-w-[265px] bg-gray-light pb-10 overflow-y-auto flex flex-col">
+      <Link href="/" prefetch={true} className="w-full h-36 flex items-center justify-center shrink-0">
         <Image alt="" width={200} height={40} src={"/assets/icons/logo.svg"} />
       </Link>
 
-      <div className="w-full h-14 bg-white flex items-center gap-2 px-8 font-medium">
-      <div>
-        <SearchIcon />
-      </div>
-
+      <Link
+        href="/user"
+        prefetch={true}
+        className={
+          pathname === "/user"
+            ? "w-full h-14 bg-white flex items-center gap-2 px-8 font-medium shrink-0 text-black transition-colors"
+            : "w-full h-14 bg-transparent hover:bg-white/50 flex items-center gap-2 px-8 font-medium shrink-0 text-gray transition-colors cursor-pointer"
+        }
+      >
+        <div>
+          <SearchIcon fill={pathname === "/user" ? "#000" : "#8D8D8D"} />
+        </div>
         <div>Explore networks</div>
-      </div>
+      </Link>
 
-      <div>
-        <Link className={pathname?.includes("manage-network") ? "w-full h-14 px-8 mt-8 flex items-center gap-2 bg-white text-black cursor-pointer" : "w-full h-14 px-8 mt-8 flex items-center gap-2 text-gray cursor-pointer"} href="/user/manage-network" prefetch={true}>
+      <div className="mt-4 space-y-3">
+        <Link
+          className={
+            pathname?.includes("manage-network")
+              ? "w-full h-14 px-8 flex items-center gap-2 bg-white text-black font-medium transition-colors rounded-r-lg"
+              : "w-full h-14 px-8 flex items-center gap-2 text-gray hover:bg-white/50 transition-colors cursor-pointer rounded-r-lg"
+          }
+          href="/user/manage-network"
+          prefetch={true}
+        >
           <NetworkIcon color={pathname?.includes("manage-network") && "#000"} />
           Manage Network
         </Link>
-        <Link className={pathname?.includes("leads") ? "w-full h-14 px-8 mt-8 flex items-center gap-2 bg-white text-black cursor-pointer" : "w-full h-14 px-8 mt-8 flex items-center gap-2 text-gray cursor-pointer"} href="/user/leads" prefetch={true}>
-        <LeadsIcon color={pathname?.includes("leads") && "#000"} />
-
+        <Link
+          className={
+            pathname?.includes("leads")
+              ? "w-full h-14 px-8 flex items-center gap-2 bg-white text-black font-medium transition-colors rounded-r-lg"
+              : "w-full h-14 px-8 flex items-center gap-2 text-gray hover:bg-white/50 transition-colors cursor-pointer rounded-r-lg"
+          }
+          href="/user/leads"
+          prefetch={true}
+        >
+          <LeadsIcon color={pathname?.includes("leads") && "#000"} />
           Leads
         </Link>
-        <Link className={pathname?.includes("settings") ? "w-full h-14 px-8 mt-8 flex items-center gap-2 bg-white text-black cursor-pointer" : "w-full h-14 px-8 mt-8 flex items-center gap-2 text-gray cursor-pointer"} href="/user/settings/contact-info" prefetch={true}>
-        <SettingsIcon color={pathname?.includes("settings") && "#000"} />
-
+        <Link
+          className={
+            pathname?.includes("settings")
+              ? "w-full h-14 px-8 flex items-center gap-2 bg-white text-black font-medium transition-colors rounded-r-lg"
+              : "w-full h-14 px-8 flex items-center gap-2 text-gray hover:bg-white/50 transition-colors cursor-pointer rounded-r-lg"
+          }
+          href="/user/settings/contact-info"
+          prefetch={true}
+        >
+          <SettingsIcon color={pathname?.includes("settings") && "#000"} />
           Settings
         </Link>
-        <div className="w-full h-14 px-8 mt-8 flex items-center gap-2 text-gray cursor-pointer"
-        onClick={handleLogout}
+        <button
+          className="w-full h-14 px-8 flex items-center gap-2 text-gray hover:bg-white/50 transition-colors cursor-pointer rounded-r-lg"
+          onClick={handleLogout}
         >
           <Image
             alt=""
@@ -106,11 +144,11 @@ console.log("userInfo", userInfo);
             src={"/assets/icons/logout.svg"}
           />
           Logout
-        </div>
+        </button>
       </div>
 
-      <div className="w-full px-8 my-[124px]">
-        <div className="w-full h-[130px] rounded-2xl bg-white">
+      <div className="w-full px-8 my-[124px] flex-1 flex flex-col justify-end">
+        <div className="w-full h-[130px] rounded-2xl bg-white shrink-0">
           <div className="text-sm font-normal leading-[140%] py-4 px-6">{currentPlan}</div>
           <div className="w-full h-px bg-border mb-4"></div>
           <button
@@ -128,7 +166,7 @@ console.log("userInfo", userInfo);
         </div>
       </div>
 
-      <div className="w-full px-8 flex items-center gap-2">
+      <div className="w-full px-8 flex items-center gap-2 shrink-0">
         <div className="font-medium text-white min-w-[32px] h-8 flex items-center justify-center rounded-full bg-primary">{userInfo?.user?.fname?.split('')[0]}</div>
         <div>
           <div className="font-medium mb-1"> {userInfo?.user?.fname} {userInfo?.user?.lname}</div>

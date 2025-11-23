@@ -17,10 +17,13 @@ export default function Register() {
         <div className="text-[32px] font-semibold mb-4 text-center">
           Welcome back to Pigeonhire
         </div>
-        <div className="text-lg font-normal text-[#8d8d8d] mb-8 text-center">
+        <div className="text-xl font-normal text-[#8d8d8d] mb-8 text-center">
           Log in to continue discover, connect, and convert leads.{" "}
         </div>
+
+        <div className="mt-6">
         <LoginForm />
+        </div>
         <div className="flex justify-between">
           <div className="text-sm font-normal leading-[140%] text-[#8d8d8d]">
             © 2025 Pigeonhire Inc. All Right Reserved.

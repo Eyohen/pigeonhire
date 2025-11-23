@@ -9,7 +9,7 @@ export default function LandingHeader({ logo }) {
   const [active, setActive] = useState(false)
 
   return (
-    <header className="relative w-full max-w-[1352px] mx-auto px-5 py-16 h-[114px] flex justify-between items-center tablet:h-14 tablet:bg-white">
+    <header className="relative w-full max-w-[1352px] mx-auto px-5 py-9 flex justify-between items-center">
       <Link href={"/"} prefetch={true}>
         <Image
           alt=""

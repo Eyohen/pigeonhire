@@ -1,11 +1,19 @@
+"use client";
 import CategoryInner from "@/app/components/categoryInner";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default function Category() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const category = searchParams.get("category") || "All Categories";
+
   return (
     <div>
-      <Link className="font-medium flex items-center gap-0.5 mb-[17px]" href="/" prefetch={true}>
+      <button
+        onClick={() => router.back()}
+        className="font-medium flex items-center gap-0.5 mb-[17px] cursor-pointer hover:opacity-70 transition-opacity bg-transparent border-none p-0"
+      >
         <Image
           src={"/assets/icons/backArrow.svg"}
           width={24}
@@ -13,7 +21,7 @@ export default function Category() {
           alt=""
         />
         Back
-      </Link>
+      </button>
 
       <div className="text-sm flex items-center gap-1 mb-6">
         <div>Home</div>
@@ -30,14 +38,7 @@ export default function Category() {
           height={12}
           alt=""
         />
-        <div>Content & Copywriting</div>
-        <Image
-          src={"/assets/icons/navigation.svg"}
-          width={12}
-          height={12}
-          alt=""
-        />
-        <div>Connectors</div>
+        <div className="font-medium text-primary">{category}</div>
       </div>
 
       <CategoryInner />

@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 
 export default function ConnectorPreview() {
   const router = useRouter();
-  const { token } = useSelector((state) => state.auth);
+  const { token, userInfo } = useSelector((state) => state.auth);
   const [connectorData, setConnectorData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [formLoading, setFormLoading] = useState(false);
@@ -31,9 +31,22 @@ export default function ConnectorPreview() {
   }, []);
 
   const handleSubmit = async () => {
+    if (!userInfo?.user?.id) {
+      console.error("No userId found in userInfo");
+      toast.error("User not found. Please log in again.");
+      return;
+    }
+
     setFormLoading(true);
     try {
-      const response = await createConnector(connectorData, token);
+      // Add userId to connector data
+      const dataWithUserId = {
+        ...connectorData,
+        userId: userInfo.user.id
+      };
+
+      console.log("Creating connector with userId:", userInfo.user.id);
+      const response = await createConnector(dataWithUserId, token);
       console.log("createConnector", response);
       toast.success("Connector created successfully!");
       localStorage.removeItem('connectorFormData');

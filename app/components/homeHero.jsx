@@ -68,9 +68,6 @@ export function HomeHero(params) {
     <div className="relative pt-20 pb-12 bg-[#241301] overflow-hidden phone:pt-[60px] phone:pb-[18px]">
       <div className="w-full max-w-[1352px] px-5 mx-auto phone:px-3">
         <div className="title-56 w-full max-w-[1000px] text-center font-semibold leading-[140%] mx-auto mb-6 flex justify-center text-white phone:text-[28px]">
-          {/* <div className="w-full max-w-[26ch] text-5xl relative phone:max-w-[20ch]">
-            Reach your Target Audience, Right Where they Engage.
-          </div> */}
         </div>
         <div className="text-center">
           <p className="text-7xl text-white font-semibold">Reach your Target Audience, Right</p>

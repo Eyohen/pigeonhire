@@ -1,140 +1,3 @@
-// "use client"
-// import { useForm } from "react-hook-form";
-// import { loginUser } from "../apis/auth";
-// import { useState } from "react";
-// import Link from "next/link";
-// import Image from "next/image";
-// import { toast } from "react-toastify";
-// import { useDispatch } from "react-redux";
-// import { useRouter } from "next/navigation";
-
-// export default function LoginForm(params) {
-//     const [loading, setLoading] = useState(false)
-//     const [passwordOpen, setPasswordOpen] = useState(false)
-//     const dispatch = useDispatch();
-//     const router = useRouter();
-
-//     const onSubmit = async (data) => {
-//         console.log("helloooo!");
-        
-//         // setError("");
-//         setLoading(true);
-    
-//         try {
-          
-//           const response = await loginUser(data);
-
-//           console.log("loginUser", response);
-//           localStorage.setItem("token", response?.data?.accessToken);
-//           document.cookie = `auth_token=${
-//             response?.data?.accessToken
-//           }; path=/; max-age=${60 * 60 * 24 * 7};`;
-//           dispatch({
-//             type: "USER_LOGIN_SUCCESS",
-//             payload: {
-//               token: response?.data?.accessToken
-//             },
-//           });
-//           router.push("/user");
-    
-//           // toast.success("App created");
-//           // setOpen(false);
-//           // reloadFunction();
-//           // reset();
-//           // setAbiFileName("");
-//           // setBytecodeFileName("");
-//         } catch (error) {
-//          toast.error(error?.response?.data?.msg || "An unexpected error occurred");
-//               console.log("erroropop", error);
-
-//         }finally {
-//       setLoading(false);
-//     }
-//       };
-
-//     const {
-//         handleSubmit,
-//         register,
-//         reset,
-//         formState: { errors },
-//         setValue,
-//         watch,
-//       } = useForm();
-//     return (
-//         <form className="auth__form-login" onSubmit={handleSubmit(onSubmit)}>
-//           <label htmlFor="email">Email address</label>
-
-//           <div className="auth__form__input-login">
-//             <input type="email" name="email" placeholder="e.g John Doe"
-//             required
-//             {...register("email")}
-
-//             />
-//             <Image
-//               alt=""
-//               width={24}
-//               height={24}
-//               src={"/assets/icons/email.svg"}
-//             />
-//           </div>
-
-//           <label htmlFor="password">Password</label>
-//           <div className="auth__form__input-login">
-//             <input
-//               type={passwordOpen ? "text" : "password"}
-//               name="password"
-//               placeholder="Enter your password"
-//               required
-//               {...register("password")}
-              
-
-//             />{" "}
-//             <Image
-//               alt=""
-//               width={24}
-//               height={24}
-//               src={passwordOpen ? "/assets/icons/closedEye.svg" : "/assets/icons/openedEye.svg"}
-//               onClick={() => setPasswordOpen(!passwordOpen)}
-//               className="pointer"
-//             />
-//           </div>
-
-//           <div className="auth__form__forgot">
-//             <div>
-//             <input type="checkbox" name="" id="" />
-
-//               Remember me
-//             </div>
-//             <div>
-//               <Link href={"/forgot-password"}>Forgot password?</Link>
-//             </div>
-//           </div>
-
-//           <button className="auth__button" disabled={loading}>{loading ? "Loading..." : "Login"}</button>
-//         <div className="auth__login">
-//           Don’t have an account! <Link href="/register">Sign Up</Link>
-//         </div>
-//         <br />
-//         <br />
-//         <div className="auth__line"></div>
-//         <div className="auth__signup">or login with</div>
-//         <br />
-//         <button className="auth__oauth">
-//           <Image
-//             alt=""
-//             width={88}
-//             height={24}
-//             src={"/assets/icons/google.svg"}
-//           />
-//         </button>
-//         <br />
-//         <br />
-//         <br />
-//         </form>
-//     )
-// }
-
-
 "use client";
 import { useForm } from "react-hook-form";
 import { loginUser } from "../apis/auth";
@@ -200,9 +63,9 @@ export default function LoginForm(params) {
     };
 
     return (
-        <form className="max-w-[496px] mx-auto" onSubmit={handleSubmit(onSubmit)}>
+        <form className="max-w-[396px] mx-auto mt-6" onSubmit={handleSubmit(onSubmit)}>
             <label htmlFor="email">Email address</label>
-            <div className="primary-input mb-8">
+            <div className="primary-input mb-10">
                 <input
                     type="email"
                     name="email"
@@ -210,6 +73,7 @@ export default function LoginForm(params) {
                     required
                     {...register("email")}
                     disabled={loading}
+                    
                 />
                 <Image
                     alt=""
@@ -239,7 +103,7 @@ export default function LoginForm(params) {
                 />
             </div>
 
-            <div className="w-full flex justify-between items-center mb-[33px] -mt-4">
+            <div className="w-full flex justify-between items-center text-xl mb-[33px] -mt-4">
                 <div className="flex gap-3 items-center">
                     <input type="checkbox" name="" id="" disabled={loading} className="w-6 h-6" />
                     Remember me
@@ -253,14 +117,14 @@ export default function LoginForm(params) {
                 {loading ? "Loading..." : "Login"}
             </button>
 
-            <div className="title-14 text-center mb-[33px] text-[#8d8d8d]">
+            <div className="text-xl text-center mb-[33px] text-[#8d8d8d]">
                 Don't have an account! <Link href="/register" className="text-primary underline">Sign Up</Link>
             </div>
 
-            <div className="w-full h-px bg-[#e5e5e5] mb-[33px]"></div>
-            <div className="title-14 text-center text-[#8d8d8d] bg-white w-fit mx-auto -mt-[43px] mb-6 px-[15px]">or login with</div>
+            <div className="w-full h-px bg-[#e5e5e5] mb-[53px]"></div>
+            <div className="text-xl text-center text-[#8d8d8d] bg-white w-fit mx-auto -mt-[63px] mb-6 px-[15px]">or login with</div>
 
-            <button className="w-full max-w-[599px] h-16 bg-transparent border border-[#e5e5e5] mb-12 rounded-[32px]" type="button" disabled={loading}>
+            <button className="w-full max-w-[599px] flex justify-center h-16 bg-transparent border border-[#e5e5e5] mb-12 rounded-[32px]" type="button" disabled={loading}>
                 <Image
                     alt=""
                     width={88}

@@ -168,12 +168,14 @@ export default function ListCommunityDetails() {
         >
           Community Information
         </div>
+        {/* Temporarily disabled - Community Image tab
         <div
           className={`title-18 px-4 py-3 whitespace-nowrap font-medium cursor-pointer ${tab === "image" ? "border-b border-secondary text-secondary" : ""}`}
           onClick={() => handleTabChange("image")}
         >
           Community Image
         </div>
+        */}
         <div
           className={`title-18 px-4 py-3 whitespace-nowrap font-medium cursor-pointer ${tab === "additional-info" ? "border-b border-secondary text-secondary" : ""}`}
           onClick={() => handleTabChange("additional-info")}
@@ -305,33 +307,14 @@ export default function ListCommunityDetails() {
 
             <div className="grid grid-cols-2 gap-6 max-w-full">
                         <div>
-                          <label htmlFor="location">Location:</label>
-                          <Controller
-                            name="location"
-                            control={control}
-                            render={({ field }) => (
-                              <Autocomplete
-                                className="location-input"
-                                apiKey="AIzaSyBWo_tQ4rjQkZz1kN5WXfnemHCaF0gQ8BU"
-                                placeholder="Enter your location"
-                                defaultValue={field.value}
-                                onPlaceSelected={(place) => {
-                                  console.log("Address:", place.formatted_address);
-          
-                                  // Update the location field with the selected address
-                                  setValue("location", place.formatted_address);
-                                }}
-                                onChange={(e) => {
-                                  // Update just the text input value when typing
-                                  setValue("location", e.target.value);
-                                }}
-                                options={{
-                                  types: ["address"],
-                                }}
-                              />
-                            )}
+                          <label htmlFor="location">Location (City/Region):</label>
+                          <input
+                            type="text"
+                            id="location"
+                            placeholder="e.g., Lagos, London, New York"
+                            className="border border-border w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
+                            {...register("location", { required: "Location is required" })}
                           />
-          
                           {errors.location && (
                             <p className="error">{errors.location.message}</p>
                           )}
@@ -409,12 +392,13 @@ export default function ListCommunityDetails() {
               <p className="error">{errors.frequency.message}</p>
             )}
 
-            <button type="button" className="primary-button max-w-[429px] mx-auto mt-10" onClick={() => handleTabChange("image")}>
+            <button type="button" className="primary-button max-w-[429px] mx-auto mt-10" onClick={() => handleTabChange("additional-info")}>
               Next
             </button>
           </div>
         )}
 
+        {/* Temporarily disabled - Community Image section
         {tab === "image" && (
           <div className="w-full max-w-[921px]">
             <label htmlFor="communityImage">Upload Community image</label>
@@ -440,6 +424,7 @@ export default function ListCommunityDetails() {
             </button>
           </div>
         )}
+        */}
 
         {tab === "additional-info" && (
           <div className="w-full max-w-[921px]">
@@ -507,9 +492,9 @@ export default function ListCommunityDetails() {
               {platformUsed.map((platform) => (
                 <option
                   key={platform.id}
-                  value={platform.communicationPlatform}
+                  value={platform.secondaryType}
                 >
-                  {platform.communicationPlatform}
+                  {platform.secondaryType}
                 </option>
               ))}
             </select>
@@ -546,10 +531,10 @@ export default function ListCommunityDetails() {
                   {interactionTypes?.map((type) => (
                     <MenuItem
                       key={type.id}
-                      value={type.communityGoal}
+                      value={type.interactionType}
                       style={{ fontSize: "16px" }}
                     >
-                      {type.communityGoal}
+                      {type.interactionType}
                     </MenuItem>
                   ))}
                 </Select>
@@ -690,6 +675,16 @@ export default function ListCommunityDetails() {
               {...register("twitter")}
             />
             {errors.twitter && <p className="error">{errors.twitter.message}</p>}
+
+            <label htmlFor="linkedin">LinkedIn:</label>
+            <input
+              type="text"
+              id="linkedin"
+              placeholder="enter your linkedin profile URL or username"
+              className="border border-border w-full max-w-full h-14 flex gap-5 justify-between items-center rounded px-6 mb-6"
+              {...register("linkedin")}
+            />
+            {errors.linkedin && <p className="error">{errors.linkedin.message}</p>}
 
             {/* Changed to button type="submit" to trigger the form submission */}
             <button type="submit" className="primary-button max-w-[429px] mx-auto mt-10">Preview and Save</button>

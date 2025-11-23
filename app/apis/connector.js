@@ -21,8 +21,16 @@ export const createConnector = async (data, token) => {
 
 
 
-export const getConnectors = async () => {
-  const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/connectors`);
+export const getConnectors = async (page = 1, filters = {}) => {
+  const params = new URLSearchParams({ page: page.toString() });
+
+  // Add filters to query params if they exist
+  if (filters.category) params.append('category', filters.category);
+  if (filters.connectorType) params.append('connectorType', filters.connectorType);
+  if (filters.platform) params.append('platform', filters.platform);
+  if (filters.search) params.append('search', filters.search);
+
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/connectors?${params.toString()}`);
   return res;
 };
 
@@ -152,6 +160,21 @@ export const favoriteConnectorGeneric = async (userId, connectorId, token) => {
     config
   );
   console.log("favoriteConnectorGeneric response", res);
+
+  return res;
+};
+
+export const getUserConnectors = async (userId, token, page = 1) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const res = await axios.get(
+    `${process.env.NEXT_PUBLIC_URL}/connectors/${userId}/communities?page=${page}`,
+    config
+  );
 
   return res;
 };

@@ -24,7 +24,7 @@ export default function ConnectorDetails() {
     const { userInfo, token } = useSelector((state) => state.auth);
     console.log("userInfo", userInfo);
 
-    const [subscribed, setSubscribed] = useState(false);
+    const subscribed = userInfo?.user?.subscribed || false;
     const [save, setSave] = useState(false);
     const [open, setOpen] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -62,6 +62,12 @@ export default function ConnectorDetails() {
     };
 
     const handleFavoriteConnector = async () => {
+        // Check if user is subscribed
+        if (!subscribed) {
+            toast.error("You need to subscribe to save connectors. Please upgrade your plan.");
+            return;
+        }
+
         try {
             console.log("Step 1: Adding to favorites...");
             const favoriteResponse = await favoriteConnector(
@@ -142,118 +148,158 @@ export default function ConnectorDetails() {
 
     return (
         <>
-            <div className='border border-border rounded-3xl p-6 mb-8'>
-                <div className='flex gap-[22px]'>
-                    <div className='min-w-[83px] h-[77px] bg-gray-light'></div>
+            <div className='border border-border rounded-3xl p-8 mb-8 shadow-sm'>
+                <div className='flex gap-6'>
+                    <div className='min-w-[100px] h-[100px] bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl flex items-center justify-center'>
+                        <span className='text-4xl font-bold text-primary'>
+                            {connector?.firstName?.charAt(0)}{connector?.lastName?.charAt(0)}
+                        </span>
+                    </div>
 
                     <div className='w-full'>
-                        <div className='flex mb-6 whitespace-nowrap'>
-                            <div className='title-14 text-gray mr-[45px]'>Name:</div>
-                            <div className='title-18 font-medium mr-4'>
+                        <div className='flex items-center gap-4 mb-4'>
+                            <h1 className='text-2xl font-bold text-gray-900'>
                                 {connector?.firstName} {connector?.lastName}
-                            </div>
-                            <Image
-                                alt=''
-                                width={60}
-                                height={24}
-                                src={"/assets/icons/verified.svg"}
-                            />
+                            </h1>
+                            {connector?.verified && (
+                                <Image
+                                    alt='Verified'
+                                    width={60}
+                                    height={24}
+                                    src={"/assets/icons/verified.svg"}
+                                />
+                            )}
+                            {connector?.recordType === "owner record" ? (
+                                <span className="px-3 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full whitespace-nowrap">
+                                    owner record
+                                </span>
+                            ) : connector?.recordType === "public record" ? (
+                                <span className="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-full whitespace-nowrap">
+                                    public record
+                                </span>
+                            ) : null}
                         </div>
-                        <div className='flex gap-2 mb-6'>
-                            <div className='title-14 text-gray'>Description:</div>
-                            <div className='leading-[140%] w-full max-w-[70ch]'>{connector?.description}</div>
+
+                        <div className='mb-4'>
+                            <span className='inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium'>
+                                {connector?.role}
+                            </span>
                         </div>
-                        <div className='flex mb-4 whitespace-nowrap'>
-                            <div className='title-14 text-gray mr-[22px]'>Role:</div>
-                            <div className='mr-[29px]'>{connector?.description}</div>
-                            <div className='title-14 text-gray mr-[27px]'>Location:</div>
-                            <div className='mr-8 whitespace-normal break-words'>{connector?.community?.location}</div>
-                            <div className='title-14 text-gray mr-[22px]'>Category:</div>
+
+                        <p className='text-gray-700 leading-relaxed mb-6 max-w-[70ch]'>
+                            {connector?.description}
+                        </p>
+
+                        <div className='grid grid-cols-3 gap-4 text-sm'>
                             <div>
-                                {Array.isArray(
-                                    connector?.community?.commTypeCategory
-                                )
-                                    ? connector?.community?.commTypeCategory.join(
-                                          ", "
-                                      )
-                                    : connector?.community?.commTypeCategory ||
-                                      "Not provided"}
+                                <div className='text-gray-500 mb-1'>Community</div>
+                                <div className='font-medium'>{connector?.communityName}</div>
+                            </div>
+                            <div>
+                                <div className='text-gray-500 mb-1'>Location</div>
+                                <div className='font-medium'>{connector?.community?.location || 'Global'}</div>
+                            </div>
+                            <div>
+                                <div className='text-gray-500 mb-1'>Connection Type</div>
+                                <div className='font-medium'>{connector?.connectionType}</div>
                             </div>
                         </div>
+
                         {subscribed && (
                             <button
-                                className='primary-button max-w-[328px] h-[42px] shadow-none bg-secondary mt-8 mb-4'
+                                className='primary-button mt-6 max-w-fit px-8'
                                 onClick={() => setOpen(true)}
                             >
+                                <svg className='w-5 h-5 mr-2' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' />
+                                </svg>
                                 Contact
                             </button>
                         )}
                     </div>
 
-                    {/* Save connector as favorite and create as lead*/}
+                    {/* Save connector as favorite */}
                     <div
-                        className='cursor-pointer'
+                        className={`flex flex-col items-center gap-1 transition-all ${
+                            !subscribed ? 'text-gray-400 cursor-not-allowed opacity-60' :
+                            isFavorite ? 'text-secondary cursor-pointer' : 'text-gray-500 hover:text-secondary cursor-pointer'
+                        }`}
                         onClick={
+                            !subscribed ? () => toast.error("You need to subscribe to save connectors. Please upgrade your plan.") :
                             isFavorite
                                 ? handleRemoveFavoriteConnector
                                 : handleFavoriteConnector
                         }
+                        title={!subscribed ? "Subscribe to save connectors" : ""}
                     >
-                        <Image
-                            onMouseEnter={() => setSave(true)}
-                            onMouseLeave={() => setSave(false)}
-                            src={
-                                save
-                                    ? "/assets/icons/saveFilled.svg"
-                                    : "/assets/icons/save.svg"
-                            }
-                            width={32}
-                            height={32}
-                            alt=''
-                        />
-                        Save
-                    </div>
-                </div>
-                <div className='w-full h-px bg-border my-2 mb-6'></div>
-                <div className='pl-[99px]'>
-                    <div className='title-18 font-medium flex items-center gap-2 mb-[34px]'>
-                        Connector Details
-                        {!subscribed && (
-                            <Image
-                                src={"/assets/icons/arrowDownStroke.svg"}
-                                width={24}
-                                height={24}
-                                alt=''
-                            />
-                        )}
-                    </div>
-
-                    {subscribed && (
-                        <div className='grid grid-cols-[167px_auto] gap-x-4 gap-y-6'>
-                            <div className='title-14 text-gray'>Connection type:</div>
-                            <div>{connector?.connectionType}</div>
-                            <div className='title-14 text-gray'>Created:</div>
-                            <div>21st of January 2025</div>
-                            <div className='title-14 text-gray'>Price tag:</div>
-                            <div>
-                                {" "}
+                        <div className={`p-2 rounded-lg transition-colors ${!subscribed ? '' : 'hover:bg-gray-100'}`}>
+                            {!subscribed ? (
+                                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                </svg>
+                            ) : (
                                 <Image
                                     src={
-                                        connector?.community?.accessType ===
-                                        "free"
-                                            ? "/assets/icons/free.svg"
-                                            : ""
+                                        isFavorite
+                                            ? "/assets/icons/saveFilled.svg"
+                                            : "/assets/icons/save.svg"
                                     }
-                                    width={46}
-                                    height={21}
-                                    alt=''
+                                    width={28}
+                                    height={28}
+                                    alt='Save'
                                 />
+                            )}
+                        </div>
+                        <span className='text-xs font-medium'>
+                            {!subscribed ? 'Subscribe' : isFavorite ? 'Saved' : 'Save'}
+                        </span>
+                    </div>
+                </div>
+                <div className='w-full h-px bg-gray-200 my-8'></div>
+
+                <div>
+                    <h2 className='text-xl font-semibold mb-6 flex items-center gap-2'>
+                        <svg className='w-6 h-6 text-primary' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z' />
+                        </svg>
+                        Connector Details
+                        {!subscribed && (
+                            <span className='text-sm text-gray-500 font-normal'>(Subscribe to view)</span>
+                        )}
+                    </h2>
+
+                    {subscribed && (
+                        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+                            <div className='space-y-4'>
+                                <div>
+                                    <div className='text-sm text-gray-500 mb-1'>Platform</div>
+                                    <div className='font-medium'>{connector?.connectionPlatform || 'Not specified'}</div>
+                                </div>
+                                <div>
+                                    <div className='text-sm text-gray-500 mb-1'>Access</div>
+                                    <div className='font-medium'>{connector?.accessRequirement || 'Contact for details'}</div>
+                                </div>
+                                <div>
+                                    <div className='text-sm text-gray-500 mb-1'>Website</div>
+                                    {connector?.website && (
+                                        <a
+                                            href={connector.website}
+                                            target='_blank'
+                                            rel='noopener noreferrer'
+                                            className='text-primary hover:underline font-medium'
+                                        >
+                                            Visit Website →
+                                        </a>
+                                    )}
+                                </div>
                             </div>
-                            <div className='title-14 text-gray'>Communication platform:</div>
-                            <div className='flex gap-2'>
+
+                            <div>
+                                <div className='text-sm text-gray-500 mb-3'>Social Links</div>
+                                <div className='flex flex-wrap gap-2'>
                                 {connector?.facebook && (
-                                    <div
-                                        className='title-14 bg-gray-light border border-[#F6911F33] px-2 py-1 rounded-[18px] cursor-pointer'
+                                    <button
+                                        className='px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium hover:border-primary hover:bg-primary/5 transition-all duration-200'
                                         onClick={() =>
                                             window.open(
                                                 `https://facebook.com/${
@@ -269,11 +315,11 @@ export default function ConnectorDetails() {
                                         }
                                     >
                                         Facebook
-                                    </div>
+                                    </button>
                                 )}
                                 {connector?.instagram && (
-                                    <div
-                                        className='title-14 bg-gray-light border border-[#F6911F33] px-2 py-1 rounded-[18px] cursor-pointer'
+                                    <button
+                                        className='px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium hover:border-primary hover:bg-primary/5 transition-all duration-200'
                                         onClick={() =>
                                             window.open(
                                                 `https://instagram.com/${
@@ -289,11 +335,11 @@ export default function ConnectorDetails() {
                                         }
                                     >
                                         Instagram
-                                    </div>
+                                    </button>
                                 )}
                                 {connector?.twitter && (
-                                    <div
-                                        className='title-14 bg-gray-light border border-[#F6911F33] px-2 py-1 rounded-[18px] cursor-pointer'
+                                    <button
+                                        className='px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium hover:border-primary hover:bg-primary/5 transition-all duration-200'
                                         onClick={() =>
                                             window.open(
                                                 `https://twitter.com/${
@@ -309,11 +355,11 @@ export default function ConnectorDetails() {
                                         }
                                     >
                                         Twitter
-                                    </div>
+                                    </button>
                                 )}
                                 {connector?.telegram && (
-                                    <div
-                                        className='title-14 bg-gray-light border border-[#F6911F33] px-2 py-1 rounded-[18px] cursor-pointer'
+                                    <button
+                                        className='px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium hover:border-primary hover:bg-primary/5 transition-all duration-200'
                                         onClick={() =>
                                             window.open(
                                                 `https://t.me/${
@@ -329,11 +375,11 @@ export default function ConnectorDetails() {
                                         }
                                     >
                                         Telegram
-                                    </div>
+                                    </button>
                                 )}
                                 {connector?.linkedIn && (
-                                    <div
-                                        className='title-14 bg-gray-light border border-[#F6911F33] px-2 py-1 rounded-[18px] cursor-pointer'
+                                    <button
+                                        className='px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium hover:border-primary hover:bg-primary/5 transition-all duration-200'
                                         onClick={() =>
                                             window.open(
                                                 `https://linkedin.com/in/${
@@ -348,30 +394,39 @@ export default function ConnectorDetails() {
                                             )
                                         }
                                     >
-                                        Linkedin
-                                    </div>
+                                        LinkedIn
+                                    </button>
                                 )}
                             </div>
-                            <div className='title-14 text-gray'>Special achievements:</div>
-                            <div>{connector?.community?.recognition}</div>
-                            <div className='title-14 text-gray'>Additional services:</div>
-                            <div>{connector?.community?.additionalService}</div>
+                            </div>
+                            {connector?.community?.recognition && (
+                                <div>
+                                    <div className='text-sm text-gray-500 mb-1'>Special Achievements</div>
+                                    <div className='font-medium'>{connector?.community?.recognition}</div>
+                                </div>
+                            )}
+                            {connector?.community?.additionalService && (
+                                <div>
+                                    <div className='text-sm text-gray-500 mb-1'>Additional Services</div>
+                                    <div className='font-medium'>{connector?.community?.additionalService}</div>
+                                </div>
+                            )}
                         </div>
                     )}
 
                     {!subscribed && (
-                        <>
+                        <div className='mt-6 flex flex-col items-center justify-center gap-3 py-8'>
                             <button
-                                className='primary-button max-w-[318px] h-[66px] shadow-none rounded-[48px] bg-secondary ml-[158px] mb-4'
+                                className='px-8 py-4 bg-secondary text-white font-semibold rounded-full hover:bg-secondary/90 transition-all duration-200 shadow-md hover:shadow-lg'
                                 onClick={() => setSubscribed(true)}
                             >
-                                Subscribe to view
+                                Subscribe to view full details
                             </button>
 
-                            <div className='title-14 ml-[158px] font-medium'>
-                                Subscribe to connect with the community owner
-                            </div>
-                        </>
+                            <p className='text-sm text-gray-600'>
+                                Subscribe to connect with this connector
+                            </p>
+                        </div>
                     )}
                 </div>
             </div>
@@ -382,28 +437,33 @@ export default function ConnectorDetails() {
                     averageRating={connector?.rating}
                 />
             )}
-            {!subscribed && (
-                <>
-                    <div className='title-18 font-medium mb-4'>
-                        Related connectors
-                    </div>
+            {!subscribed && connectors?.length > 0 && (
+                <div>
+                    <h2 className='text-xl font-semibold mb-6 flex items-center gap-2'>
+                        <svg className='w-6 h-6 text-primary' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z' />
+                        </svg>
+                        Related Connectors
+                    </h2>
 
-                    {connectors?.map((connector) => (
-                        <ConnectorCard
-                            type='connector'
-                            verified={true}
-                            title={connector?.communityName}
-                            subtitle={connector?.description}
-                            members={"500"}
-                            id={connector?.id}
-                            key={connector?.id}
-                            date={connector?.createdAt}
-                        />
-                    ))}
-                </>
+                    <div className='space-y-4'>
+                        {connectors?.map((connector) => (
+                            <ConnectorCard
+                                type='connector'
+                                verified={true}
+                                title={connector?.communityName}
+                                subtitle={connector?.description}
+                                members={"500"}
+                                id={connector?.id}
+                                key={connector?.id}
+                                date={connector?.createdAt}
+                            />
+                        ))}
+                    </div>
+                </div>
             )}
 
-            <ContactInfoModal open={open} setOpen={setOpen} />
+            <ContactInfoModal open={open} setOpen={setOpen} community={connector} />
         </>
     );
 }
