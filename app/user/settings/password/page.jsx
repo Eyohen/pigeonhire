@@ -296,12 +296,12 @@ export default function SettingsPassword() {
                     <br />
                     <br />
 
-                    <div className='flex gap-2 items-center justify-end phone:flex-col'>
-                        <button className='w-[180px] h-[42px] font-semibold border border-[#E5E5E5] rounded bg-transparent text-[#8D8D8D] cursor-pointer phone:w-full' onClick={handleCancel} disabled={loading}>
+                    <div className='flex gap-2 items-center justify-end sm:flex-col'>
+                        <button className='w-[180px] h-[42px] font-semibold border border-[#E5E5E5] rounded bg-transparent text-[#8D8D8D] cursor-pointer sm:w-full' onClick={handleCancel} disabled={loading}>
                             Cancel
                         </button>
                         <button
-                            className='w-[180px] h-[42px] font-semibold bg-[#F6911F] border-none rounded text-white cursor-pointer phone:w-full'
+                            className='w-[180px] h-[42px] font-semibold bg-[#F6911F] border-none rounded text-white cursor-pointer sm:w-full'
                             onClick={handlePasswordChange}
                             disabled={loading}
                         >

@@ -70,11 +70,11 @@ export default function ManageNetworkTable() {
   };
 
   return (
-    <div className="w-full h-fit border border-[#EFEFEF] rounded-xl relative pb-2.5 max-phone:overflow-x-auto">
-      <div className="flex items-center justify-between px-6 py-2 border-b border-[#EFEFEF] bg-[#FAFAFA] rounded-t-xl max-phone:w-[800px]">
+    <div className="w-full h-fit border border-[#EFEFEF] rounded-xl relative pb-2.5 max-sm:overflow-x-auto">
+      <div className="flex items-center justify-between px-6 py-2 border-b border-[#EFEFEF] bg-[#FAFAFA] rounded-t-xl max-sm:w-[800px]">
         <div className="flex items-center gap-2.5 bg-[#F0F2F5] rounded-lg p-2">
           <button
-            className={`title-18 font-medium min-w-[115px] h-[46px] outline-none rounded border-none px-3 ${
+            className={`font-medium min-w-[115px] h-[46px] outline-none rounded border-none px-3 ${
               userType === "communities"
                 ? "border border-secondary bg-white shadow-[0_2px_2px_-2px_rgba(246,145,31,0.1)] text-text"
                 : "bg-transparent text-gray"
@@ -85,7 +85,7 @@ export default function ManageNetworkTable() {
           </button>
           {!userType && <div className="w-px h-[19px] bg-[#E4E7EC]"></div>}
           <button
-            className={`title-18 font-medium min-w-[115px] h-[46px] outline-none rounded border-none px-3 ${
+            className={`font-medium min-w-[115px] h-[46px] outline-none rounded border-none px-3 ${
               userType === "connector"
                 ? "border border-secondary bg-white shadow-[0_2px_2px_-2px_rgba(246,145,31,0.1)] text-text"
                 : "bg-transparent text-gray"
@@ -99,7 +99,7 @@ export default function ManageNetworkTable() {
       </div>
 
       {userType === "communities" && (
-        <table className="w-full title-14 text-black">
+        <table className="w-full text-black">
           <thead className="w-full border-b border-[rgba(177,177,177,0.4)]">
             <tr>
               <th className="py-5 bg-[#F5F5F5] text-center">Date</th>
@@ -139,11 +139,11 @@ export default function ManageNetworkTable() {
                   <td className="py-5 bg-white text-center">{community.communityInterest || 'N/A'}</td>
                   <td className="py-5 bg-white text-center">
                     {community.recordType === "owner record" ? (
-                      <span className="inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full whitespace-nowrap">
+                      <span className="inline-block px-3 py-1 bg-green-100 text-green-700 text-sm font-medium rounded-full whitespace-nowrap">
                         owner record
                       </span>
                     ) : community.recordType === "public record" ? (
-                      <span className="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-full whitespace-nowrap">
+                      <span className="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-sm font-medium rounded-full whitespace-nowrap">
                         public record
                       </span>
                     ) : (
@@ -237,7 +237,7 @@ export default function ManageNetworkTable() {
         </table>
       )}
       {userType === "connector" && (
-        <table className="w-full title-14 text-black">
+        <table className="w-full text-black">
           <thead className="w-full border-b border-[rgba(177,177,177,0.4)]">
             <tr>
               <th className="py-5 bg-[#F5F5F5] text-center">Date</th>

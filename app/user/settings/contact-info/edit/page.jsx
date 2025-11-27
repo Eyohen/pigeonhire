@@ -54,7 +54,7 @@ export default function SettingsContact({ initialData = {} }) {
     firstName: initialData.firstName || userInfo?.user?.firstName || userInfo?.user?.fname || "",
     lastName: initialData.lastName || userInfo?.user?.lastName || userInfo?.user?.lname || "", 
     email: initialData.email || userInfo?.user?.email || "",
-    phone: initialData.phone || userInfo?.user?.phone || "",
+    sm: initialData.phone || userInfo?.user?.phone || "",
     location: initialData.location || userInfo?.user?.location || "",
     dateOfBirth: initialData.dateOfBirth ? initialData.dateOfBirth.split('T')[0] : (userInfo?.user?.dateOfBirth ? userInfo.user.dateOfBirth.split('T')[0] : ""),
     gender: initialData.gender || userInfo?.user?.gender || "",
@@ -235,7 +235,7 @@ export default function SettingsContact({ initialData = {} }) {
       firstName: "",
       lastName: "",
       email: "",
-      phone: "",
+      sm: "",
       location: "",
       dateOfBirth: "",
       gender: "",
@@ -265,7 +265,7 @@ export default function SettingsContact({ initialData = {} }) {
         )}
 
         <form onSubmit={handleSubmit}>
-          <div className="flex gap-5 mb-5 phone:flex-col phone:gap-0">
+          <div className="flex gap-5 mb-5 sm:flex-col sm:gap-0">
             <div className="mb-5 flex-1">
               <label htmlFor="firstName" className="block mb-2 font-medium text-[#333]">First Name *</label>
               <input
@@ -336,7 +336,7 @@ export default function SettingsContact({ initialData = {} }) {
             />
           </div>
 
-          <div className="flex gap-5 mb-5 phone:flex-col phone:gap-0">
+          <div className="flex gap-5 mb-5 sm:flex-col sm:gap-0">
             <div className="mb-5 flex-1">
               <label htmlFor="dateOfBirth" className="block mb-2 font-medium text-[#333]">Date of Birth</label>
               <input
@@ -439,12 +439,12 @@ export default function SettingsContact({ initialData = {} }) {
         </form>
       </div>
 
-      <div className="flex gap-2 items-center justify-end phone:flex-col">
+      <div className="flex gap-2 items-center justify-end sm:flex-col">
         <button
           type="button"
           onClick={handleCancel}
           disabled={loading}
-          className="w-[180px] h-[42px] font-semibold border border-[#E5E5E5] rounded bg-transparent text-[#8D8D8D] cursor-pointer phone:w-full"
+          className="w-[180px] h-[42px] font-semibold border border-[#E5E5E5] rounded bg-transparent text-[#8D8D8D] cursor-pointer sm:w-full"
         >
           Cancel
         </button>
@@ -452,7 +452,7 @@ export default function SettingsContact({ initialData = {} }) {
           type="submit"
           onClick={handleSubmit}
           disabled={loading}
-          className="w-[180px] h-[42px] font-semibold bg-[#F6911F] border-none rounded text-white cursor-pointer phone:w-full"
+          className="w-[180px] h-[42px] font-semibold bg-[#F6911F] border-none rounded text-white cursor-pointer sm:w-full"
         >
           {loading ? "Saving..." : "Save changes"}
         </button>

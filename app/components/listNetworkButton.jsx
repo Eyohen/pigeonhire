@@ -9,9 +9,9 @@ export default function ListNetworkButton() {
     <div className="relative w-fit">
       <button
       onClick={() => setOpen(!open)}
-      className="relative w-full max-w-fit h-[50px] flex items-center justify-center gap-2 bg-primary rounded-button font-medium text-base text-white shadow-lg hover:shadow-xl hover:bg-primary/90 transition-all duration-200 border-none px-6 z-[2] phone:w-[120px] phone:text-[11px] phone:h-8 phone:px-3"
+      className="relative w-full max-w-fit h-[30px] flex items-center justify-center gap-2 bg-primary rounded-button font-medium text-white shadow-lg hover:shadow-xl hover:bg-primary/90 transition-all duration-200 border-none px-6 z-[2]"
       >
-        <Image alt="" width={20} height={20} src={"/assets/icons/plus.svg"} className="phone:w-4 phone:h-4" />
+        <Image alt="" width={20} height={20} src={"/assets/icons/plus.svg"} className="" />
         <span>List a network</span>
       </button>
 
@@ -21,7 +21,7 @@ export default function ListNetworkButton() {
         <Link
           href={"/user/list-community"}
           prefetch={true}
-          className="text-sm w-full px-4 py-3 rounded-md cursor-pointer hover:bg-gray-100 transition-colors duration-150 flex items-center gap-2 font-medium text-gray-700 hover:text-primary"
+          className="text-md w-full px-4 py-3 rounded-md cursor-pointer hover:bg-gray-100 transition-colors duration-150 flex items-center gap-2 font-medium text-gray-700 hover:text-primary"
           onClick={() => setOpen(false)}
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -32,7 +32,7 @@ export default function ListNetworkButton() {
         <Link
           href={"/user/list-connector"}
           prefetch={true}
-          className="text-sm w-full px-4 py-3 rounded-md cursor-pointer hover:bg-gray-100 transition-colors duration-150 flex items-center gap-2 font-medium text-gray-700 hover:text-primary"
+          className="text-md w-full px-4 py-3 rounded-md cursor-pointer hover:bg-gray-100 transition-colors duration-150 flex items-center gap-2 font-medium text-gray-700 hover:text-primary"
           onClick={() => setOpen(false)}
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -12,7 +12,7 @@ export default function Header() {
     !!token ?
     <header className="w-full h-[118px] bg-gray-light grid grid-cols-[auto_220px] gap-8 pl-8 pr-8 items-center shrink-0 border-b border-gray-200">
       <div className="flex items-center justify-between border-r border-border pr-8">
-        <div className="text-lg font-medium">
+        <div className="text-xl font-medium">
           Explore networks (Communities & Connectors)
         </div>
 

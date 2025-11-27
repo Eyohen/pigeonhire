@@ -64,10 +64,10 @@ export default function Testimonials() {
     //       width={32}
     //       height={32}
     //       src={"/assets/icons/arrowLeft.svg"}
-    //       className="landing__testimonials__inner__prev cursor-pointer phone:hidden"
+    //       className="landing__testimonials__inner__prev cursor-pointer sm:hidden"
     //     />
     //     <div className="landing__testimonials__inner__cards flex gap-6 overflow-x-auto scroll-smooth">
-    //       <div className="landing__testimonials__inner__cards__card min-w-[557px] w-[557px] h-[273px] bg-[#fff9f2] rounded-2xl p-[51px_32px] phone:min-w-[253px] phone:w-[253px] phone:h-[211px] phone:p-4">
+    //       <div className="landing__testimonials__inner__cards__card min-w-[557px] w-[557px] h-[273px] bg-[#fff9f2] rounded-2xl p-[51px_32px] sm:min-w-[253px] sm:w-[253px] sm:h-[211px] sm:p-4">
     //         <div className="font-semibold flex items-center justify-between mb-12">
     //           <div>Gwala</div>
 
@@ -86,7 +86,7 @@ export default function Testimonials() {
     //           and connectors resulted in unprecedented engagement and sales.
     //         </div>
     //       </div>
-    //       <div className="landing__testimonials__inner__cards__card min-w-[557px] w-[557px] h-[273px] bg-[#fff9f2] rounded-2xl p-[51px_32px] phone:min-w-[253px] phone:w-[253px] phone:h-[211px] phone:p-4">
+    //       <div className="landing__testimonials__inner__cards__card min-w-[557px] w-[557px] h-[273px] bg-[#fff9f2] rounded-2xl p-[51px_32px] sm:min-w-[253px] sm:w-[253px] sm:h-[211px] sm:p-4">
     //         <div className="font-semibold flex items-center justify-between mb-12">
     //           <div>Alex Klaxic</div>
 
@@ -106,7 +106,7 @@ export default function Testimonials() {
     //           and our collaboration
     //         </div>
     //       </div>
-    //       <div className="landing__testimonials__inner__cards__card min-w-[557px] w-[557px] h-[273px] bg-[#fff9f2] rounded-2xl p-[51px_32px] phone:min-w-[253px] phone:w-[253px] phone:h-[211px] phone:p-4">
+    //       <div className="landing__testimonials__inner__cards__card min-w-[557px] w-[557px] h-[273px] bg-[#fff9f2] rounded-2xl p-[51px_32px] sm:min-w-[253px] sm:w-[253px] sm:h-[211px] sm:p-4">
     //         <div className="font-semibold flex items-center justify-between mb-12">
     //           <div>Studendly</div>
 
@@ -151,7 +151,7 @@ export default function Testimonials() {
           width={32}
           height={32}
           src={"/assets/icons/arrowLeft.svg"}
-          className="landing__testimonials__inner__prev cursor-pointer phone:hidden"
+          className="landing__testimonials__inner__prev cursor-pointer sm:hidden"
         />
         <div className="landing__testimonials__inner__cards flex gap-6 overflow-x-auto scroll-smooth">
           <div className="landing__testimonials__inner__cards__card min-w-[500px] w-[500px] h-[273px] bg-[#fff9f2] rounded-2xl p-[51px_32px]">

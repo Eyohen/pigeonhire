@@ -10,7 +10,7 @@ export default function FlippedCards() {
   }, [isFlipped]);
 
   return (
-    <div className="w-full max-w-[1352px] px-5 phone:px-3 mx-auto mb-32 phone:mb-8">
+    <div className="w-full max-w-[1352px] px-5 sm:px-3 mx-auto mb-32 sm:mb-8">
       <div className="flex justify-between mb-6">
         <p className="text-center font-semibold text-7xl">What our users look like</p>
         <p className="text-gray max-w-[500px] text-3xl"> Our platform helps users discover diverse opportunities for
@@ -20,7 +20,7 @@ export default function FlippedCards() {
 
       <div className="grid grid-cols-2 gap-9">
         <div
-          className={`w-full [perspective:1000px] mt-[10px] h-[744px] phone:h-[240px]`}
+          className={`w-full [perspective:1000px] mt-[10px] h-[744px] sm:h-[240px]`}
           onMouseEnter={() => setIsFlipped(1)}
           onMouseLeave={() => setIsFlipped(null)}
         >
@@ -35,17 +35,17 @@ export default function FlippedCards() {
               />
             </div>
             <div className="absolute w-full h-full [backface-visibility:hidden] rounded-[18px] overflow-hidden [transform:rotateY(180deg)] flex items-center justify-center flex-col p-5 text-center text-white bg-[#8A3668]">
-              <div className="title-24 font-semibold mb-8 phone:text-lg phone:mb-2">
+              <div className="title-24 font-semibold mb-8 sm:text-lg sm:mb-2">
               Powering Meaningful Connections
                 </div>
-              <div className="title-24 leading-[140%] font-normal phone:text-base">
+              <div className="title-24 leading-[140%] font-normal sm:text-base">
               Connectors bridge the gap between communities and opportunities, linking like-minded individuals, businesses, and services for seamless engagement.
                 </div>
             </div>
           </div>
         </div>
         <div
-           className={`w-full [perspective:1000px] mt-[10px] h-[488px] phone:h-[240px]`}
+           className={`w-full [perspective:1000px] mt-[10px] h-[488px] sm:h-[240px]`}
           onMouseEnter={() => setIsFlipped(2)}
           onMouseLeave={() => setIsFlipped(null)}
 
@@ -61,10 +61,10 @@ export default function FlippedCards() {
               />
             </div>
             <div className="absolute w-full h-full [backface-visibility:hidden] rounded-[18px] overflow-hidden [transform:rotateY(180deg)] flex items-center justify-center flex-col p-5 text-center text-white bg-[#46B953]">
-                <div className="title-24 font-semibold mb-8 phone:text-lg phone:mb-2">
+                <div className="title-24 font-semibold mb-8 sm:text-lg sm:mb-2">
                 Where Conversations Thrive
                 </div>
-                <div className="title-24 leading-[140%] font-normal phone:text-base">
+                <div className="title-24 leading-[140%] font-normal sm:text-base">
                 Communities bring people together around shared interests, fostering discussions, collaborations, and endless possibilities.
                 </div>
 

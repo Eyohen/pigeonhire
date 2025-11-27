@@ -19,7 +19,7 @@ export default function Blogs() {
 
         <div className="w-full max-w-[497px] h-[50px] border border-[#E5E5E5] flex items-center mb-16 rounded-[28px]">
           <input type="text" placeholder="Enter your email" className="w-full h-full border-none bg-transparent pl-4" />
-          <button className="w-full max-w-[133px] h-[50px] flex items-center justify-center gap-2.5 bg-[#df7c0d] rounded-[28px] font-medium text-lg text-white shadow-[0px_2px_8px_0px_rgba(0,0,0,0.25)_inset] border-none phone:w-[120px] phone:text-[11px] phone:h-8">Subscribe</button>
+          <button className="w-full max-w-[133px] h-[50px] flex items-center justify-center gap-2.5 bg-[#df7c0d] rounded-[28px] font-medium text-lg text-white shadow-[0px_2px_8px_0px_rgba(0,0,0,0.25)_inset] border-none sm:w-[120px] sm:text-[11px] sm:h-8">Subscribe</button>
         </div>
 
         <div className="grid grid-cols-2 gap-x-6 gap-y-16 mb-16">

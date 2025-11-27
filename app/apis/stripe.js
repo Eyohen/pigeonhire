@@ -1,21 +1,15 @@
 import axios from "axios";
 
-
-
 export const getStripePlans = async () => {
-
-    const config = {
-      headers: {
-        Authorization: `Bearer ${process.env.STRIPE_SECRET_KEY}`,
-        'Content-Type': 'application/json'
-      },
-    };
-  
+  try {
     const res = await axios.get(
-      `https://api.stripe.com/v1/plans?limit=100`,
-      config
+      `${process.env.NEXT_PUBLIC_URL}/pricing`
     );
-    
-    console.log("Stripe plans response:", res);
+
+    console.log("Pricing response:", res);
     return res;
-  };
+  } catch (error) {
+    console.error("Error fetching pricing:", error);
+    throw error;
+  }
+};

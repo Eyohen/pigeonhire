@@ -60,8 +60,8 @@ const faqs = [
 export default function Faq() {
   const [selectedFaq, setSelectedFaq] = useState(null);
   return (
-    <div className="mb-[148px] tablet-pro:px-3">
-      {/* <div className="title-48 font-semibold mb-12 text-center phone:text-lg phone:mb-6">
+    <div className="mb-[148px] xl:px-3">
+      {/* <div className="title-48 font-semibold mb-12 text-center sm:text-lg sm:mb-6">
         Frequently asked questions (FAQ)
       </div> */}
       <p className="text-7xl font-semibold text-center p-8"> Frequently asked questions (FAQ)</p>
@@ -84,7 +84,7 @@ export default function Faq() {
             />
           </div>
 
-          {selectedFaq === index && <div className="title-18 mt-4 leading-[140%] text-gray phone:text-sm">{faq?.subtitle}</div>}
+          {selectedFaq === index && <div className="title-18 mt-4 leading-[140%] text-gray sm:text-sm">{faq?.subtitle}</div>}
         </div>
       ))}
     </div>

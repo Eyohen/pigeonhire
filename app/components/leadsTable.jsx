@@ -76,11 +76,11 @@ export default function LeadsTable() {
   };
 
   return (
-    <div className="w-full h-fit border border-[#EFEFEF] rounded-xl relative pb-2.5 max-phone:overflow-x-auto">
-      <div className="flex items-center justify-between px-6 py-2 border-b border-[#EFEFEF] bg-[#FAFAFA] rounded-t-xl max-phone:w-[800px]">
+    <div className="w-full h-fit border border-[#EFEFEF] rounded-xl relative pb-2.5 max-sm:overflow-x-auto">
+      <div className="flex items-center justify-between px-6 py-2 border-b border-[#EFEFEF] bg-[#FAFAFA] rounded-t-xl max-sm:w-[800px]">
         <div className="flex items-center gap-2.5 bg-[#F0F2F5] rounded-lg p-2">
           <button
-            className={`title-18 font-medium min-w-[115px] h-[46px] outline-none rounded border-none px-3 ${
+            className={`font-medium min-w-[115px] h-[46px] outline-none rounded border-none px-3 ${
               userType === "communities"
                 ? "border border-secondary bg-white shadow-[0_2px_2px_-2px_rgba(246,145,31,0.1)] text-text"
                 : "bg-transparent text-gray"
@@ -91,7 +91,7 @@ export default function LeadsTable() {
           </button>
           {!userType && <div className="w-px h-[19px] bg-[#E4E7EC]"></div>}
           <button
-            className={`title-18 font-medium min-w-[115px] h-[46px] outline-none rounded border-none px-3 ${
+            className={`font-medium min-w-[115px] h-[46px] outline-none rounded border-none px-3 ${
               userType === "connector"
                 ? "border border-secondary bg-white shadow-[0_2px_2px_-2px_rgba(246,145,31,0.1)] text-text"
                 : "bg-transparent text-gray"
@@ -105,7 +105,7 @@ export default function LeadsTable() {
       </div>
 
       {userType === "communities" && (
-        <table className="w-full title-14 text-black">
+        <table className="w-full text-black">
           <thead className="w-full border-b border-[rgba(177,177,177,0.4)]">
             <tr>
               <th className="py-5 bg-[#F5F5F5] text-center">Date</th>
@@ -163,26 +163,7 @@ export default function LeadsTable() {
                 "aria-labelledby": "basic-button",
               }}
             >
-              <Link href={selectedItem?.community?.id ? `/user/manage-network/community/edit/${selectedItem.community.id}` : "#"}>
-                <MenuItem
-                  sx={{
-                    width: "18.4rem",
-                    fontSize: "1.4rem",
-                    fontFamily: "Inter",
-                    fontWeight: "500",
-                    backgroundColor: "#fff !important",
-
-                    "&:hover": {
-                      color: "#063",
-                      backgroundColor: "#fff",
-                    },
-                  }}
-                  className="subMenu"
-                >
-                  Edit
-                </MenuItem>
-              </Link>
-              <Link href={selectedItem?.community?.id ? `/user/manage-network/community/${selectedItem.community.id}` : "#"}>
+              <Link href={selectedItem?.community?.id ? `/user/community/${selectedItem.community.id}` : "#"}>
                 <MenuItem
                   sx={{
                     width: "18.4rem",
@@ -227,7 +208,7 @@ export default function LeadsTable() {
         </table>
       )}
       {userType === "connector" && (
-        <table className="w-full title-14 text-black">
+        <table className="w-full text-black">
           <thead className="w-full border-b border-[rgba(177,177,177,0.4)]">
             <tr>
               <th className="py-5 bg-[#F5F5F5] text-center">Date</th>
@@ -287,26 +268,7 @@ export default function LeadsTable() {
                 "aria-labelledby": "basic-button",
               }}
             >
-              <Link href={selectedItem?.connector?.id ? `/user/manage-network/connector/edit/${selectedItem.connector.id}` : "#"}>
-                <MenuItem
-                  sx={{
-                    width: "18.4rem",
-                    fontSize: "1.4rem",
-                    fontFamily: "Inter",
-                    fontWeight: "500",
-                    backgroundColor: "#fff !important",
-
-                    "&:hover": {
-                      color: "#063",
-                      backgroundColor: "#fff",
-                    },
-                  }}
-                  className="subMenu"
-                >
-                  Edit
-                </MenuItem>
-              </Link>
-              <Link href={selectedItem?.connector?.id ? `/user/manage-network/connector/${selectedItem.connector.id}` : "#"}>
+              <Link href={selectedItem?.connector?.id ? `/user/connector/${selectedItem.connector.id}` : "#"}>
                 <MenuItem
                   sx={{
                     width: "18.4rem",

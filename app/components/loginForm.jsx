@@ -63,7 +63,7 @@ export default function LoginForm(params) {
     };
 
     return (
-        <form className="max-w-[396px] mx-auto mt-6" onSubmit={handleSubmit(onSubmit)}>
+        <form className="max-w-[396px] mx-auto mt-6 text-xl" onSubmit={handleSubmit(onSubmit)}>
             <label htmlFor="email">Email address</label>
             <div className="primary-input mb-10">
                 <input

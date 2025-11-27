@@ -25,13 +25,6 @@ module.exports = {
         ojuju: ['var(--font-ojuju)', 'sans-serif'],
         syne: ['var(--font-syne)', 'sans-serif'],
       },
-      screens: {
-        'phone': '565px',
-        'tablet': '768px',
-        'tablet-pro': '1204px',
-        'desktop': '1366px',
-        'lg-desktop': '1920px',
-      },
       maxWidth: {
         'container': '1440px',
       },

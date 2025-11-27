@@ -1,12 +1,23 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function LandingHeader({ logo }) {
   const pathname = usePathname();
-  const [active, setActive] = useState(false)
+  const router = useRouter();
+  const [active, setActive] = useState(false);
+  const { token } = useSelector((state) => state.auth);
+
+  const handleDashboardClick = () => {
+    if (token) {
+      router.push('/user');
+    } else {
+      router.push('/login');
+    }
+  };
 
   return (
     <header className="relative w-full max-w-[1352px] mx-auto px-5 py-9 flex justify-between items-center">
@@ -20,17 +31,17 @@ export default function LandingHeader({ logo }) {
               ? "/assets/icons/logoBlack.svg"
               : "/assets/icons/logo.svg"
           }
-          className="tablet:hidden"
+          className="md:hidden"
         />
         <Image
           alt=""
           width={250}
           height={50}
           src={"/assets/icons/logo.svg"}
-          className="hidden tablet:block tablet:w-[114px] tablet:h-[22.8px]"
+          className="hidden md:block md:w-[114px] md:h-[22.8px]"
         />
       </Link>
-      <nav className="title-18 font-medium text-[#8d8d8d] text-2xl hidden tablet:flex items-center gap-8">
+      <nav className="title-18 font-medium text-[#8d8d8d] text-2xl hidden md:flex items-center gap-8">
         <Link
           href={"/about"}
           prefetch={true}
@@ -52,8 +63,14 @@ export default function LandingHeader({ logo }) {
         >
           Networks
         </Link>
+        <button
+          onClick={handleDashboardClick}
+          className="text-[#8d8d8d] hover:text-secondary transition-colors"
+        >
+          Dashboard
+        </button>
       </nav>
-      <div className="hidden tablet:flex items-center gap-8">
+      <div className="hidden md:flex items-center gap-8">
         <Link href="/login" prefetch={true} className="font-medium text-secondary bg-none border-none underline">
           Login
         </Link>
@@ -63,7 +80,7 @@ export default function LandingHeader({ logo }) {
       </div>
 
       <Image
-        className="tablet:hidden cursor-pointer"
+        className="md:hidden cursor-pointer"
         alt=""
         width={24}
         height={24}
@@ -96,10 +113,16 @@ export default function LandingHeader({ logo }) {
           >
             Networks
           </Link>
+          <button
+            onClick={handleDashboardClick}
+            className="title-18 font-medium text-[#8d8d8d] text-left"
+          >
+            Dashboard
+          </button>
         </nav>
 
         <div className="relative w-fit flex items-center justify-center gap-4 mx-auto">
-          <Link href="/login" className="title-18 w-[201px] py-[13px] px-6 bg-[#fff6eb] font-medium rounded-3xl text-secondary whitespace-nowrap flex items-center justify-center phone:w-[120px] phone:text-[11px] phone:h-8">Login</Link>
+          <Link href="/login" className="title-18 w-[201px] py-[13px] px-6 bg-[#fff6eb] font-medium rounded-3xl text-secondary whitespace-nowrap flex items-center justify-center sm:w-[120px] sm:text-[11px] sm:h-8">Login</Link>
           <Link href="/register" className="primary-button max-w-[201px] py-[13px] px-6 whitespace-nowrap">Sign Up for free</Link>
         </div>
       </div>

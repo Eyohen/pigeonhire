@@ -13,7 +13,7 @@ export default function Connect() {
                   contacts, expanding your reach and growing your network.
                 </div>
                 <div className="relative w-fit flex items-center justify-center py-2 px-4 rounded-[48px] gap-6 shadow-[0px_-2px_12px_2px_#bcbcbc1a,0px_2px_12px_2px_#bcbcbc1a] mx-auto bg-white">
-          {/* <Link href="/register" prefetch={true} className="title-18 w-[201px] py-[13px] px-6 border border-secondary font-medium rounded-[24px] bg-transparent text-secondary whitespace-nowrap flex items-center justify-center phone:w-[120px] phone:text-[11px] phone:h-8">Sign Up</Link> */}
+          {/* <Link href="/register" prefetch={true} className="title-18 w-[201px] py-[13px] px-6 border border-secondary font-medium rounded-[24px] bg-transparent text-secondary whitespace-nowrap flex items-center justify-center sm:w-[120px] sm:text-[11px] sm:h-8">Sign Up</Link> */}
                  <Link href="/register" prefetch={true} className="text-secondary px-16 border border-secondary rounded-[24px] text-2xl max-w-[201px] py-[13px] whitespace-nowrap">
             Sign Up
           </Link>

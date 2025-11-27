@@ -8,12 +8,12 @@ export default function ConnectorCard({type, verified, recordType, title, subtit
       <div className="flex gap-8">
         <div className="min-w-[83px] h-[77px] bg-[#F5F5F5] rounded-lg"></div>
         <div>
-          <div className="title-12 text-[#8D8D8D] mb-2">Category: Business</div>
-          <div className="title-18 font-medium mb-2 text-gray-900">{title}</div>
-          <div className="title-14 text-[#8D8D8D] mb-3 w-full max-w-[58ch] line-clamp-2">
+          <div className="text-[#8D8D8D] text-[10px] mb-2">Category: Business</div>
+          <div className="font-medium mb-2 text-gray-900">{title}</div>
+          <div className="text-[#8D8D8D] text-[15px] mb-3 w-full max-w-[58ch] line-clamp-2">
             {subtitle}
           </div>
-          {members && <div className="title-12 text-[#8D8D8D] mb-2">
+          {members && <div className="text-[#8D8D8D] mb-2">
             Members: {members}
           </div>}
           <Image
@@ -27,11 +27,11 @@ export default function ConnectorCard({type, verified, recordType, title, subtit
 
       <div className="w-full max-w-[214px] flex justify-between items-center h-fit">
         {recordType === "owner record" ? (
-          <span className="px-3 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full whitespace-nowrap">
+          <span className="px-3 py-1 bg-green-100 text-green-700 text-sm font-medium rounded-full whitespace-nowrap">
             owner record
           </span>
         ) : recordType === "public record" ? (
-          <span className="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-full whitespace-nowrap">
+          <span className="px-3 py-1 bg-purple-100 text-purple-700 text-sm font-medium rounded-full whitespace-nowrap">
             public record
           </span>
         ) : verified ? (
@@ -50,7 +50,7 @@ export default function ConnectorCard({type, verified, recordType, title, subtit
           />
         )}
 
-        <div className="title-12 font-medium text-gray-700">{extractMonthDay(date)}</div>
+        <div className="font-medium text-gray-700">{extractMonthDay(date)}</div>
       </div>
     </Link>
   );

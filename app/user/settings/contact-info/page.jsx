@@ -17,7 +17,7 @@ export default function SettingsContact() {
       `${userInfo.user.firstName || userInfo.user.fname || ''} ${userInfo.user.lastName || userInfo.user.lname || ''}`.trim() 
       : 'N/A',
     email: userInfo?.user?.email || 'N/A',
-    phone: userInfo?.user?.phone || 'N/A',
+    sm: userInfo?.user?.phone || 'N/A',
     address: userInfo?.user?.location || userInfo?.user?.address || 'N/A',
     country: userInfo?.user?.country || 'N/A',
     city: userInfo?.user?.city || 'N/A'

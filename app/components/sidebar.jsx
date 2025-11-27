@@ -149,7 +149,7 @@ export default function Sidebar() {
 
       <div className="w-full px-8 my-[124px] flex-1 flex flex-col justify-end">
         <div className="w-full h-[130px] rounded-2xl bg-white shrink-0">
-          <div className="text-sm font-normal leading-[140%] py-4 px-6">{currentPlan}</div>
+          <div className="text-md font-normal leading-[140%] py-4 px-6">{currentPlan}</div>
           <div className="w-full h-px bg-border mb-4"></div>
           <button
           onClick={() => setOpen(true)}
@@ -169,8 +169,8 @@ export default function Sidebar() {
       <div className="w-full px-8 flex items-center gap-2 shrink-0">
         <div className="font-medium text-white min-w-[32px] h-8 flex items-center justify-center rounded-full bg-primary">{userInfo?.user?.fname?.split('')[0]}</div>
         <div>
-          <div className="font-medium mb-1"> {userInfo?.user?.fname} {userInfo?.user?.lname}</div>
-          <div className="text-xs font-normal text-gray">
+          <div className="font-medium text-md mb-1"> {userInfo?.user?.fname} {userInfo?.user?.lname}</div>
+          <div className="text-sm font-normal text-gray">
             {userInfo?.user?.email}
           </div>
         </div>

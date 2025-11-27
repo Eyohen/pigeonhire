@@ -173,7 +173,7 @@ export default function ConnectorPreview() {
         <div>{connectorData.website || "Not provided"}</div>
       </div>
 
-      <button onClick={handleSubmit} disabled={formLoading} className="w-full max-w-[429px] h-[50px] flex items-center justify-center gap-2.5 bg-[#df7c0d] rounded-[28px] font-medium text-lg text-white shadow-[0px_2px_8px_0px_#00000040_inset] border-none mx-auto mt-10 phone:w-[120px] phone:text-[11px] phone:h-8">
+      <button onClick={handleSubmit} disabled={formLoading} className="w-full max-w-[429px] h-[50px] flex items-center justify-center gap-2.5 bg-[#df7c0d] rounded-[28px] font-medium text-lg text-white shadow-[0px_2px_8px_0px_#00000040_inset] border-none mx-auto mt-10 sm:w-[120px] sm:text-[11px] sm:h-8">
         {formLoading ? "Loading..." : "List"}
       </button>
     </div>

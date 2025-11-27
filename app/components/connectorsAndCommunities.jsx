@@ -49,7 +49,7 @@ export default function ConnectorsAndCommunities({ filters }) {
     <div className="w-full py-4">
       <div className="flex gap-8 mb-6 border-b border-[#E5E5E5]">
         <div
-          className={`title-18 font-medium w-48 h-[46px] flex items-center justify-center cursor-pointer transition-colors ${
+          className={`font-normal w-56 h-[46px] flex items-center justify-center cursor-pointer transition-colors ${
             tab === "connectors" ? "text-secondary border-b-2 border-secondary" : "text-[#8D8D8D] hover:text-gray-700"
           }`}
           onClick={() => setTab("connectors")}
@@ -57,7 +57,7 @@ export default function ConnectorsAndCommunities({ filters }) {
           Latest Connectors
         </div>
         <div
-          className={`title-18 font-medium w-48 h-[46px] flex items-center justify-center cursor-pointer transition-colors ${
+          className={`font-normal w-[150px] h-[46px] flex items-center justify-center cursor-pointer transition-colors ${
             tab === "communities" ? "text-secondary border-b-2 border-secondary" : "text-[#8D8D8D] hover:text-gray-700"
           }`}
           onClick={() => setTab("communities")}
@@ -104,7 +104,7 @@ export default function ConnectorsAndCommunities({ filters }) {
         )}
       </div>
 
-      <div className="title-18 font-medium mb-5 text-gray-900">All</div>
+      <div className="font-medium mb-5 text-gray-900">All</div>
       {tab === "connectors" && (
         <>
           <div className="space-y-3 mb-6">

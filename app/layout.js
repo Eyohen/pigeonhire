@@ -34,6 +34,11 @@ const geist = Geist({
   variable: "--font-geist",
 });
 
+export const metadata = {
+  icons: {
+    icon: '/icon.png',
+  },
+};
 
 export default function RootLayout({ children }) {
   return (

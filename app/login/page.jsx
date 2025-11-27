@@ -25,7 +25,7 @@ export default function Register() {
         <LoginForm />
         </div>
         <div className="flex justify-between">
-          <div className="text-sm font-normal leading-[140%] text-[#8d8d8d]">
+          <div className="text-md font-normal leading-[140%] text-[#8d8d8d]">
             © 2025 Pigeonhire Inc. All Right Reserved.
           </div>
           <div className="flex gap-2 font-medium whitespace-nowrap items-center">

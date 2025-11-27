@@ -28,46 +28,19 @@ export default function PricingInner() {
         { code: 'ZMW', name: 'Zambian Kwacha (ZK)', symbol: 'ZK' }
     ];
 
-    // Function to process Stripe plans into organized structure
-    const processStripePlans = (stripePlans) => {
-        const plansByCurrency = {};
-        
-        stripePlans.forEach(plan => {
-            const currency = plan.currency.toUpperCase();
-            const amount = plan.amount / 100; // Convert cents to dollars
-            
-            // Determine plan type based on interval
-            let planType;
-            if (plan.interval === 'month' && plan.interval_count === 1) {
-                planType = 'monthly';
-            } else if (plan.interval === 'year' && plan.interval_count === 1) {
-                planType = 'annually';
-            } else if (plan.interval === 'month' && plan.interval_count === 3) {
-                planType = 'quarterly';
-            } else {
-                return; // Skip unsupported intervals
+    // The backend already provides organized plans, no processing needed
+    const processBackendPlans = (plans) => {
+        // Plans from backend are already in the correct format:
+        // [{currencyId, currency, plans: {monthly: {...}, quarterly: {...}, annually: {...}}}]
+        // Just add active: true to each plan
+        return plans.map(currencyPlan => ({
+            ...currencyPlan,
+            plans: {
+                monthly: currencyPlan.plans.monthly ? { ...currencyPlan.plans.monthly, active: true } : null,
+                quarterly: currencyPlan.plans.quarterly ? { ...currencyPlan.plans.quarterly, active: true } : null,
+                annually: currencyPlan.plans.annually ? { ...currencyPlan.plans.annually, active: true } : null
             }
-            
-            // Initialize currency group if not exists
-            if (!plansByCurrency[currency]) {
-                plansByCurrency[currency] = {
-                    currency: currency,
-                    currencyId: currency,
-                    plans: {}
-                };
-            }
-            
-            // Add plan to currency group
-            plansByCurrency[currency].plans[planType] = {
-                amount: amount,
-                interval: plan.interval,
-                intervalCount: plan.interval_count,
-                priceId: plan.id, // Direct access to price ID
-                active: plan.active
-            };
-        });
-        
-        return Object.values(plansByCurrency);
+        }));
     };
 
     // Fetch all subscription plans on component mount
@@ -75,25 +48,22 @@ export default function PricingInner() {
         const fetchAllPlans = async () => {
             try {
                 setLoading(true);
-                console.log('🔍 Fetching Stripe plans...');
-                
-                // Fetch Stripe plans directly
+                console.log('🔍 Fetching pricing plans...');
+
+                // Fetch plans from backend /pricing endpoint
                 const plansResponse = await getStripePlans();
-                
-                console.log('📦 Stripe plans response:', plansResponse);
-                
-                if (plansResponse.data?.data?.length > 0) {
-                    // Process the Stripe plans into our organized structure
-                    const processedPlans = processStripePlans(plansResponse.data.data);
-                    
+
+                console.log('📦 Pricing plans response:', plansResponse);
+
+                if (plansResponse.data?.plans?.length > 0) {
+                    // Process the backend plans
+                    const processedPlans = processBackendPlans(plansResponse.data.plans);
+
                     console.log('✅ Processed plans:', processedPlans);
-                    
+
                     setAllPlans(processedPlans);
-                    
-                    // Plans are now available in allPlans state
-                    console.log('💰 Processed plans:', processedPlans);
                 } else {
-                    console.error('❌ No plans found in Stripe response');
+                    console.error('❌ No plans found in response');
                 }
             } catch (error) {
                 console.error('💥 Error fetching subscription plans:', error);
@@ -255,7 +225,7 @@ export default function PricingInner() {
                     Loading subscription plans...
                 </div>
             ) : (
-                <div className="grid grid-cols-3 gap-6 md:grid-cols-1">
+                <div className="flex flex-row gap-6 max-md:flex-col">
                     {planOrder.map((planType) => {
                         const planDetails = plans[planType];
                         if (!planDetails) return null;
@@ -266,17 +236,17 @@ export default function PricingInner() {
                         return (
                             <div
                                 key={planType}
-                                className={`p-8 rounded-2xl border border-[#E5E5E5] md:py-6 md:px-4 ${isPopular ? 'bg-[#13100A] text-white' : ''} ${planDetails.active ? 'opacity-100' : 'opacity-60'}`}
+                                className={`flex-1 p-8 rounded-2xl border border-[#E5E5E5] md:py-6 md:px-4 ${isPopular ? 'bg-[#13100A] text-white' : ''} ${planDetails.active ? 'opacity-100' : 'opacity-60'}`}
                             >
                                 <div className="title-24 font-normal mb-6 flex items-center justify-between md:text-base md:mb-3">
                                     {isPopular ? (
                                         <>
                                             <div>{getPlanName(planType)}</div>
                                             <Image
-                                                alt="Popular"
-                                                width={64}
+                                                alt="Cheapest"
+                                                width={76}
                                                 height={24}
-                                                src={"/assets/icons/popular.svg"}
+                                                src={"/assets/icons/cheapest.svg"}
                                             />
                                         </>
                                     ) : (

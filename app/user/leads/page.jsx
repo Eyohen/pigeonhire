@@ -61,7 +61,7 @@ export default function Leads() {
             alt=""
           />
           <div>
-            <div className="text-sm mt-[9px] mb-[17px]">Saved Communities</div>
+            <div className="text-md mt-[9px] mb-[17px]">Saved Communities</div>
             <div className="text-2xl font-semibold">
               {loading ? "..." : getSavedCommunitiesCount()}
             </div>
@@ -75,7 +75,7 @@ export default function Leads() {
               alt=""
             />
           <div>
-            <div className="text-sm mt-[9px] mb-[17px]">Saved Connectors</div>
+            <div className="text-md mt-[9px] mb-[17px]">Saved Connectors</div>
           <div className="font-semibold">
             {loading ? "..." : getSavedConnectorsCount()}
           </div>
@@ -89,7 +89,7 @@ export default function Leads() {
               alt=""
             />
           <div>
-            <div className="text-sm mt-[9px] mb-[17px]">Total contacted</div>
+            <div className="text-md mt-[9px] mb-[17px]">Total contacted</div>
           <div className="font-semibold">
             {getCardValue(analyticsData?.analytics?.totalContacted, 500)}
           </div>
@@ -103,7 +103,7 @@ export default function Leads() {
               alt=""
             />
           <div>
-            <div className="text-sm mt-[9px] mb-[17px]">Total profile viewed</div>
+            <div className="text-md mt-[9px] mb-[17px]">Total profile viewed</div>
           <div className="font-semibold">
             {getCardValue(analyticsData?.analytics?.profilesViewed, 500)}
           </div>
@@ -117,7 +117,7 @@ export default function Leads() {
         </div>
       )}
 
-      <div className="text-lg font-medium mb-4">My Leads</div>
+      <div className="text-xl font-medium mb-4">My Leads</div>
       <LeadsTable />
     </div>
   );

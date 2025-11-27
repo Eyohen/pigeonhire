@@ -84,8 +84,8 @@ useEffect(() => {
 
 
   return (
-    <div className="w-full bg-[#fff9f2] py-[42px] mb-16 overflow-hidden scroll-smooth phone:py-6 phone:mb-8">
-      {/* <div className="text-5xl font-semibold text-center mb-12 leading-[140%] phone:text-base phone:w-full phone:max-w-[30ch] phone:mx-auto phone:mb-[27px]">
+    <div className="w-full bg-[#fff9f2] py-[42px] mb-16 overflow-hidden scroll-smooth sm:py-6 sm:mb-8">
+      {/* <div className="text-5xl font-semibold text-center mb-12 leading-[140%] sm:text-base sm:w-full sm:max-w-[30ch] sm:mx-auto sm:mb-[27px]">
         Discover thousands of Communities, Connectors and Businesses
       </div> */}
       <p className="font-semibold text-4xl text-center pb-8">Discover thousands of Communities, Connectors and Businesses</p>

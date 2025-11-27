@@ -69,7 +69,7 @@ export default function ManageNetwork() {
               />
             </div>
           </div>
-          <div className="text-sm font-medium text-gray-600 mb-1">Total Communities</div>
+          <div className="text-md font-medium text-gray-600 mb-1">Total Communities</div>
           <div className="text-3xl font-bold text-gray-900">{getCardValue(totalCommunities, 0)}</div>
         </div>
 
@@ -83,7 +83,7 @@ export default function ManageNetwork() {
               </svg>
             </div>
           </div>
-          <div className="text-sm font-medium text-gray-600 mb-1">Total Profile Views</div>
+          <div className="text-md font-medium text-gray-600 mb-1">Total Profile Views</div>
           <div className="text-3xl font-bold text-gray-900">
             {getCardValue(analyticsData?.analytics?.profilesViewed, 0)}
           </div>
@@ -98,7 +98,7 @@ export default function ManageNetwork() {
               </svg>
             </div>
           </div>
-          <div className="text-sm font-medium text-gray-600 mb-1">Total Contact Clicks</div>
+          <div className="text-md font-medium text-gray-600 mb-1">Total Contact Clicks</div>
           <div className="text-3xl font-bold text-gray-900">
             {getCardValue(analyticsData?.recentActivity?.contacts, 0)}
           </div>

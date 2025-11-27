@@ -65,16 +65,16 @@ export function HomeHero(params) {
     // }, "-=1.6")
   }, []);
   return (
-    <div className="relative pt-20 pb-12 bg-[#241301] overflow-hidden phone:pt-[60px] phone:pb-[18px]">
-      <div className="w-full max-w-[1352px] px-5 mx-auto phone:px-3">
-        <div className="title-56 w-full max-w-[1000px] text-center font-semibold leading-[140%] mx-auto mb-6 flex justify-center text-white phone:text-[28px]">
+    <div className="relative pt-20 pb-12 bg-[#241301] overflow-hidden sm:pt-[60px] sm:pb-[18px]">
+      <div className="w-full max-w-[1352px] px-5 mx-auto sm:px-3">
+        <div className="title-56 w-full max-w-[1000px] text-center font-semibold leading-[140%] mx-auto mb-6 flex justify-center text-white sm:text-[28px]">
         </div>
         <div className="text-center">
           <p className="text-7xl text-white font-semibold">Reach your Target Audience, Right</p>
           <p className="text-7xl text-white font-semibold pt-6">Where they Engage.</p>
         </div>
-        <div className="mt-12 relative w-fit flex items-center justify-center py-2 px-4 rounded-[48px] gap-6 shadow-[0px_-2px_12px_2px_#bcbcbc1a,0px_2px_12px_2px_#bcbcbc1a] mx-auto bg-white z-[3] phone:mb-9">
-          {/* <Link href="/register" prefetch={true} className="title-18 w-[201px] py-[13px] px-6 border border-secondary font-medium rounded-[24px] bg-transparent text-secondary whitespace-nowrap flex items-center justify-center phone:w-[120px] phone:text-[11px] phone:h-8">
+        <div className="mt-12 relative w-fit flex items-center justify-center py-2 px-4 rounded-[48px] gap-6 shadow-[0px_-2px_12px_2px_#bcbcbc1a,0px_2px_12px_2px_#bcbcbc1a] mx-auto bg-white z-[3] sm:mb-9">
+          {/* <Link href="/register" prefetch={true} className="title-18 w-[201px] py-[13px] px-6 border border-secondary font-medium rounded-[24px] bg-transparent text-secondary whitespace-nowrap flex items-center justify-center sm:w-[120px] sm:text-[11px] sm:h-8">
             Sign Up
           </Link> */}
           <Link href="/register" prefetch={true} className="title-18 px-16 border border-secondary rounded-[24px] text-2xl max-w-[201px] py-[13px] whitespace-nowrap">
@@ -86,24 +86,24 @@ export function HomeHero(params) {
         </div>
         {/* <div className="relative">
           <Image
-            className="-mt-[140px] relative w-full h-auto z-[2] phone:hidden"
+            className="-mt-[140px] relative w-full h-auto z-[2] sm:hidden"
             alt=""
             width={1230.2078857421875}
             height={726.2468872070312}
             src={"/assets/home-cards.png"}
           />
           <Image
-            className="hidden phone:block relative w-full h-auto z-[2]"
+            className="hidden sm:block relative w-full h-auto z-[2]"
             alt=""
             width={339.34893798828125}
             height={217.29168701171875}
             src={"/assets/home-cards-mobile.png"}
           />
-          <div className="absolute left-1/2 -translate-x-1/2 bg-white w-[2168px] h-[1112px] rounded-[50%] top-[65%] phone:top-[55%] phone:h-[653px] phone:w-[1151px]"></div>
+          <div className="absolute left-1/2 -translate-x-1/2 bg-white w-[2168px] h-[1112px] rounded-[50%] top-[65%] sm:top-[55%] sm:h-[653px] sm:w-[1151px]"></div>
         </div> */}
         <div className="relative max-w-[800px] mx-auto">
           <Image
-            className="-mt-[140px] relative w-full h-auto z-[2] phone:hidden"
+            className="-mt-[140px] relative w-full h-auto z-[2] sm:hidden"
             alt=""
             width={1230.2078857421875}
             height={726.2468872070312}
@@ -111,7 +111,7 @@ export function HomeHero(params) {
 
           />
           <Image
-            className="hidden phone:block relative w-full h-auto z-[2]"
+            className="hidden sm:block relative w-full h-auto z-[2]"
             alt=""
             width={339.34893798828125}
             height={217.29168701171875}
