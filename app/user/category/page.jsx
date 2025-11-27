@@ -2,8 +2,9 @@
 import CategoryInner from "@/app/components/categoryInner";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
-export default function Category() {
+function CategoryContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const category = searchParams.get("category") || "All Categories";
@@ -43,5 +44,13 @@ export default function Category() {
 
       <CategoryInner />
     </div>
+  );
+}
+
+export default function Category() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CategoryContent />
+    </Suspense>
   );
 }
