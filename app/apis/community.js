@@ -46,6 +46,7 @@ export const getCommunities = async (page = 1, filters = {}) => {
   if (filters.communityType) params.append('communityType', filters.communityType);
   if (filters.platform) params.append('platform', filters.platform);
   if (filters.search) params.append('search', filters.search);
+  if (filters.limit) params.append('limit', filters.limit.toString());
 
   const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/communities?${params.toString()}`);
   console.log("here", res);

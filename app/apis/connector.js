@@ -29,6 +29,7 @@ export const getConnectors = async (page = 1, filters = {}) => {
   if (filters.connectorType) params.append('connectorType', filters.connectorType);
   if (filters.platform) params.append('platform', filters.platform);
   if (filters.search) params.append('search', filters.search);
+  if (filters.limit) params.append('limit', filters.limit.toString());
 
   const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/connectors?${params.toString()}`);
   return res;

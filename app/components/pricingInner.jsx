@@ -243,7 +243,7 @@ export default function PricingInner() {
                                         <>
                                             <div>{getPlanName(planType)}</div>
                                             <Image
-                                                alt="Cheapest"
+                                                alt="Popular"
                                                 width={76}
                                                 height={24}
                                                 src={"/assets/icons/cheapest.svg"}
