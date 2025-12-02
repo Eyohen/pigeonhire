@@ -236,9 +236,9 @@ export default function PricingInner() {
                         return (
                             <div
                                 key={planType}
-                                className={`flex-1 p-8 rounded-2xl border border-[#E5E5E5] md:py-6 md:px-4 ${isPopular ? 'bg-[#13100A] text-white' : ''} ${planDetails.active ? 'opacity-100' : 'opacity-60'}`}
+                                className={`flex-1 p-8 max-w-[350px] rounded-2xl border border-[#E5E5E5] md:py-6 md:px-4 ${isPopular ? 'bg-[#13100A] text-white' : ''} ${planDetails.active ? 'opacity-100' : 'opacity-60'}`}
                             >
-                                <div className="title-24 font-normal mb-6 flex items-center justify-between md:text-base md:mb-3">
+                                <div className="font-bold mb-6 flex items-center justify-between md:text-md md:mb-3">
                                     {isPopular ? (
                                         <>
                                             <div>{getPlanName(planType)}</div>
@@ -253,29 +253,29 @@ export default function PricingInner() {
                                         <div>{getPlanName(planType)}</div>
                                     )}
                                 </div>
-                                <div className="flex gap-4 items-center mb-6 md:gap-3 md:mb-3">
-                                    <div className="title-32 font-semibold md:text-2xl">
+                                <div className="flex gap-4 items-center mb-6 md:gap-3 md:mb-3 mt-5">
+                                    <div className="font-semibold md:text-5xl">
                                         {getCurrencySymbol(selectedCurrency)}
                                         {planDetails.amount.toLocaleString()}
                                     </div>
-                                    <div className="title-18 font-medium md:text-sm">{getSubscriptionPeriod(planType, planDetails.intervalCount)}</div>
+                                    <div className="font-normal md:text-md">{getSubscriptionPeriod(planType, planDetails.intervalCount)}</div>
                                 </div>
 
-                                <div className="leading-[140%] mb-8 md:text-sm md:mb-4">
+                                <div className="leading-[140%] mb-8 md:text-md md:mb-4">
                                     {getPlanSubtitle(planType)}
                                 </div>
 
                                 <button
                                     onClick={() => planDetails.active && currencyPlan && handlePlanClick(planType, planDetails, currencyPlan)}
                                     disabled={!planDetails.active}
-                                    className={`primary-button mb-8 md:w-full md:h-12 md:text-lg md:mb-4 ${planDetails.active ? 'cursor-pointer opacity-100' : 'cursor-not-allowed opacity-50'}`}
+                                    className={`primary-button mb-8 md:w-full md:h-12 md:text-xl md:mb-4 mt-4 ${planDetails.active ? 'cursor-pointer opacity-100' : 'cursor-not-allowed opacity-50'}`}
                                 >
                                     Choose plan
                                 </button>
 
-                                <div className="title-18 mb-4 text-[#8D8D8D] md:text-base md:mb-3">Features</div>
+                                <div className="mb-4 text-[#8D8D8D] md:text-md md:mb-3">Features</div>
 
-                                <div className="grid grid-cols-[24px_auto] gap-x-4 gap-y-6 md:gap-x-2 md:gap-y-4 md:text-sm">
+                                <div className="grid grid-cols-[24px_auto] gap-x-4 gap-y-6 md:gap-x-2 md:gap-y-4 md:text-md mt-4">
                                     {features.map((feature, index) => (
                                         <React.Fragment key={index}>
                                             <Image
