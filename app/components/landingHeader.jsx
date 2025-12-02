@@ -1,23 +1,14 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
 export default function LandingHeader({ logo }) {
   const pathname = usePathname();
-  const router = useRouter();
   const [active, setActive] = useState(false);
   const { token } = useSelector((state) => state.auth);
-
-  const handleDashboardClick = () => {
-    if (token) {
-      router.push('/user');
-    } else {
-      router.push('/login');
-    }
-  };
 
   return (
     <header className="relative w-full max-w-[1352px] mx-auto px-5 py-9 flex justify-between items-center">
@@ -63,20 +54,26 @@ export default function LandingHeader({ logo }) {
         >
           Networks
         </Link>
-        <button
-          onClick={handleDashboardClick}
-          className="text-[#8d8d8d] hover:text-secondary transition-colors"
-        >
-          Dashboard
-        </button>
       </nav>
       <div className="hidden md:flex items-center gap-8">
-        <Link href="/login" prefetch={true} className="font-medium text-secondary bg-none border-none underline">
-          Login
-        </Link>
-        <Link href="/register" prefetch={true} className="primary-button w-fit h-12 px-8 whitespace-nowrap text-2xl py-6">
-          Sign Up for free
-        </Link>
+        {token ? (
+          <Link
+            href="/user"
+            prefetch={true}
+            className="font-medium text-secondary bg-none border-none underline"
+          >
+            Dashboard
+          </Link>
+        ) : (
+          <>
+            <Link href="/login" prefetch={true} className="font-medium text-secondary bg-none border-none underline">
+              Login
+            </Link>
+            <Link href="/register" prefetch={true} className="primary-button w-fit h-12 px-8 whitespace-nowrap text-2xl py-6">
+              Sign Up for free
+            </Link>
+          </>
+        )}
       </div>
 
       <Image
@@ -113,17 +110,22 @@ export default function LandingHeader({ logo }) {
           >
             Networks
           </Link>
-          <button
-            onClick={handleDashboardClick}
-            className="title-18 font-medium text-[#8d8d8d] text-left"
-          >
-            Dashboard
-          </button>
         </nav>
 
         <div className="relative w-fit flex items-center justify-center gap-4 mx-auto">
-          <Link href="/login" className="title-18 w-[201px] py-[13px] px-6 bg-[#fff6eb] font-medium rounded-3xl text-secondary whitespace-nowrap flex items-center justify-center sm:w-[120px] sm:text-[11px] sm:h-8">Login</Link>
-          <Link href="/register" className="primary-button max-w-[201px] py-[13px] px-6 whitespace-nowrap">Sign Up for free</Link>
+          {token ? (
+            <Link
+              href="/user"
+              className="title-18 w-[201px] py-[13px] px-6 bg-[#fff6eb] font-medium rounded-3xl text-secondary whitespace-nowrap flex items-center justify-center sm:w-[120px] sm:text-[11px] sm:h-8"
+            >
+              Dashboard
+            </Link>
+          ) : (
+            <>
+              <Link href="/login" className="title-18 w-[201px] py-[13px] px-6 bg-[#fff6eb] font-medium rounded-3xl text-secondary whitespace-nowrap flex items-center justify-center sm:w-[120px] sm:text-[11px] sm:h-8">Login</Link>
+              <Link href="/register" className="primary-button max-w-[201px] py-[13px] px-6 whitespace-nowrap">Sign Up for free</Link>
+            </>
+          )}
         </div>
       </div>
     </header>
